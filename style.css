@@ -237,8 +237,40 @@ body {
    FOOTER
 ========================= */
 .footer {
+  background: #0b0b0b;
+  padding: 60px 20px;
   text-align: center;
-  padding: 40px;
-  color: #666;
   border-top: 1px solid rgba(255, 215, 0, 0.08);
+}
+
+.footer-content h3 {
+  font-size: 20px;
+  letter-spacing: 6px;
+  color: #d4af37;
+  margin-bottom: 10px;
+}
+
+.footer-content p {
+  color: #aaa;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.contact-info {
+  margin-top: 15px;
+}
+
+.contact-info a {
+  color: #d4af37;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  margin-top: 25px;
+  font-size: 12px;
+  color: #666;
 }
