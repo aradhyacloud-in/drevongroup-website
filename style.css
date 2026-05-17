@@ -239,55 +239,84 @@ body {
 /* =========================
    FOOTER (PREMIUM CORPORATE GRID)
 ========================= */
+/* =========================
+   FOOTER 2-COLUMN PREMIUM LAYOUT
+========================= */
 .footer {
   background: #0b0b0b;
   padding: 70px 60px 30px;
   border-top: 1px solid rgba(255, 215, 0, 0.08);
 }
 
-/* GRID LAYOUT */
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
-  text-align: left;
+/* MAIN WRAPPER */
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 
-/* BRAND TITLE */
-.footer-col h3 {
+/* LEFT SIDE */
+.footer-left {
+  flex: 1;
+  min-width: 280px;
+}
+
+.footer-left h3 {
   color: #d4af37;
-  font-size: 18px;
+  font-size: 20px;
   letter-spacing: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-/* HEADINGS */
-.footer-col h4 {
-  color: #d4af37;
-  font-size: 13px;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
-}
-
-/* TEXT */
-.footer-col p {
+.tagline {
   color: #aaa;
   font-size: 13px;
-  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-/* LINKS */
-.footer-col a {
+/* CONTACT BLOCKS */
+.contact-block {
+  margin-bottom: 15px;
+}
+
+.contact-block p {
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.footer-left a {
   color: #d4af37;
   text-decoration: none;
   font-size: 13px;
 }
 
-.footer-col a:hover {
+.footer-left a:hover {
   text-decoration: underline;
 }
 
-/* BOTTOM COPYRIGHT */
+/* RIGHT SIDE */
+.footer-right {
+  flex: 1;
+  min-width: 280px;
+  text-align: right;
+}
+
+.footer-right h4 {
+  color: #d4af37;
+  font-size: 14px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.footer-right p {
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* COPYRIGHT */
 .footer-bottom {
   margin-top: 40px;
   padding-top: 20px;
@@ -301,9 +330,12 @@ body {
    MOBILE RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
+  .footer-wrapper {
+    flex-direction: column;
     text-align: center;
-    gap: 30px;
+  }
+
+  .footer-right {
+    text-align: center;
   }
 }
