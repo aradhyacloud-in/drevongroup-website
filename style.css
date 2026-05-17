@@ -47,12 +47,12 @@ body {
 
 /* 🔥 GOLD BRAND TEXT (FIXED + PREMIUM POSITIONING) */
 .brand-text {
-  font-size: 13px;
-  letter-spacing: 6px;
-  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 7px;
+  font-weight: 600;
   color: #d4af37;
   text-transform: uppercase;
-  opacity: 0.9;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
   white-space: nowrap;
 }
 
