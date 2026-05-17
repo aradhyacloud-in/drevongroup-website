@@ -11,15 +11,13 @@
       background: #0f172a;
       color: white;
       font-family: Arial, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       min-height: 100vh;
       text-align: center;
     }
 
     .container {
       max-width: 850px;
+      margin: auto;
       padding: 40px;
     }
 
@@ -49,6 +47,35 @@
       font-size: 14px;
       color: #94a3b8;
     }
+
+    form {
+      margin-top: 30px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px 24px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
   </style>
 </head>
 
@@ -69,6 +96,36 @@
       </a>
     </div>
 
+    <section id="contact">
+      <h2>Contact Us</h2>
+
+      <form name="contact" method="POST" data-netlify="true" action="success.html">
+
+        <input type="hidden" name="form-name" value="contact">
+
+        <p>
+          <input type="text" name="name" placeholder="Your Name" required>
+        </p>
+
+        <p>
+          <input type="email" name="email" placeholder="Your Email" required>
+        </p>
+
+        <p>
+          <input type="tel" name="phone" placeholder="Mobile Number" required>
+        </p>
+
+        <p>
+          <textarea name="message" placeholder="Your Message" required></textarea>
+        </p>
+
+        <p>
+          <button type="submit">Send Message</button>
+        </p>
+
+      </form>
+    </section>
+
     <footer>
       © 2026 Drevon Group. All rights reserved.
     </footer>
@@ -77,32 +134,3 @@
 
 </body>
 </html>
-<section id="contact" style="padding:40px; text-align:center;">
-  <h2>Contact Us</h2>
-
-  <form name="contact" method="POST" data-netlify="true" netlify action="/success.html">
-
-  <input type="hidden" name="form-name" value="contact">
-
-  <p>
-    <input type="text" name="name" placeholder="Your Name" required>
-  </p>
-
-  <p>
-    <input type="email" name="email" placeholder="Your Email" required>
-  </p>
-
-  <p>
-    <input type="tel" name="phone" placeholder="Mobile Number" required>
-  </p>
-
-  <p>
-    <textarea name="message" placeholder="Your Message" required></textarea>
-  </p>
-
-  <p>
-    <button type="submit">Send Message</button>
-  </p>
-
-</form>
-</section>
