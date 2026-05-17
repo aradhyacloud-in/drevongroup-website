@@ -242,21 +242,31 @@ body {
 /* =========================
    FOOTER 2-COLUMN PREMIUM LAYOUT
 ========================= */
+
+/* =========================
+   FOOTER (CLEAN INDUSTRIAL LAYOUT)
+========================= */
 .footer {
   background: #0b0b0b;
   padding: 70px 60px 30px;
   border-top: 1px solid rgba(255, 215, 0, 0.08);
+  width: 100%;
 }
 
 /* MAIN WRAPPER */
 .footer-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;   /* centers whole footer content block */
   gap: 60px;
-  flex-wrap: wrap;
 }
 
-/* LEFT SIDE */
+/* =========================
+   LEFT SIDE (BRAND + CONTACT)
+========================= */
 .footer-left {
   flex: 1;
   min-width: 280px;
@@ -275,7 +285,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* CONTACT BLOCKS */
 .contact-block {
   margin-bottom: 15px;
 }
@@ -296,10 +305,16 @@ body {
   text-decoration: underline;
 }
 
-/* RIGHT SIDE */
+/* =========================
+   RIGHT SIDE (ADDRESS)
+========================= */
 .footer-right {
   flex: 1;
   min-width: 280px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;  /* 🔥 forces full right alignment */
   text-align: right;
 }
 
@@ -316,7 +331,9 @@ body {
   line-height: 1.6;
 }
 
-/* COPYRIGHT */
+/* =========================
+   COPYRIGHT SECTION
+========================= */
 .footer-bottom {
   margin-top: 40px;
   padding-top: 20px;
@@ -333,9 +350,11 @@ body {
   .footer-wrapper {
     flex-direction: column;
     text-align: center;
+    align-items: center;
   }
 
   .footer-right {
+    align-items: center;
     text-align: center;
   }
 }
