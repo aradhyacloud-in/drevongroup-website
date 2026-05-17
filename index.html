@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,14 +12,13 @@
       background: #0f172a;
       color: white;
       font-family: Arial, sans-serif;
-      min-height: 100vh;
       text-align: center;
     }
 
     .container {
       max-width: 850px;
       margin: auto;
-      padding: 40px;
+      padding: 60px 20px;
     }
 
     h1 {
@@ -32,7 +32,7 @@
       color: #cbd5e1;
     }
 
-    .contact {
+    .contact-info {
       margin-top: 40px;
       font-size: 18px;
     }
@@ -42,10 +42,8 @@
       text-decoration: none;
     }
 
-    footer {
-      margin-top: 70px;
-      font-size: 14px;
-      color: #94a3b8;
+    #contact {
+      margin-top: 60px;
     }
 
     form {
@@ -56,15 +54,21 @@
     textarea {
       width: 100%;
       max-width: 500px;
-      padding: 12px;
-      margin: 10px 0;
+      padding: 14px;
+      margin: 12px 0;
       border-radius: 8px;
       border: none;
       font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
     }
 
     button {
-      padding: 12px 24px;
+      padding: 14px 28px;
       background: #38bdf8;
       border: none;
       border-radius: 8px;
@@ -76,6 +80,22 @@
     button:hover {
       background: #0ea5e9;
     }
+
+    footer {
+      margin-top: 80px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 42px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 
@@ -86,10 +106,13 @@
     <h1>Drevon Group</h1>
 
     <p>
-      We are a diversified global trade and enterprise group, driving value across critical sectors. From the strategic supply of industrial metals and precious commodities to international e-commerce distribution and high-value real estate brokerage, we connect global markets with premium assets.
+      We are a diversified global trade and enterprise group, driving value across critical sectors.
+      From the strategic supply of industrial metals and precious commodities to international
+      e-commerce distribution and high-value real estate brokerage, we connect global markets
+      with premium assets.
     </p>
 
-    <div class="contact">
+    <div class="contact-info">
       Contact:
       <a href="mailto:aradhya@drevongroup.com">
         aradhya@drevongroup.com
@@ -99,32 +122,21 @@
     <section id="contact">
       <h2>Contact Us</h2>
 
-      
-     <form name="contact" method="POST" data-netlify="true">
+      <form action="https://formsubmit.co/aradhya@drevongroup.com" method="POST">
 
-        <input type="hidden" name="form-name" value="contact">
-    
-      <p>
         <input type="text" name="name" placeholder="Your Name" required>
-      </p>
-    
-      <p>
-        <input type="email" name="email" placeholder="Your Email" required>
-      </p>
-    
-      <p>
-        <input type="tel" name="phone" placeholder="Mobile Number" required>
-      </p>
-    
-      <p>
-        <textarea name="message" placeholder="Your Message" required></textarea>
-      </p>
-    
-      <p>
-        <button type="submit">Send Message</button>
-      </p>
 
-    </form>
+        <input type="email" name="email" placeholder="Your Email" required>
+
+        <input type="tel" name="phone" placeholder="Mobile Number" required>
+
+        <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <br>
+
+        <button type="submit">Send Message</button>
+
+      </form>
     </section>
 
     <footer>
@@ -134,4 +146,5 @@
   </div>
 
 </body>
+
 </html>
