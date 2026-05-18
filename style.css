@@ -219,16 +219,12 @@ body {
   opacity: 0;
 
   transition: opacity 1.2s ease-in-out;
-
-  pointer-events: none;
 }
 
 /* ACTIVE SLIDE */
 .slide.active {
   opacity: 1;
-  z-index: 2;
-
-  pointer-events: auto;
+  z-index: 5;
 }
 
 /* IMAGE + VIDEO */
