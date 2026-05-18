@@ -1,15 +1,16 @@
 // =============================
 // DREVON WOODEN TOYS - JS
-// Basic interactions + future-ready enhancements
+// Premium interactions + slideshow system
 // =============================
 
 
-// 1. SMOOTH SCROLL FOR NAV LINKS
+/* =============================
+   1. SMOOTH SCROLL NAVIGATION
+============================= */
 document.querySelectorAll('.toys-nav-links a').forEach(link => {
   link.addEventListener('click', function (e) {
     const targetId = this.getAttribute('href');
 
-    // Only handle internal links like #collections
     if (targetId.startsWith('#')) {
       e.preventDefault();
 
@@ -26,7 +27,9 @@ document.querySelectorAll('.toys-nav-links a').forEach(link => {
 });
 
 
-// 2. NAVBAR SHADOW ON SCROLL (premium feel)
+/* =============================
+   2. NAVBAR SCROLL EFFECT
+============================= */
 const navbar = document.querySelector('.toys-navbar');
 
 window.addEventListener('scroll', () => {
@@ -39,10 +42,19 @@ window.addEventListener('scroll', () => {
 });
 
 
-// 3. FADE-IN ANIMATION ON SCROLL (simple reveal effect)
+/* =============================
+   3. SCROLL REVEAL ANIMATION
+============================= */
 const revealElements = document.querySelectorAll(
   '.collection-card, .story-container'
 );
+
+// initial state
+revealElements.forEach(el => {
+  el.style.opacity = 0;
+  el.style.transform = "translateY(30px)";
+  el.style.transition = "all 0.6s ease-out";
+});
 
 const revealOnScroll = () => {
   const windowHeight = window.innerHeight;
@@ -53,22 +65,17 @@ const revealOnScroll = () => {
     if (elementTop < windowHeight - 100) {
       el.style.opacity = 1;
       el.style.transform = "translateY(0)";
-      el.style.transition = "all 0.6s ease-out";
     }
   });
 };
-
-// initial state for animation
-revealElements.forEach(el => {
-  el.style.opacity = 0;
-  el.style.transform = "translateY(30px)";
-});
 
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
 
-// 4. HERO BUTTON CLICK FEEDBACK (optional polish)
+/* =============================
+   4. HERO BUTTON FEEDBACK
+============================= */
 const heroBtn = document.querySelector('.toys-btn');
 
 if (heroBtn) {
@@ -80,3 +87,35 @@ if (heroBtn) {
     }, 150);
   });
 }
+
+
+/* =============================
+   5. HERO SLIDESHOW (NEW)
+============================= */
+let slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+
+// show slide function
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+// next slide
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+// previous slide
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+// auto slideshow (5 seconds)
+let slideInterval = setInterval(nextSlide, 5000);
+
+// expose functions to HTML buttons
+window.nextSlide = nextSlide;
+window.prevSlide = prevSlide;
