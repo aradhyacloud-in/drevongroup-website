@@ -127,7 +127,9 @@
         <p>Delivering long-term value through quality and trust.</p>
       </div>
     </div>
-
+  <!-- SLIDER CONTROLS -->
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
   </section>
 
   <!-- ================= METRICS ================= -->
@@ -240,6 +242,62 @@
     </div>
 
   </footer>
+    </footer>
+
+<script>
+
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+let currentSlide = 0;
+
+/* SHOW SLIDE */
+function showSlide(index) {
+
+  slides.forEach((slide) => {
+    slide.classList.remove("active");
+  });
+
+  slides[index].classList.add("active");
+}
+
+/* NEXT */
+function nextSlide() {
+  currentSlide++;
+
+  if (currentSlide >= slides.length) {
+    currentSlide = 0;
+  }
+
+  showSlide(currentSlide);
+}
+
+/* PREVIOUS */
+function prevSlide() {
+  currentSlide--;
+
+  if (currentSlide < 0) {
+    currentSlide = slides.length - 1;
+  }
+
+  showSlide(currentSlide);
+}
+
+/* BUTTON EVENTS */
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
+
+/* AUTO SLIDE EVERY 5 SEC */
+setInterval(nextSlide, 5000);
+
+/* INITIAL */
+showSlide(currentSlide);
+
+</script>
+
+</body>
+</html>
 
 </body>
 </html>
