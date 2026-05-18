@@ -65,7 +65,7 @@
   <section class="cinematic-slider">
 
     <!-- VIDEO SLIDE -->
-    <div class="slide active">
+    <div class="slide video-slide">
 
       <video controls playsinline>
         <source src="videos/video1.mp4" type="video/mp4">
@@ -251,19 +251,49 @@ const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 
 let currentSlide = 0;
+let slideInterval;
 
 /* SHOW SLIDE */
 function showSlide(index) {
 
   slides.forEach((slide) => {
     slide.classList.remove("active");
+
+    const video = slide.querySelector("video");
+
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
   });
 
-  slides[index].classList.add("active");
+  const activeSlide = slides[index];
+  activeSlide.classList.add("active");
+
+  const activeVideo = activeSlide.querySelector("video");
+
+  /* IF VIDEO SLIDE */
+  if (activeVideo) {
+
+    activeVideo.play();
+
+    activeVideo.onended = () => {
+      nextSlide();
+    };
+
+  } else {
+
+    clearInterval(slideInterval);
+
+    slideInterval = setTimeout(() => {
+      nextSlide();
+    }, 5000);
+  }
 }
 
 /* NEXT */
 function nextSlide() {
+
   currentSlide++;
 
   if (currentSlide >= slides.length) {
@@ -275,6 +305,7 @@ function nextSlide() {
 
 /* PREVIOUS */
 function prevSlide() {
+
   currentSlide--;
 
   if (currentSlide < 0) {
@@ -285,17 +316,24 @@ function prevSlide() {
 }
 
 /* BUTTON EVENTS */
-nextBtn.addEventListener("click", nextSlide);
-prevBtn.addEventListener("click", prevSlide);
+nextBtn.addEventListener("click", () => {
 
-/* AUTO SLIDE EVERY 5 SEC */
-setInterval(nextSlide, 5000);
+  clearTimeout(slideInterval);
+  nextSlide();
+
+});
+
+prevBtn.addEventListener("click", () => {
+
+  clearTimeout(slideInterval);
+  prevSlide();
+
+});
 
 /* INITIAL */
 showSlide(currentSlide);
 
 </script>
-
 </body>
 </html>
 
