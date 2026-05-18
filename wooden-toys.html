@@ -7,7 +7,6 @@
 
   <title>Drevon Wooden Toys</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="wooden-toys.css">
 </head>
 
@@ -19,7 +18,7 @@
     <div class="toys-logo-area">
 
       <a href="index.html" class="logo-link">
-        <img src="logo.png" alt="Drevon Group">
+        <img src="wooden-toys/images/logo.png" alt="Drevon Group">
       </a>
 
       <div class="toys-brand-text">
@@ -31,7 +30,7 @@
     <nav>
       <ul class="toys-nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="#">Collections</a></li>
+        <li><a href="#collections">Collections</a></li>
         <li><a href="#">Craftsmanship</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
@@ -39,11 +38,24 @@
 
   </header>
 
-  <!-- ================= HERO ================= -->
+
+  <!-- ================= HERO SLIDESHOW ================= -->
   <section class="toys-hero">
+
+    <div class="toys-slideshow">
+
+      <img class="slide active" src="wooden-toys/images/wooden-toys-1.jpg">
+      <img class="slide" src="wooden-toys/images/wooden-toys-2.jpg">
+      <img class="slide" src="wooden-toys/images/wooden-toys-3.jpg">
+      <img class="slide" src="wooden-toys/images/wooden-toys-4.jpg">
+      <img class="slide" src="wooden-toys/images/wooden-toys-5.jpg">
+      <img class="slide" src="wooden-toys/images/wooden-toys-6.jpg">
+
+    </div>
 
     <div class="toys-overlay"></div>
 
+    <!-- TEXT CONTENT -->
     <div class="toys-hero-content">
 
       <p class="toys-tag">
@@ -57,8 +69,7 @@
 
       <p class="toys-subtext">
         Handcrafted in the legendary toy town of Channapatna, our collection
-        breathes life into centuries-old traditions. Sustainably sourced,
-        thoughtfully designed, and built to be cherished for generations.
+        breathes life into centuries-old traditions.
       </p>
 
       <a href="#collections" class="toys-btn">
@@ -67,7 +78,12 @@
 
     </div>
 
+    <!-- ================= SLIDESHOW BUTTONS ================= -->
+    <button class="prev-btn" onclick="prevSlide()">❮</button>
+    <button class="next-btn" onclick="nextSlide()">❯</button>
+
   </section>
+
 
   <!-- ================= PRODUCT CATEGORIES ================= -->
   <section class="collections-section" id="collections">
@@ -87,113 +103,64 @@
 
     <div class="collections-grid">
 
-      <!-- CATEGORY 1 -->
       <div class="collection-card">
-
         <h3>Heirloom Play Sets</h3>
-
-        <p class="collection-label">
-          Learning Through Tradition
-        </p>
-
-        <p>
-          Educational wooden toys designed to nurture creativity,
-          sensory development, and motor skills through timeless play.
-          Includes stacking rings, peg dolls, puzzles, and shape sorters.
-        </p>
-
+        <p class="collection-label">Learning Through Tradition</p>
+        <p>Educational wooden toys designed to nurture creativity and motor skills.</p>
       </div>
 
-      <!-- CATEGORY 2 -->
       <div class="collection-card">
-
         <h3>Artisanal Decor & Figurines</h3>
-
-        <p class="collection-label">
-          Functional Art for the Modern Home
-        </p>
-
-        <p>
-          Handcrafted figurines, spinning tops, carved animals,
-          and decorative heritage pieces blending culture,
-          artistry, and contemporary elegance.
-        </p>
-
+        <p class="collection-label">Functional Art for the Modern Home</p>
+        <p>Handcrafted figurines blending culture and elegance.</p>
       </div>
 
-      <!-- CATEGORY 3 -->
       <div class="collection-card">
-
         <h3>Sustainable Joy</h3>
-
-        <p class="collection-label">
-          Classic Motion, Naturally Crafted
-        </p>
-
-        <p>
-          Beautifully handcrafted push-and-pull toys including
-          wooden cars, trains, and wheeled animals designed
-          for tactile and active play experiences.
-        </p>
-
+        <p class="collection-label">Classic Motion, Naturally Crafted</p>
+        <p>Push-and-pull toys designed for tactile play experiences.</p>
       </div>
 
     </div>
 
   </section>
+
 
   <!-- ================= BRAND STORY ================= -->
   <section class="brand-story">
 
     <div class="story-container">
 
-      <p class="story-tag">
-        OUR HERITAGE
-      </p>
+      <p class="story-tag">OUR HERITAGE</p>
 
-      <h2>
-        A Legacy Carved by Hand
-      </h2>
+      <h2>A Legacy Carved by Hand</h2>
 
       <p>
-        At Drevon Group, we believe that true luxury lies in craftsmanship—the
-        kind that cannot be replicated by machines. Our collection brings you
-        the spirit of Channapatna, a town whose rhythmic wood-turnery has been
-        celebrated for over 225 years.
+        At Drevon Group, we believe true luxury lies in craftsmanship.
       </p>
 
       <p>
-        Every piece in this collection is a tribute to the artisans who use
-        traditional Aale Mara (ivory wood) and vibrant, non-toxic vegetable
-        dyes to create toys that are as safe for your child as they are
-        beautiful to behold.
+        Each toy is made using traditional Aale Mara wood and natural dyes.
       </p>
 
       <p>
-        We chose to bring these treasures to you not just to sell toys, but
-        to protect a dying art form. In a world of mass-produced plastic,
-        we invite you to choose play that is conscious, sustainable, and soulful.
+        We aim to preserve a dying art form and support artisan communities.
       </p>
 
       <p>
-        When you bring a Drevon Channapatna toy into your home, you aren’t
-        just getting a product; you are keeping a piece of Indian cultural
-        heritage alive, supporting local livelihoods, and gifting your loved
-        ones a connection to a simpler, more meaningful way to play.
+        Bringing home these toys means preserving cultural heritage.
       </p>
 
     </div>
 
   </section>
 
+
   <!-- ================= FOOTER ================= -->
   <footer class="toys-footer">
-
-    <p>
-      © 2026 Drevon Wooden Toys. Crafted with heritage and purpose.
-    </p>
-
+    <p>© 2026 Drevon Wooden Toys. Crafted with heritage and purpose.</p>
   </footer>
+
 
   <!-- JAVASCRIPT -->
   <script src="wooden-toys.js"></script>
