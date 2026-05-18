@@ -64,12 +64,12 @@ body {
 }
 
 /* =========================
-   HERO SECTION
+   HERO SECTION (UPDATED FOR SLIDESHOW)
 ========================= */
 .toys-hero {
   height: 90vh;
-  background: url("hero.jpg") center/cover no-repeat;
   position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,16 +77,46 @@ body {
   padding: 20px;
 }
 
+/* SLIDESHOW WRAPPER */
+.toys-slideshow {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* SLIDES */
+.toys-slideshow .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+}
+
+/* ACTIVE SLIDE */
+.toys-slideshow .slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* OVERLAY */
 .toys-overlay {
   position: absolute;
   inset: 0;
   background: rgba(30, 20, 10, 0.55);
+  z-index: 1;
 }
 
+/* HERO CONTENT */
 .toys-hero-content {
   position: relative;
   color: #fff;
   max-width: 800px;
+  z-index: 2;
 }
 
 .toys-tag {
@@ -121,6 +151,41 @@ body {
 .toys-btn:hover {
   background: #a8743a;
   transform: translateY(-2px);
+}
+
+/* =========================
+   SLIDESHOW BUTTONS (NEW)
+========================= */
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+
+  font-size: 26px;
+  padding: 10px 14px;
+  cursor: pointer;
+
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.prev-btn {
+  left: 20px;
+}
+
+.next-btn {
+  right: 20px;
 }
 
 /* =========================
