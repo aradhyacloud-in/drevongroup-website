@@ -1,4 +1,5 @@
 const slides = document.querySelectorAll(".slide");
+const sliderSection = document.getElementById("sliderSection");
 const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 
@@ -82,3 +83,39 @@ prevBtn.addEventListener("click", () => {
 
 /* INITIAL */
 showSlide(currentSlide);
+const observer = new IntersectionObserver(
+
+  (entries) => {
+
+    entries.forEach((entry) => {
+
+      const activeSlide = slides[currentSlide];
+      const activeVideo = activeSlide.querySelector("video");
+
+      if (activeVideo) {
+
+        /* IF SLIDER VISIBLE */
+        if (entry.isIntersecting) {
+
+          activeVideo.play();
+
+        }
+
+        /* IF USER SCROLLS AWAY */
+        else {
+
+          activeVideo.pause();
+
+        }
+      }
+    });
+  },
+
+  {
+    threshold: 0.4
+  }
+
+);
+
+/* OBSERVE SLIDER */
+observer.observe(sliderSection);
