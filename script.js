@@ -11,7 +11,6 @@ function showSlide(index) {
   clearTimeout(slideTimeout);
 
   slides.forEach((slide) => {
-
     slide.classList.remove("active");
 
     const video = slide.querySelector("video");
@@ -20,11 +19,9 @@ function showSlide(index) {
       video.pause();
       video.currentTime = 0;
     }
-
   });
 
   const activeSlide = slides[index];
-
   activeSlide.classList.add("active");
 
   const activeVideo = activeSlide.querySelector("video");
@@ -74,46 +71,14 @@ function prevSlide() {
   showSlide(currentSlide);
 }
 
-/* BUTTONS */
-nextBtn.addEventListener("click", nextSlide);
-prevBtn.addEventListener("click", prevSlide);
-
-/* INITIAL LOAD */
-showSlide(currentSlide);
-
-/* =========================
-   VIDEO PAUSE WHEN OFFSCREEN
-========================= */
-
-const sliderSection = document.getElementById("sliderSection");
-
-const observer = new IntersectionObserver((entries) => {
-
-  entries.forEach((entry) => {
-
-    const activeSlide = slides[currentSlide];
-
-    const activeVideo = activeSlide.querySelector("video");
-
-    if (activeVideo) {
-
-      if (entry.isIntersecting) {
-
-        activeVideo.play();
-
-      } else {
-
-        activeVideo.pause();
-
-      }
-
-    }
-
-  });
-
-}, {
-  threshold: 0.4
+/* BUTTON EVENTS */
+nextBtn.addEventListener("click", () => {
+  nextSlide();
 });
 
-/* OBSERVE */
-observer.observe(sliderSection);
+prevBtn.addEventListener("click", () => {
+  prevSlide();
+});
+
+/* INITIAL */
+showSlide(currentSlide);
