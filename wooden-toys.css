@@ -64,23 +64,32 @@ body {
 }
 
 /* =========================
-   HERO SECTION (UPDATED FOR SLIDESHOW)
+ /* =========================
+   HERO SECTION (SLIDESHOW FIXED)
 ========================= */
+
 .toys-hero {
-  height: 90vh;
   position: relative;
+  width: 100%;
+  height: 90vh;
   overflow: hidden;
+
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+
+  padding: 0; /* IMPORTANT: removes split issue */
+  margin: 0;
 }
 
 /* SLIDESHOW WRAPPER */
 .toys-slideshow {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
+
   overflow: hidden;
   z-index: 0;
 }
@@ -88,13 +97,15 @@ body {
 /* SLIDES */
 .toys-slideshow .slide {
   position: absolute;
+  inset: 0;               /* IMPORTANT FIX */
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 
   opacity: 0;
-  transform: scale(1.05);
-  transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+  transform: scale(1.08);
+  transition: opacity 1.2s ease-in-out, transform 1.5s ease-in-out;
 }
 
 /* ACTIVE SLIDE */
@@ -114,11 +125,14 @@ body {
 /* HERO CONTENT */
 .toys-hero-content {
   position: relative;
+  z-index: 2;
+
   color: #fff;
   max-width: 800px;
-  z-index: 2;
+  padding: 20px;
 }
 
+/* TAG */
 .toys-tag {
   font-size: 13px;
   letter-spacing: 3px;
@@ -126,18 +140,21 @@ body {
   margin-bottom: 15px;
 }
 
+/* TITLE */
 .toys-hero h1 {
   font-size: 48px;
   margin-bottom: 20px;
   line-height: 1.2;
 }
 
+/* SUBTEXT */
 .toys-subtext {
   font-size: 16px;
   margin-bottom: 30px;
   opacity: 0.9;
 }
 
+/* BUTTON */
 .toys-btn {
   display: inline-block;
   padding: 12px 28px;
@@ -145,14 +162,13 @@ body {
   color: #fff;
   text-decoration: none;
   border-radius: 30px;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .toys-btn:hover {
   background: #a8743a;
   transform: translateY(-2px);
 }
-
 /* =========================
    SLIDESHOW BUTTONS (NEW)
 ========================= */
