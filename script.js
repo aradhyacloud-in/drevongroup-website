@@ -1,5 +1,4 @@
 const slides = document.querySelectorAll(".slide");
-const sliderSection = document.getElementById("sliderSection");
 const nextBtn = document.querySelector(".next");
 const prevBtn = document.querySelector(".prev");
 
@@ -12,6 +11,7 @@ function showSlide(index) {
   clearTimeout(slideTimeout);
 
   slides.forEach((slide) => {
+
     slide.classList.remove("active");
 
     const video = slide.querySelector("video");
@@ -20,9 +20,11 @@ function showSlide(index) {
       video.pause();
       video.currentTime = 0;
     }
+
   });
 
   const activeSlide = slides[index];
+
   activeSlide.classList.add("active");
 
   const activeVideo = activeSlide.querySelector("video");
@@ -72,50 +74,46 @@ function prevSlide() {
   showSlide(currentSlide);
 }
 
-/* BUTTON EVENTS */
-nextBtn.addEventListener("click", () => {
-  nextSlide();
-});
+/* BUTTONS */
+nextBtn.addEventListener("click", nextSlide);
+prevBtn.addEventListener("click", prevSlide);
 
-prevBtn.addEventListener("click", () => {
-  prevSlide();
-});
-
-/* INITIAL */
+/* INITIAL LOAD */
 showSlide(currentSlide);
-const observer = new IntersectionObserver(
 
-  (entries) => {
+/* =========================
+   VIDEO PAUSE WHEN OFFSCREEN
+========================= */
 
-    entries.forEach((entry) => {
+const sliderSection = document.getElementById("sliderSection");
 
-      const activeSlide = slides[currentSlide];
-      const activeVideo = activeSlide.querySelector("video");
+const observer = new IntersectionObserver((entries) => {
 
-      if (activeVideo) {
+  entries.forEach((entry) => {
 
-        /* IF SLIDER VISIBLE */
-        if (entry.isIntersecting) {
+    const activeSlide = slides[currentSlide];
 
-          activeVideo.play();
+    const activeVideo = activeSlide.querySelector("video");
 
-        }
+    if (activeVideo) {
 
-        /* IF USER SCROLLS AWAY */
-        else {
+      if (entry.isIntersecting) {
 
-          activeVideo.pause();
+        activeVideo.play();
 
-        }
+      } else {
+
+        activeVideo.pause();
+
       }
-    });
-  },
 
-  {
-    threshold: 0.4
-  }
+    }
 
-);
+  });
 
-/* OBSERVE SLIDER */
+}, {
+  threshold: 0.4
+});
+
+/* OBSERVE */
 observer.observe(sliderSection);
