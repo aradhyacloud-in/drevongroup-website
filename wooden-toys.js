@@ -97,8 +97,21 @@ let currentSlide = 0;
 
 // show slide function
 function showSlide(index) {
-  slides.forEach(slide => slide.classList.remove("active"));
+
+  slides.forEach(slide => {
+
+    slide.classList.remove("active");
+
+    // pause videos when hidden
+    if (slide.tagName === "VIDEO") {
+      slide.pause();
+    }
+
+  });
+
   slides[index].classList.add("active");
+
+  autoSlide();
 }
 
 // next slide
@@ -114,8 +127,41 @@ function prevSlide() {
 }
 
 // auto slideshow (5 seconds)
-let slideInterval = setInterval(nextSlide, 5000);
+/* =============================
+   SMART AUTO SLIDESHOW
+============================= */
+
+let slideTimeout;
+
+// auto slide handler
+function autoSlide() {
+
+  clearTimeout(slideTimeout);
+
+  const currentElement = slides[currentSlide];
+
+  // IF CURRENT SLIDE IS VIDEO
+  if (currentElement.tagName === "VIDEO") {
+
+    currentElement.currentTime = 0;
+    currentElement.play();
+
+    currentElement.onended = () => {
+      nextSlide();
+    };
+
+  } else {
+
+    // IMAGE = normal 5 second delay
+    slideTimeout = setTimeout(() => {
+      nextSlide();
+    }, 5000);
+
+  }
+}
 
 // expose functions to HTML buttons
 window.nextSlide = nextSlide;
 window.prevSlide = prevSlide;
+// start slideshow
+showSlide(currentSlide);
