@@ -40,9 +40,9 @@ body {
 }
 
 .toys-brand-text {
-  font-weight: 600;
-  letter-spacing: 2px;
-  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  font-size: 20px;
   color: #5a4632;
 }
 
@@ -55,7 +55,11 @@ body {
 .toys-nav-links a {
   text-decoration: none;
   color: #3a2f24;
-  font-weight: 500;
+  font-size: 17px;
+  font-weight: 600;
+
+  letter-spacing: 0.5px;
+   
   transition: 0.3s;
 }
 
