@@ -165,3 +165,21 @@ window.nextSlide = nextSlide;
 window.prevSlide = prevSlide;
 // start slideshow
 showSlide(currentSlide);
+/* =============================
+   VIDEO SOUND CONTROL
+============================= */
+
+function toggleSound() {
+
+  const video = document.getElementById("heroVideo");
+
+  if (video.muted) {
+
+    video.muted = false;
+
+  } else {
+
+    video.muted = true;
+
+  }
+}
