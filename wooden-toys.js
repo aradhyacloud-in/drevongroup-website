@@ -3,6 +3,7 @@
 // Premium interactions + slideshow system
 // =============================
 
+let userInteracted = false;
 
 /* =============================
    1. SMOOTH SCROLL NAVIGATION
@@ -163,6 +164,12 @@ function autoSlide() {
 // expose functions to HTML buttons
 window.nextSlide = nextSlide;
 window.prevSlide = prevSlide;
+
+// detect first user interaction
+document.addEventListener("click", () => {
+  userInteracted = true;
+}, { once: true });
+
 // start slideshow
 showSlide(currentSlide);
 /* =============================
