@@ -104,6 +104,8 @@ body {
   height: 100%;
 
   object-fit: cover;
+   
+  filter: brightness(1.08) contrast(1.06) saturate(1.12);
 
   opacity: 0;
 
