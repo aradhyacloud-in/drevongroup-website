@@ -172,14 +172,26 @@ showSlide(currentSlide);
 function toggleSound() {
 
   const video = document.getElementById("heroVideo");
+  const soundBtn = document.querySelector(".sound-btn");
 
+  // UNMUTE
   if (video.muted) {
 
     video.muted = false;
+    video.volume = 1;
 
-  } else {
+    video.play();
+
+    soundBtn.innerHTML = "🔇 Mute";
+
+  }
+
+  // MUTE
+  else {
 
     video.muted = true;
+
+    soundBtn.innerHTML = "🔊 Sound";
 
   }
 }
