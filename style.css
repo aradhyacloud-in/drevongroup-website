@@ -118,79 +118,77 @@ body {
 ========================= */
 .hero {
   height: 90vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-align: center;
-
   padding: 0 20px;
 }
 
 .hero-inner {
   max-width: 950px;
+  width: 100%;
 }
 
 .tag {
   color: #d4af37;
-
   font-size: 12px;
   letter-spacing: 3px;
-
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
+/* MAIN HERO TITLE */
 .hero h1 {
   font-size: 62px;
   font-weight: 600;
-
   line-height: 1.15;
-
   margin-bottom: 20px;
 }
 
+/* SUBTEXT */
 .subtext {
   color: #b5b5b5;
-
   font-size: 18px;
   line-height: 1.8;
 }
 
-/* HERO BUTTONS */
+/* BUTTON WRAPPER */
 .hero-buttons {
-  margin-bottom: 20px; /* space after buttons */
+  margin-bottom: 20px;
 }
 
+/* HIGHLIGHT TEXT */
 .hero-highlight {
-  font-size: 34px;        /* BIG like headline */
+  font-size: 34px;
   font-weight: 800;
   text-align: center;
-   
-  margin-top: 10px;     /* space above (from buttons) */
+
+  margin-top: 10px;
   margin-bottom: 35px;
+
   letter-spacing: 2px;
   text-transform: uppercase;
 
-  text-shadow: 0 0 10px rgba(201, 162, 74, 0.25);/* space before slideshow */
-  /* GOLD TEXT EFFECT */
+  /* gold gradient text */
   background: linear-gradient(90deg, #c9a24a, #f5d27a, #b8862b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 10px rgba(201, 162, 74, 0.25);
 }
 
+/* BUTTON BASE */
 .btn {
+  display: inline-block;
   padding: 13px 24px;
-
   border-radius: 8px;
-
   text-decoration: none;
-
   font-size: 14px;
-
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
+/* PRIMARY BUTTON */
 .primary {
   background: #d4af37;
   color: #000;
@@ -200,6 +198,7 @@ body {
   transform: translateY(-3px);
 }
 
+/* OUTLINE BUTTON */
 .ghost {
   border: 1px solid #d4af37;
   color: #d4af37;
@@ -208,8 +207,8 @@ body {
 .ghost:hover {
   background: #d4af37;
   color: #000;
+  transform: translateY(-3px);
 }
-
 /* =========================
    CINEMATIC SLIDESHOW
 ========================= */
