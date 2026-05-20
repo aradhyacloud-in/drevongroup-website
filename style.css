@@ -159,11 +159,12 @@ body {
 
 /* HERO BUTTONS */
 .hero-buttons {
-  margin-top: 35px;
+  margin-bottom: 20px; /* space after buttons */
+}
 
-  display: flex;
-  justify-content: center;
-  gap: 16px;
+.hero-highlight {
+  margin-top: 10px;     /* space above (from buttons) */
+  margin-bottom: 40px;  /* space before slideshow */
 }
 
 .btn {
