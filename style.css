@@ -635,6 +635,13 @@ body {
 
   font-size: 20px;
 }
+.linkedin-row strong {
+  display: flex;
+  align-items: center;
+
+  margin: 0;
+}
+
 /* COPYRIGHT SECTION */
 /* KEEP YOUR EXISTING footer-bottom CSS */
 
@@ -650,7 +657,9 @@ body {
   color: #cfcfcf;
   margin: 0;
 }
-
+.linkedin-row a:hover {
+  text-decoration: underline;
+}
 /* =========================
    MOBILE RESPONSIVE
 ========================= */
