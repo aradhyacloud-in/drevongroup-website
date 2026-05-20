@@ -336,31 +336,38 @@ body {
 /* =========================
    BRAND STORY
 ========================= */
+
 .brand-story {
-  padding: 80px 50px;
-  background: #f3eee7;
+  padding: 110px 20px;
+  background: #f5f1ea;
+  text-align: center;
 }
 
 .story-container {
-  max-width: 900px;
+  max-width: 950px;
   margin: auto;
 }
 
 .story-tag {
-  font-size: 12px;
-  letter-spacing: 3px;
+  font-size: 13px;
+  letter-spacing: 4px;
   color: #a8743a;
-  margin-bottom: 10px;
+  margin-bottom: 18px;
 }
 
 .brand-story h2 {
-  font-size: 34px;
-  margin-bottom: 20px;
+  font-size: 48px;
+  color: #2f241b;
+  margin-bottom: 35px;
+  line-height: 1.2;
 }
 
 .story-container p {
-  margin-bottom: 15px;
-  color: #4a3b2f;
+  font-size: 18px;
+  line-height: 1.9;
+  color: #5b4a3b;
+
+  margin-bottom: 28px;
 }
 
 /* =========================
