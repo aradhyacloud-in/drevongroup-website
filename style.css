@@ -609,56 +609,45 @@ body {
 
   font-size: 15px;
 }
+/* LINKEDIN ROW FIX */
 .linkedin-row {
   display: flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  flex-wrap: nowrap;
-  white-space: nowrap;
-}
-
-.linkedin-row a {
-  display: inline-flex;
-
   align-items: center;
 
   gap: 8px;
 
+  margin: 0;
+  padding: 0;
+
+  white-space: nowrap;
+}
+
+/* REMOVE GLOBAL BLOCK BEHAVIOR */
+.linkedin-row a {
+  display: inline;
+
+  margin: 0;
+
+  color: #cfcfcf;
+
   text-decoration: none;
 }
 
+/* ICON */
 .linkedin-row i {
   color: #0A66C2;
+  font-size: 18px;
 
-  font-size: 20px;
-}
-.linkedin-row strong {
-  display: flex;
-  align-items: center;
-
-  margin: 0;
+  position: relative;
+  top: 1px;
 }
 
-/* COPYRIGHT SECTION */
-/* KEEP YOUR EXISTING footer-bottom CSS */
-
-/* COPYRIGHT */
-.footer-bottom {
-  text-align: center;
-  padding-bottom: 20px;
-  margin-top: 20px;
-}
-
-.footer-bottom p {
-  font-size: 16px;
-  color: #cfcfcf;
-  margin: 0;
-}
+/* HOVER */
 .linkedin-row a:hover {
+  color: #c08a4b;
   text-decoration: underline;
+
+  transform: none;
 }
 /* =========================
    MOBILE RESPONSIVE
