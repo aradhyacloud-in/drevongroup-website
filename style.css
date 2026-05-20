@@ -485,7 +485,29 @@ body {
 
   font-size: 15px;
 }
+.linkedin-row {
+  display: flex;
 
+  align-items: center;
+
+  gap: 10px;
+
+  flex-wrap: wrap;
+}
+
+.linkedin-row a {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.linkedin-row i {
+  color: #0A66C2;
+
+  font-size: 20px;
+}
 /* COPYRIGHT SECTION */
 /* KEEP YOUR EXISTING footer-bottom CSS */
 
