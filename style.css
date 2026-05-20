@@ -651,6 +651,28 @@ body {
   color: #c08a4b;
   text-decoration: underline;
 }
+/* COPYRIGHT SECTION */
+.footer-bottom {
+  text-align: center;
+
+  padding: 25px 20px;
+
+  margin-top: 30px;
+
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* COPYRIGHT TEXT */
+.footer-bottom p {
+  margin: 0;
+
+  color: #cfcfcf;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+}
+
 /* =========================
    MOBILE RESPONSIVE
 ========================= */
