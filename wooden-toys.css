@@ -256,9 +256,18 @@ body {
 }
 
 .hero-intro .toys-tag {
-  color: #a8743a;
-  opacity: 1;
-  margin-bottom: 15px;
+
+  color: #8b5e34;
+
+  font-size: 16px;
+
+  font-weight: 700;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 22px;
 }
 
 .hero-intro h1 {
