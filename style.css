@@ -417,106 +417,70 @@ body {
 
   font-size: 14px;
 }
+
 /* =========================
    FOOTER
 ========================= */
+
 .footer {
-  background: #0b0b0b;
-
-  padding: 70px 60px 30px;
-
-  border-top: 1px solid rgba(255, 215, 0, 0.08);
+  background: #151515;
+  color: #f5f5f5;
+  padding-top: 70px;
 }
 
 /* FOOTER WRAPPER */
 .footer-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  max-width: 1300px;
+
+  margin: auto;
+
+  padding: 0 60px 60px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 
   gap: 60px;
-
-  max-width: 1200px;
-
-  margin: 0 auto;
 }
 
-/* LEFT SIDE */
-.footer-left {
-  flex: 1;
-}
-
-.footer-left h3 {
-  color: #d4af37;
-
+/* COLUMN */
+.footer-column h3 {
   font-size: 22px;
+  margin-bottom: 28px;
 
-  letter-spacing: 5px;
-
-  margin-bottom: 10px;
+  color: #ffffff;
 }
 
-.tagline {
-  color: #aaa;
+/* LINKS */
+.footer-column a {
+  display: block;
 
-  font-size: 14px;
-
-  margin-bottom: 22px;
-}
-
-.contact-block {
-  margin-bottom: 18px;
-}
-
-.contact-block p {
-  color: #888;
-
-  font-size: 12px;
-
-  margin-bottom: 4px;
-}
-
-.footer-left a {
-  color: #d4af37;
+  color: #cfcfcf;
 
   text-decoration: none;
 
-  font-size: 14px;
+  margin-bottom: 16px;
+
+  transition: 0.3s ease;
 }
 
-.footer-left a:hover {
-  text-decoration: underline;
+.footer-column a:hover {
+  color: #c08a4b;
+  transform: translateX(4px);
 }
 
-/* RIGHT SIDE */
-.footer-right {
-  flex: 1;
+/* CONTACT TEXT */
+.footer-column p {
+  color: #cfcfcf;
 
-  display: flex;
-  flex-direction: column;
+  line-height: 1.8;
 
-  align-items: flex-end;
+  margin-bottom: 22px;
 
-  text-align: right;
+  font-size: 15px;
 }
 
-.footer-right h4 {
-  color: #d4af37;
-
-  font-size: 14px;
-
-  margin-bottom: 10px;
-
-  letter-spacing: 1px;
-}
-
-.footer-right p {
-  color: #aaa;
-
-  font-size: 14px;
-
-  line-height: 1.7;
-}
+/* COPYRIGHT SECTION */
+/* KEEP YOUR EXISTING footer-bottom CSS */
 
 /* COPYRIGHT */
 .footer-bottom {
@@ -620,18 +584,18 @@ body {
   }
 
   /* FOOTER */
-  .footer-wrapper {
-    flex-direction: column;
-
-    align-items: center;
-
-    text-align: center;
-  }
-
-  .footer-right {
-    align-items: center;
-    text-align: center;
-  }
+   .footer-wrapper {
+   
+     grid-template-columns: 1fr;
+   
+     gap: 40px;
+   
+     text-align: center;
+   }
+   
+   .footer-column {
+     align-items: center;
+    }
 }
 /* =========================
    PRODUCTS SECTION
