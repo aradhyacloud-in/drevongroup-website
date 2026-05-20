@@ -616,15 +616,17 @@ body {
 
   gap: 10px;
 
-  flex-wrap: wrap;
+  flex-wrap: nowwrap;
+  white-space: nowrap;
 }
 
 .linkedin-row a {
-  display: flex;
+  display: inline-flex;
 
   align-items: center;
 
   gap: 8px;
+  text-decoration: none;
 }
 
 .linkedin-row i {
