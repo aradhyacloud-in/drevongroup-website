@@ -163,8 +163,20 @@ body {
 }
 
 .hero-highlight {
+  font-size: 34px;        /* BIG like headline */
+  font-weight: 800;
+  text-align: center;
+   
   margin-top: 10px;     /* space above (from buttons) */
-  margin-bottom: 40px;  /* space before slideshow */
+  margin-bottom: 35px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  text-shadow: 0 0 10px rgba(201, 162, 74, 0.25);/* space before slideshow */
+  /* GOLD TEXT EFFECT */
+  background: linear-gradient(90deg, #c9a24a, #f5d27a, #b8862b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .btn {
