@@ -616,7 +616,7 @@ body {
 
   gap: 10px;
 
-  flex-wrap: nowwrap;
+  flex-wrap: nowrap;
   white-space: nowrap;
 }
 
@@ -626,6 +626,7 @@ body {
   align-items: center;
 
   gap: 8px;
+
   text-decoration: none;
 }
 
