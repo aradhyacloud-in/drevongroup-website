@@ -620,7 +620,10 @@ body {
 }
 
 .linkedin-row a {
-  display: inline;
+  display: inline-flex;
+  align-items: center;
+
+  margin: 0;
 }
 
 .linkedin-icon {
