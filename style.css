@@ -568,7 +568,7 @@ body {
     1fr
     1fr;
 
-  gap: 140px;
+  gap: 70px;
 
   align-items: start;
 }
@@ -618,6 +618,7 @@ body {
   gap: 8px;
 
   white-space: nowrap;
+  min-width: max-content;
 }
 
 /* ICON */
