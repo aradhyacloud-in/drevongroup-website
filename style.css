@@ -611,13 +611,14 @@ body {
 }
 /* LINKEDIN ROW */
 .linkedin-row {
-  display: flex;
+  display: flex !important;
+  flex-direction: row !important;
 
-  align-items: center;
+  align-items: center !important;
 
   gap: 8px;
 
-  white-space: nowrap;
+  white-space: nowrap !important;
 }
 
 /* ICON */
@@ -625,43 +626,39 @@ body {
   width: 18px;
   height: 18px;
 
-  border-radius: 3px;
-
   background: #0A66C2;
   color: #fff;
 
-  font-size: 11px;
-  font-weight: 700;
+  border-radius: 3px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
 
   flex-shrink: 0;
 }
 
-/* LINKEDIN TEXT */
-.linkedin-label {
-  color: #cfcfcf;
-  font-weight: 600;
-
+/* TEXT + LINK */
+.linkedin-row span,
+.linkedin-row a {
   display: inline !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  line-height: 1 !important;
 }
 
-/* LINK */
 .linkedin-row a {
   color: #cfcfcf;
-
   text-decoration: none;
-
-  display: inline-block;
 }
 
 .linkedin-row a:hover {
   color: #c08a4b;
-  text-decoration: underline;
 }
 /* COPYRIGHT SECTION */
 .footer-bottom {
