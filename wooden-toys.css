@@ -395,7 +395,7 @@ body {
 
 .footer-wrapper {
   max-width: 1400px;
-
+   min-width: 0;
   margin: auto;
 
   padding: 0 80px 70px;
@@ -416,6 +416,11 @@ body {
   align-items: flex-start;
    width: fit-content;
    width: 100%;
+   min-width: 0;
+}
+.footer-column.contact,
+.footer-column.address {
+  width: 100%;
 }
 /* HEADINGS */
 
