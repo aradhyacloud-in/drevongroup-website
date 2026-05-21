@@ -711,14 +711,16 @@ body {
 }
 
 /* LINKEDIN ROW */
-
 .linkedin-row {
   display: flex;
   align-items: center;
 
   gap: 8px;
+
+  white-space: nowrap;
 }
 
+/* ICON */
 .linkedin-icon {
   width: 18px;
   height: 18px;
@@ -738,14 +740,29 @@ body {
   flex-shrink: 0;
 }
 
-/* IMPORTANT FIX */
+/* LABEL */
+.linkedin-label {
+  color: #cfcfcf;
 
+  font-size: 15px;
+}
+
+/* LINK */
 .linkedin-row a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
 
-  margin: 0;
+  margin: 0 !important;
 
   color: #cfcfcf;
+
+  text-decoration: none;
+}
+
+.linkedin-row a:hover {
+  color: #c08a4b;
+
+  transform: none;
 }
 
 /* COPYRIGHT */
