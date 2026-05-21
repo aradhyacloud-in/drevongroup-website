@@ -611,14 +611,13 @@ body {
 }
 /* LINKEDIN ROW */
 .linkedin-row {
-  display: inline-flex;
+  display: flex;
 
   align-items: center;
 
   gap: 8px;
 
   white-space: nowrap;
-  min-width: max-content;
 }
 
 /* ICON */
@@ -648,7 +647,7 @@ body {
   color: #cfcfcf;
   font-weight: 600;
 
-  display: inline-block;
+  display: inline !important;
 }
 
 /* LINK */
