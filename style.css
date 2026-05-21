@@ -751,7 +751,7 @@ body {
 /* COPYRIGHT */
 
 .footer-bottom {
-  padding: 25px 20px;
+  padding: 25px 20px 40px;
 
   text-align: center;
 
@@ -759,11 +759,12 @@ body {
 }
 
 .footer-bottom p {
-  margin: 0;
+  margin: 0 auto;
 
   color: #cfcfcf;
 
   font-size: 15px;
+  line-height: 1.6;
 }
 
 /* =========================
