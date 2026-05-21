@@ -609,19 +609,18 @@ body {
 
   font-size: 15px;
 }
-/* LINKEDIN ROW FIX */
+/* LINKEDIN ROW */
 .linkedin-row {
-  display: flex;
+  display: inline-flex;
+
   align-items: center;
 
   gap: 8px;
 
-  margin: 0;
-
   white-space: nowrap;
-  line-height: 1;
 }
 
+/* ICON */
 .linkedin-icon {
   width: 18px;
   height: 18px;
@@ -631,7 +630,7 @@ body {
   background: #0A66C2;
   color: #fff;
 
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
 
   display: flex;
@@ -640,12 +639,24 @@ body {
 
   font-family: Arial, sans-serif;
 
-  text-transform: lowercase;
+  flex-shrink: 0;
 }
 
+/* LINKEDIN TEXT */
+.linkedin-label {
+  color: #cfcfcf;
+  font-weight: 600;
+
+  display: inline-block;
+}
+
+/* LINK */
 .linkedin-row a {
   color: #cfcfcf;
+
   text-decoration: none;
+
+  display: inline-block;
 }
 
 .linkedin-row a:hover {
