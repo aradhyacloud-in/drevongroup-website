@@ -526,6 +526,10 @@ body {
   color: #cfcfcf;
   text-decoration: none;
 }
+.email-item a {
+  display: inline;
+  margin-bottom: 0;
+}
 /* =========================
    COPYRIGHT
 ========================= */
