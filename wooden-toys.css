@@ -514,7 +514,18 @@ body {
 .instagram {
   background: #E4405F;
 }
+.email-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
+  flex-wrap: wrap;
+}
+
+.email-item a {
+  color: #cfcfcf;
+  text-decoration: none;
+}
 /* =========================
    COPYRIGHT
 ========================= */
