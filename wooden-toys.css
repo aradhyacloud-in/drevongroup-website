@@ -560,6 +560,23 @@ body {
   text-align: left;
 }
 
+/* CONTACT ICON ROWS */
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.contact-item a {
+  display: inline;
+  margin-bottom: 0 !important;
+}
 /* =========================
    COPYRIGHT
 ========================= */
