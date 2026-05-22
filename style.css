@@ -709,6 +709,15 @@ body {
 
   line-height: 1.8;
 }
+/* Email alignment */
+.email-item a {
+  color: #cfcfcf;
+  text-decoration: none;
+}
+.email-item a {
+  display: inline;
+  margin-bottom: 0;
+}
 
 /* LINKEDIN ROW */
 .linkedin-row {
