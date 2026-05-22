@@ -314,7 +314,7 @@ body {
 
 .collections-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
   gap: 25px;
 }
 
@@ -404,7 +404,7 @@ body {
 
   grid-template-columns: repeat(4, 1fr);
 
-  gap: 70px;
+  gap: 40px;
 }
 /* FOOTER COLUMN */
 
