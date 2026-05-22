@@ -530,6 +530,12 @@ body {
   display: inline;
   margin-bottom: 0;
 }
+
+/* ADDRESS ALIGNMENT */
+.footer-column:last-child p {
+  text-align: left;
+}
+
 /* =========================
    COPYRIGHT
 ========================= */
