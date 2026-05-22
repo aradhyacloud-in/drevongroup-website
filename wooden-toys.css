@@ -464,13 +464,11 @@ body {
   line-height: 1.8;
 }
 
-/* Social Media ROW */
 /* SOCIAL ROW */
 .social-row {
   display: flex;
   align-items: center;
   gap: 8px;
-  white-space: nowrap;
   margin-bottom: 16px;
 }
 
@@ -479,28 +477,29 @@ body {
   width: 18px;
   height: 18px;
 
-  border-radius: 4px;
-
-  color: #fff;
-
-  font-size: 11px;
-  font-weight: 700;
-
   display: flex;
   align-items: center;
   justify-content: center;
+
+  font-size: 14px;
+
+  color: #fff;
+
+  border-radius: 4px;
 
   flex-shrink: 0;
 }
 
 /* FACEBOOK */
-.social-icon.facebook {
+.facebook {
   background: #1877F2;
+  padding: 4px;
 }
 
 /* INSTAGRAM */
-.social-icon.instagram {
+.instagram {
   background: #E4405F;
+  padding: 4px;
 }
 
 /* LABEL */
@@ -511,15 +510,8 @@ body {
 
 /* LINK */
 .social-row a {
-  display: inline-flex;
-  align-items: center;
-
-  margin: 0 !important;
-
   color: #cfcfcf;
-
   text-decoration: none;
-
   transition: 0.3s ease;
 }
 
