@@ -464,7 +464,10 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+
   margin-bottom: 16px;
+
+  flex-wrap: nowrap;
 }
 
 /* ICON */
@@ -476,11 +479,13 @@ body {
   align-items: center;
   justify-content: center;
 
-  font-size: 14px;
+  font-size: 12px;
 
   color: #fff;
 
   border-radius: 4px;
+
+  padding: 4px;
 
   flex-shrink: 0;
 }
@@ -488,25 +493,31 @@ body {
 /* FACEBOOK */
 .facebook {
   background: #1877F2;
-  padding: 4px;
 }
 
 /* INSTAGRAM */
 .instagram {
   background: #E4405F;
-  padding: 4px;
 }
 
 /* LABEL */
 .social-label {
   color: #cfcfcf;
   font-size: 15px;
+
+  line-height: 1;
 }
 
 /* LINK */
 .social-row a {
   color: #cfcfcf;
   text-decoration: none;
+
+  display: inline-flex;
+  align-items: center;
+
+  line-height: 1;
+
   transition: 0.3s ease;
 }
 
