@@ -395,16 +395,18 @@ body {
 
 .footer-wrapper {
   max-width: 1400px;
-   min-width: 0;
+
   margin: auto;
 
   padding: 0 80px 70px;
 
   display: grid;
 
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr 1fr 1.4fr 1fr;
 
   gap: 40px;
+
+  align-items: start;
 }
 /* FOOTER COLUMN */
 
