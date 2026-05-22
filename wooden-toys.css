@@ -410,18 +410,13 @@ body {
 
 .footer-column {
   display: flex;
-
   flex-direction: column;
-
   align-items: flex-start;
-   width: fit-content;
-   width: 100%;
-   min-width: 0;
-}
-.footer-column.contact,
-.footer-column.address {
+
   width: 100%;
+  min-width: 0;
 }
+
 /* HEADINGS */
 
 .footer-column h3 {
