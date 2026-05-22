@@ -464,24 +464,23 @@ body {
   line-height: 1.8;
 }
 
-/* LINKEDIN ROW */
-.linkedin-row {
+/* Social Media ROW */
+/* SOCIAL ROW */
+.social-row {
   display: flex;
   align-items: center;
-
   gap: 8px;
-
   white-space: nowrap;
+  margin-bottom: 16px;
 }
 
 /* ICON */
-.linkedin-icon {
+.social-icon {
   width: 18px;
   height: 18px;
 
-  border-radius: 3px;
+  border-radius: 4px;
 
-  background: #0A66C2;
   color: #fff;
 
   font-size: 11px;
@@ -494,15 +493,24 @@ body {
   flex-shrink: 0;
 }
 
-/* LABEL */
-.linkedin-label {
-  color: #cfcfcf;
+/* FACEBOOK */
+.social-icon.facebook {
+  background: #1877F2;
+}
 
+/* INSTAGRAM */
+.social-icon.instagram {
+  background: #E4405F;
+}
+
+/* LABEL */
+.social-label {
+  color: #cfcfcf;
   font-size: 15px;
 }
 
 /* LINK */
-.linkedin-row a {
+.social-row a {
   display: inline-flex;
   align-items: center;
 
@@ -511,12 +519,12 @@ body {
   color: #cfcfcf;
 
   text-decoration: none;
+
+  transition: 0.3s ease;
 }
 
-.linkedin-row a:hover {
+.social-row a:hover {
   color: #c08a4b;
-
-  transform: none;
 }
 
 /* COPYRIGHT */
