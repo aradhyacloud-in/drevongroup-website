@@ -17,6 +17,18 @@ function openDrawer(product) {
 
   if (!product) return;
 
+   // 2. SAFETY CHECK (ADD THIS HERE ↓↓↓)
+  if (!product || !product.images) {
+    console.error("Invalid product data:", product);
+    return;
+  }
+
+  let mainImage = product.images[0];
+
+  content.innerHTML = `
+    ...
+  `;
+}
   // Set first image as main image
   let mainImage = product.images[0];
 
