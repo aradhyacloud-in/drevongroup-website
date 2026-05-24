@@ -45,10 +45,12 @@ function loadData() {
    OPEN DRAWER BY ID
 ========================================================= */
 function openDrawerById(id) {
-  const product = products.find(p => p.id === id);
-  if (!product) return;
+  const index = products.findIndex(p => p.id === id);
 
-  openDrawer(product);
+  if (index === -1) return;
+
+  currentProductIndex = index;   // IMPORTANT: sync index
+  openDrawer(products[index]);
 }
 
 /* =========================================================
