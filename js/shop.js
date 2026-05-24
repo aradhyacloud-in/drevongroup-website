@@ -1,15 +1,18 @@
+
 let categories = [];
 let products = [];
+let activeCategory = "all";
 
-function openDrawerById(id) {
-  const product = products.find(p => p.id === id);
-  openDrawer(product);
-}
-
+/* =========================================================
+   INIT
+========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
   loadData();
 });
 
+/* =========================================================
+   LOAD JSON DATA
+========================================================= */
 function loadData() {
   Promise.all([
     fetch("../data/wooden-toys.json").then(res => res.json()),
@@ -22,18 +25,38 @@ function loadData() {
 
     renderFilters();
     renderProducts("all");
+
   })
   .catch(err => {
     console.error("Data load error:", err);
-    document.getElementById("productGrid").innerHTML =
-      "<p style='text-align:center;color:red;'>Failed to load products</p>";
+
+    const grid = document.getElementById("productGrid");
+    if (grid) {
+      grid.innerHTML = `
+        <p style="text-align:center;color:red;">
+          Failed to load products
+        </p>
+      `;
+    }
   });
 }
 
-let activeCategory = "all";
+/* =========================================================
+   OPEN DRAWER BY ID
+========================================================= */
+function openDrawerById(id) {
+  const product = products.find(p => p.id === id);
+  if (!product) return;
 
+  openDrawer(product);
+}
+
+/* =========================================================
+   RENDER CATEGORY FILTERS
+========================================================= */
 function renderFilters() {
   const container = document.querySelector(".category-filters");
+  if (!container) return;
 
   let html = `
     <button class="${activeCategory === 'all' ? 'active' : ''}"
@@ -52,12 +75,18 @@ function renderFilters() {
   container.innerHTML = html;
 }
 
+/* =========================================================
+   CHANGE CATEGORY
+========================================================= */
 function setCategory(slug) {
   activeCategory = slug;
   renderFilters();
   renderProducts(slug);
 }
 
+/* =========================================================
+   RENDER PRODUCTS
+========================================================= */
 function renderProducts(slug) {
   const grid = document.getElementById("productGrid");
   if (!grid) return;
@@ -69,13 +98,11 @@ function renderProducts(slug) {
   if (slug === "all") {
     filteredProducts = products;
   } else {
-    filteredProducts = products.filter(p => {
-    return p.category && p.category === slug;
-    });
+    filteredProducts = products.filter(p => p.category === slug);
   }
 
-  // ✅ EMPTY STATE (IMPORTANT UX FIX)
-  if (filteredProducts.length === 0) {
+  /* EMPTY STATE */
+  if (!filteredProducts.length) {
     grid.innerHTML = `
       <div style="
         grid-column: 1 / -1;
@@ -90,18 +117,27 @@ function renderProducts(slug) {
     return;
   }
 
-  // ✅ PRODUCT RENDER
+  /* PRODUCTS */
   filteredProducts.forEach(p => {
+
+    const image = (p.images && p.images.length)
+      ? p.images[0]
+      : "placeholder.jpg";
+
     grid.innerHTML += `
-      grid.innerHTML += `
       <div class="product-card" onclick="openDrawerById('${p.id}')">
-        <img src="../wooden-toys/product-images/${p.image}" alt="${p.name} loading="lazy">
+
+        <img 
+          src="../wooden-toys/product-images/${image}" 
+          alt="${p.name}" 
+          loading="lazy">
 
         <div class="product-info">
           <h3>${p.name}</h3>
           <p class="price">${p.price}</p>
           <p class="desc">${p.description}</p>
         </div>
+
       </div>
     `;
   });
