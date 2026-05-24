@@ -1,19 +1,23 @@
 let categories = [];
+let products = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadShopData();
+  loadData();
 });
 
-function loadShopData() {
-  fetch("../data/wooden-toys.json")
-    .then(res => res.json())
-    .then(data => {
-      categories = data.categories;
+function loadData() {
+  Promise.all([
+    fetch("../data/wooden-toys.json").then(res => res.json()),
+    fetch("../data/wooden-toys-products.json").then(res => res.json())
+  ])
+  .then(([catData, prodData]) => {
+    categories = catData.categories;
+    products = prodData;
 
-      renderFilters();
-      renderProducts("all");
-    })
-    .catch(err => console.error("JSON Load Error:", err));
+    renderFilters();
+    renderProducts("all");
+  })
+  .catch(err => console.error("Data load error:", err));
 }
 
 function renderFilters() {
@@ -22,9 +26,11 @@ function renderFilters() {
   let html = `<button onclick="renderProducts('all')">All Toys</button>`;
 
   categories.forEach(cat => {
-    if (cat.slug !== "all") {
-      html += `<button onclick="renderProducts('${cat.slug}')">${cat.name}</button>`;
-    }
+    html += `
+      <button onclick="renderProducts('${cat.slug}')">
+        ${cat.name}
+      </button>
+    `;
   });
 
   container.innerHTML = html;
@@ -36,24 +42,34 @@ function renderProducts(slug) {
 
   grid.innerHTML = "";
 
-  // Since no products yet, show placeholder UI
-  let message = "";
+  let filteredProducts = [];
 
   if (slug === "all") {
-    message = "Select a category to view products.";
+    filteredProducts = products;
   } else {
-    const category = categories.find(c => c.slug === slug);
-    message = `No products added yet in "${category?.name || "this category"}"`;
+    filteredProducts = products.filter(p => p.category === slug);
   }
 
-  grid.innerHTML = `
-    <div style="
-      text-align:center;
-      padding:40px;
-      color:#666;
-      font-size:16px;
-    ">
-      ${message}
-    </div>
-  `;
+  if (filteredProducts.length === 0) {
+    grid.innerHTML = `
+      <div style="text-align:center;padding:40px;color:#666;">
+        No products available in this category yet.
+      </div>
+    `;
+    return;
+  }
+
+  filteredProducts.forEach(p => {
+    grid.innerHTML += `
+      <div class="product-card">
+        <img src="../wooden-toys/product-images/${p.image}" alt="${p.name}">
+
+        <div class="product-info">
+          <h3>${p.name}</h3>
+          <p class="price">${p.price}</p>
+          <p class="desc">${p.description}</p>
+        </div>
+      </div>
+    `;
+  });
 }
