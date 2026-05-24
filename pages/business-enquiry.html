@@ -102,7 +102,146 @@
         Our team will review your enquiry and get back to you.
       </p>
 
-      <!-- FORM WILL COME HERE IN NEXT STEP -->
+     <form class="business-enquiry-form">
+
+  <!-- FULL NAME -->
+  <div class="form-group">
+
+    <label for="fullName">
+      Full Name
+    </label>
+
+    <input
+      type="text"
+      id="fullName"
+      name="fullName"
+      placeholder="Enter your full name"
+      required
+    >
+
+  </div>
+
+
+  <!-- EMAIL -->
+  <div class="form-group">
+
+    <label for="email">
+      Email Address
+    </label>
+
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="Enter your email address"
+      required
+    >
+
+  </div>
+
+
+  <!-- PHONE -->
+  <div class="form-group">
+
+    <label for="phone">
+      Phone Number
+    </label>
+
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder="Enter your phone number"
+    >
+
+  </div>
+
+
+  <!-- COMPANY -->
+  <div class="form-group">
+
+    <label for="company">
+      Company Name
+    </label>
+
+    <input
+      type="text"
+      id="company"
+      name="company"
+      placeholder="Enter your company name"
+    >
+
+  </div>
+
+
+  <!-- ENQUIRY TYPE -->
+  <div class="form-group">
+
+    <label for="enquiryType">
+      Enquiry Type
+    </label>
+
+    <select
+      id="enquiryType"
+      name="enquiryType"
+      required
+    >
+
+      <option value="">
+        Select an enquiry type
+      </option>
+
+      <option value="nickel">
+        Nickel & Metal Requirement
+      </option>
+
+      <option value="wooden-toys">
+        Wooden Toys
+      </option>
+
+      <option value="partnership">
+        Business Partnership
+      </option>
+
+      <option value="apps-games">
+        Apps / Games / Studio Projects
+      </option>
+
+      <option value="general">
+        General Business Inquiry
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <!-- MESSAGE -->
+  <div class="form-group">
+
+    <label for="message">
+      Requirement Details
+    </label>
+
+    <textarea
+      id="message"
+      name="message"
+      rows="6"
+      placeholder="Tell us about your requirement..."
+      required
+    ></textarea>
+
+  </div>
+
+
+  <!-- SUBMIT BUTTON -->
+  <button type="submit" class="enquiry-submit-btn">
+
+    Submit Business Enquiry
+
+  </button>
+
+</form>
 
     </div>
 
