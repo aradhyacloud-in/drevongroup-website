@@ -1,17 +1,34 @@
 {
   "categories": [
     {
-      "name": "Educational Toys",
-      "slug": "educational",
-      "products": [
-        {
-          "id": "wt001",
-          "name": "Alphabet Board",
-          "price": "₹499",
-          "image": "alphabet.jpg",
-          "description": "Helps kids learn A-Z with wooden tracing."
-        }
-      ]
+      "name": "All Toys",
+      "slug": "all",
+      "products": []
+    },
+    {
+      "name": "Early Explorers (0–2 Years)",
+      "slug": "early-explorers",
+      "products": []
+    },
+    {
+      "name": "Little Builders (3–5 Years)",
+      "slug": "little-builders",
+      "products": []
+    },
+    {
+      "name": "Heritage & Culture",
+      "slug": "heritage-culture",
+      "products": []
+    },
+    {
+      "name": "Nature & Decor",
+      "slug": "nature-decor",
+      "products": []
+    },
+    {
+      "name": "Educational & Montessori",
+      "slug": "educational-montessori",
+      "products": []
     }
   ]
 }
