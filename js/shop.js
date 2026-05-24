@@ -25,20 +25,32 @@ function loadData() {
   });
 }
 
+let activeCategory = "all";
+
 function renderFilters() {
   const container = document.querySelector(".category-filters");
 
-  let html = `<button onclick="renderProducts('all')">All Toys</button>`;
+  let html = `
+    <button class="${activeCategory === 'all' ? 'active' : ''}"
+    onclick="setCategory('all')">All Toys</button>
+  `;
 
   categories.forEach(cat => {
     html += `
-      <button onclick="renderProducts('${cat.slug}')">
+      <button class="${activeCategory === cat.slug ? 'active' : ''}"
+      onclick="setCategory('${cat.slug}')">
         ${cat.name}
       </button>
     `;
   });
 
   container.innerHTML = html;
+}
+
+function setCategory(slug) {
+  activeCategory = slug;
+  renderFilters();
+  renderProducts(slug);
 }
 
 function renderProducts(slug) {
