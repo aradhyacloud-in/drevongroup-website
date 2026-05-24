@@ -3,7 +3,13 @@
     "id": "p1",
     "name": "Baby Rattle Wooden Toy",
     "price": "₹299",
-    "image": "rattle.jpg",
+    
+    "images": [
+      "rattle.jpg",
+      "rattle-2.jpg",
+      "rattle-3.jpg"
+    ],
+    
     "description": "Safe sensory toy for infants",
     "category": "early-explorers"
   },
@@ -11,7 +17,13 @@
     "id": "p2",
     "name": "Wooden Stacking Rings",
     "price": "₹399",
-    "image": "stacking.jpg",
+    
+   "images": [
+      "rattle.jpg",
+      "rattle-2.jpg",
+      "rattle-3.jpg"
+    ],
+    
     "description": "Build motor skills and coordination",
     "category": "little-builders"
   },
@@ -19,7 +31,13 @@
     "id": "p3",
     "name": "Traditional Spinning Top",
     "price": "₹199",
-    "image": "top.jpg",
+    
+    "images": [
+      "rattle.jpg",
+      "rattle-2.jpg",
+      "rattle-3.jpg"
+    ],
+    
     "description": "Heritage Indian toy",
     "category": "heritage-culture"
   },
@@ -27,7 +45,13 @@
     "id": "p4",
     "name": "Wooden Wall Decor Elephant",
     "price": "₹599",
-    "image": "elephant.jpg",
+    
+    "images": [
+      "rattle.jpg",
+      "rattle-2.jpg",
+      "rattle-3.jpg"
+    ],
+    
     "description": "Aesthetic nursery decor piece",
     "category": "nature-decor"
   },
@@ -35,7 +59,13 @@
     "id": "p5",
     "name": "Alphabet Learning Set",
     "price": "₹499",
-    "image": "alphabet.jpg",
+    
+    "images": [
+      "rattle.jpg",
+      "rattle-2.jpg",
+      "rattle-3.jpg"
+    ],
+
     "description": "Montessori learning kit",
     "category": "educational-montessori"
   }
