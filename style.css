@@ -1232,14 +1232,18 @@ body {
 
   text-decoration: none;
 
-  font-size: 14px;
+  font-size: 16px;
 
   font-weight: 600;
 
   transition: 0.3s ease;
 
 }
+.whatsapp-followup-btn i {
 
+  font-size: 22px;
+
+}
 
 /* HOVER */
 
