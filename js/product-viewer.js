@@ -4,7 +4,14 @@
    - Opens product detail drawer
    - Handles image gallery
    - Handles close behavior
+   - NOW: supports next/prev product switching
    ========================================================= */
+
+
+/* =========================================================
+   GLOBAL STATE
+========================================================= */
+let currentProductIndex = null;
 
 
 /* =========================================================
@@ -17,18 +24,13 @@ function openDrawer(product) {
 
   if (!product) return;
 
-  /* -------------------------------
-     SAFETY CHECK
-  ------------------------------- */
+  // SAFE IMAGE HANDLING
   if (!product.images || product.images.length === 0) {
     product.images = ["placeholder.jpg"];
   }
 
   let mainImage = product.images[0];
 
-  /* =========================================================
-     2. RENDER PRODUCT CONTENT
-  ========================================================= */
   content.innerHTML = `
     <!-- MAIN IMAGE -->
     <div class="main-image">
@@ -55,6 +57,27 @@ function openDrawer(product) {
     <!-- DESCRIPTION -->
     <p>${product.description}</p>
 
+    <!-- NAVIGATION BUTTONS (NEW) -->
+    <div style="display:flex; gap:10px; margin-top:10px;">
+      <button onclick="prevProduct()" style="
+        flex:1;
+        padding:10px;
+        border:none;
+        background:#eee;
+        cursor:pointer;
+        border-radius:6px;
+      ">← Prev</button>
+
+      <button onclick="nextProduct()" style="
+        flex:1;
+        padding:10px;
+        border:none;
+        background:#eee;
+        cursor:pointer;
+        border-radius:6px;
+      ">Next →</button>
+    </div>
+
     <!-- ACTION BUTTON -->
     <button style="
       margin-top:15px;
@@ -70,28 +93,89 @@ function openDrawer(product) {
     </button>
   `;
 
-  /* =========================================================
-     3. SHOW DRAWER
-  ========================================================= */
   drawer.classList.add("active");
   overlay.classList.add("active");
 }
 
 
 /* =========================================================
-   4. CLOSE DRAWER
+   2. UPDATE DRAWER (NEW - NO REOPENING)
 ========================================================= */
-function closeDrawer() {
-  const drawer = document.getElementById("productDrawer");
-  const overlay = document.getElementById("productDrawerOverlay");
+function updateDrawer(product) {
+  const content = document.getElementById("drawerContent");
 
-  drawer.classList.remove("active");
-  overlay.classList.remove("active");
+  if (!product) return;
+
+  if (!product.images || product.images.length === 0) {
+    product.images = ["placeholder.jpg"];
+  }
+
+  let mainImage = product.images[0];
+
+  content.innerHTML = `
+    <div class="main-image">
+      <img id="mainProductImage"
+           src="../wooden-toys/product-images/${mainImage}">
+    </div>
+
+    <div class="thumbnails">
+      ${product.images.map(img => `
+        <img src="../wooden-toys/product-images/${img}"
+             onclick="changeImage('${img}')">
+      `).join("")}
+    </div>
+
+    <h2>${product.name}</h2>
+    <div class="price">${product.price}</div>
+    <p>${product.description}</p>
+
+    <div style="display:flex; gap:10px; margin-top:10px;">
+      <button onclick="prevProduct()" style="
+        flex:1;
+        padding:10px;
+        border:none;
+        background:#eee;
+        cursor:pointer;
+        border-radius:6px;
+      ">← Prev</button>
+
+      <button onclick="nextProduct()" style="
+        flex:1;
+        padding:10px;
+        border:none;
+        background:#eee;
+        cursor:pointer;
+        border-radius:6px;
+      ">Next →</button>
+    </div>
+
+    <button style="
+      margin-top:15px;
+      padding:10px 15px;
+      width:100%;
+      background:black;
+      color:white;
+      border:none;
+      cursor:pointer;
+      border-radius:6px;
+    ">
+      Add to Cart (Coming Soon)
+    </button>
+  `;
 }
 
 
 /* =========================================================
-   5. CHANGE IMAGE (THUMBNAILS)
+   3. CLOSE DRAWER
+========================================================= */
+function closeDrawer() {
+  document.getElementById("productDrawer").classList.remove("active");
+  document.getElementById("productDrawerOverlay").classList.remove("active");
+}
+
+
+/* =========================================================
+   4. CHANGE IMAGE (THUMBNAILS)
 ========================================================= */
 function changeImage(img) {
   const mainImg = document.getElementById("mainProductImage");
@@ -103,7 +187,7 @@ function changeImage(img) {
 
 
 /* =========================================================
-   6. CLICK OUTSIDE TO CLOSE
+   5. CLICK OUTSIDE TO CLOSE
 ========================================================= */
 document.addEventListener("click", function (e) {
   const overlay = document.getElementById("productDrawerOverlay");
@@ -112,3 +196,23 @@ document.addEventListener("click", function (e) {
     closeDrawer();
   }
 });
+
+
+/* =========================================================
+   6. NEXT / PREV PRODUCT (AMAZON STYLE)
+========================================================= */
+function nextProduct() {
+  if (currentProductIndex === null) return;
+
+  currentProductIndex = (currentProductIndex + 1) % products.length;
+  updateDrawer(products[currentProductIndex]);
+}
+
+function prevProduct() {
+  if (currentProductIndex === null) return;
+
+  currentProductIndex =
+    (currentProductIndex - 1 + products.length) % products.length;
+
+  updateDrawer(products[currentProductIndex]);
+}
