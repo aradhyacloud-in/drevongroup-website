@@ -1,1 +1,17 @@
-
+{
+  "categories": [
+    {
+      "name": "Educational Toys",
+      "slug": "educational",
+      "products": [
+        {
+          "id": "wt001",
+          "name": "Alphabet Board",
+          "price": "₹499",
+          "image": "alphabet.jpg",
+          "description": "Helps kids learn A-Z with wooden tracing."
+        }
+      ]
+    }
+  ]
+}
