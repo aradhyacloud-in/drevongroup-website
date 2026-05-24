@@ -9,10 +9,11 @@ function loadShopData() {
     .then(res => res.json())
     .then(data => {
       categories = data.categories;
+
       renderFilters();
       renderProducts("all");
     })
-    .catch(err => console.error("Failed to load JSON:", err));
+    .catch(err => console.error("JSON Load Error:", err));
 }
 
 function renderFilters() {
@@ -21,7 +22,9 @@ function renderFilters() {
   let html = `<button onclick="renderProducts('all')">All Toys</button>`;
 
   categories.forEach(cat => {
-    html += `<button onclick="renderProducts('${cat.slug}')">${cat.name}</button>`;
+    if (cat.slug !== "all") {
+      html += `<button onclick="renderProducts('${cat.slug}')">${cat.name}</button>`;
+    }
   });
 
   container.innerHTML = html;
@@ -33,33 +36,24 @@ function renderProducts(slug) {
 
   grid.innerHTML = "";
 
-  let products = [];
+  // Since no products yet, show placeholder UI
+  let message = "";
 
   if (slug === "all") {
-    categories.forEach(cat => {
-      products.push(...cat.products);
-    });
+    message = "Select a category to view products.";
   } else {
     const category = categories.find(c => c.slug === slug);
-    products = category ? category.products : [];
+    message = `No products added yet in "${category?.name || "this category"}"`;
   }
 
-  if (products.length === 0) {
-    grid.innerHTML = "<p>No products found</p>";
-    return;
-  }
-
-  products.forEach(p => {
-    grid.innerHTML += `
-      <div class="product-card">
-        <img src="../wooden-toys/product-images/${p.image}" alt="${p.name}" />
-
-        <div class="product-info">
-          <h3>${p.name}</h3>
-          <p class="price">${p.price}</p>
-          <p class="desc">${p.description}</p>
-        </div>
-      </div>
-    `;
-  });
+  grid.innerHTML = `
+    <div style="
+      text-align:center;
+      padding:40px;
+      color:#666;
+      font-size:16px;
+    ">
+      ${message}
+    </div>
+  `;
 }
