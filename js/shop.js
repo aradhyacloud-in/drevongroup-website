@@ -1,18 +1,18 @@
 let categories = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadProducts();
+  loadShopData();
 });
 
-function loadProducts() {
-  fetch("/data/wooden-toys.json")
+function loadShopData() {
+  fetch("../data/wooden-toys.json")
     .then(res => res.json())
     .then(data => {
       categories = data.categories;
       renderFilters();
       renderProducts("all");
     })
-    .catch(err => console.error("JSON Load Error:", err));
+    .catch(err => console.error("Failed to load JSON:", err));
 }
 
 function renderFilters() {
@@ -44,11 +44,16 @@ function renderProducts(slug) {
     products = category ? category.products : [];
   }
 
+  if (products.length === 0) {
+    grid.innerHTML = "<p>No products found</p>";
+    return;
+  }
+
   products.forEach(p => {
     grid.innerHTML += `
       <div class="product-card">
-        <img src="/wooden-toys/product-images/${p.image}" alt="${p.name}">
-        
+        <img src="../wooden-toys/product-images/${p.image}" alt="${p.name}" />
+
         <div class="product-info">
           <h3>${p.name}</h3>
           <p class="price">${p.price}</p>
