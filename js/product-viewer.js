@@ -1,3 +1,4 @@
+
 /* =========================================================
    PRODUCT VIEWER SYSTEM (DRAWER)
    - Opens product detail drawer
@@ -8,7 +9,6 @@
 
 /* =========================================================
    1. OPEN DRAWER FUNCTION
-   Called from shop.js when product is clicked
 ========================================================= */
 function openDrawer(product) {
   const drawer = document.getElementById("productDrawer");
@@ -17,23 +17,17 @@ function openDrawer(product) {
 
   if (!product) return;
 
-   // 2. SAFETY CHECK (ADD THIS HERE ↓↓↓)
-  if (!product || !product.images) {
-    console.error("Invalid product data:", product);
-    return;
+  /* -------------------------------
+     SAFETY CHECK
+  ------------------------------- */
+  if (!product.images || product.images.length === 0) {
+    product.images = ["placeholder.jpg"];
   }
 
   let mainImage = product.images[0];
 
-  content.innerHTML = `
-    ...
-  `;
-}
-  // Set first image as main image
-  let mainImage = product.images[0];
-
   /* =========================================================
-     2. RENDER PRODUCT INSIDE DRAWER
+     2. RENDER PRODUCT CONTENT
   ========================================================= */
   content.innerHTML = `
     <!-- MAIN IMAGE -->
@@ -43,7 +37,7 @@ function openDrawer(product) {
            alt="${product.name}">
     </div>
 
-    <!-- THUMBNAIL GALLERY -->
+    <!-- THUMBNAILS -->
     <div class="thumbnails">
       ${product.images.map(img => `
         <img src="../wooden-toys/product-images/${img}"
@@ -52,7 +46,7 @@ function openDrawer(product) {
       `).join("")}
     </div>
 
-    <!-- PRODUCT NAME -->
+    <!-- TITLE -->
     <h2>${product.name}</h2>
 
     <!-- PRICE -->
@@ -77,7 +71,7 @@ function openDrawer(product) {
   `;
 
   /* =========================================================
-     3. OPEN DRAWER + OVERLAY
+     3. SHOW DRAWER
   ========================================================= */
   drawer.classList.add("active");
   overlay.classList.add("active");
@@ -85,25 +79,31 @@ function openDrawer(product) {
 
 
 /* =========================================================
-   4. CLOSE DRAWER FUNCTION
+   4. CLOSE DRAWER
 ========================================================= */
 function closeDrawer() {
-  document.getElementById("productDrawer").classList.remove("active");
-  document.getElementById("productDrawerOverlay").classList.remove("active");
+  const drawer = document.getElementById("productDrawer");
+  const overlay = document.getElementById("productDrawerOverlay");
+
+  drawer.classList.remove("active");
+  overlay.classList.remove("active");
 }
 
 
 /* =========================================================
-   5. IMAGE SWITCH FUNCTION (THUMBNAILS)
+   5. CHANGE IMAGE (THUMBNAILS)
 ========================================================= */
 function changeImage(img) {
-  document.getElementById("mainProductImage").src =
-    "../wooden-toys/product-images/" + img;
+  const mainImg = document.getElementById("mainProductImage");
+
+  if (!mainImg) return;
+
+  mainImg.src = "../wooden-toys/product-images/" + img;
 }
 
 
 /* =========================================================
-   6. CLICK OUTSIDE TO CLOSE DRAWER
+   6. CLICK OUTSIDE TO CLOSE
 ========================================================= */
 document.addEventListener("click", function (e) {
   const overlay = document.getElementById("productDrawerOverlay");
