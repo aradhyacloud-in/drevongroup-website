@@ -928,3 +928,267 @@ body {
     font-size: 14px;
   }
 }
+
+/* =========================================================
+   BUSINESS ENQUIRY PAGE
+   ========================================================= */
+
+
+/* =========================
+   ENQUIRY HERO
+========================= */
+
+.enquiry-hero {
+
+  padding: 140px 20px 90px;
+
+  text-align: center;
+
+}
+
+.enquiry-hero-content {
+
+  max-width: 900px;
+
+  margin: auto;
+
+}
+
+.enquiry-hero h1 {
+
+  margin-top: 18px;
+
+  font-size: 62px;
+
+  line-height: 1.1;
+
+}
+
+.enquiry-hero .subtext {
+
+  margin-top: 22px;
+
+}
+
+
+/* =========================
+   ENQUIRY SECTION
+========================= */
+
+.business-enquiry-section {
+
+  padding: 40px 20px 120px;
+
+}
+
+.enquiry-container {
+
+  max-width: 850px;
+
+  margin: auto;
+
+  padding: 50px;
+
+  border-radius: 24px;
+
+  background: rgba(255,255,255,0.03);
+
+  border: 1px solid rgba(255,215,0,0.08);
+
+  backdrop-filter: blur(12px);
+
+}
+
+.enquiry-container h2 {
+
+  margin-bottom: 14px;
+
+  text-align: center;
+
+  font-size: 40px;
+
+}
+
+.enquiry-container .section-sub {
+
+  margin-bottom: 45px;
+
+  text-align: center;
+
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.business-enquiry-form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 28px;
+
+}
+
+
+/* FORM GROUP */
+
+.form-group {
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+
+/* LABELS */
+
+.form-group label {
+
+  margin-bottom: 12px;
+
+  color: #d4af37;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+}
+
+
+/* INPUTS + SELECT + TEXTAREA */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+  width: 100%;
+
+  padding: 16px 18px;
+
+  border: 1px solid rgba(255,215,0,0.15);
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,0.04);
+
+  color: #fff;
+
+  font-size: 15px;
+
+  outline: none;
+
+  transition: 0.3s ease;
+
+}
+
+
+/* PLACEHOLDER */
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+
+  color: #999;
+
+}
+
+
+/* FOCUS */
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+  border-color: #d4af37;
+
+  box-shadow: 0 0 0 4px rgba(212,175,55,0.08);
+
+}
+
+
+/* TEXTAREA */
+
+.form-group textarea {
+
+  resize: vertical;
+
+  min-height: 150px;
+
+}
+
+
+/* SELECT DROPDOWN */
+
+.form-group select {
+
+  cursor: pointer;
+
+}
+
+
+/* SUBMIT BUTTON */
+
+.enquiry-submit-btn {
+
+  margin-top: 12px;
+
+  padding: 18px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #d4af37;
+
+  color: #000;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+}
+
+
+/* BUTTON HOVER */
+
+.enquiry-submit-btn:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 30px rgba(212,175,55,0.18);
+
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+  .enquiry-hero h1 {
+
+    font-size: 42px;
+
+  }
+
+  .enquiry-container {
+
+    padding: 35px 25px;
+
+  }
+
+  .enquiry-container h2 {
+
+    font-size: 30px;
+
+  }
+
+}
