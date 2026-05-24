@@ -80,3 +80,78 @@ body {
   color: green;
   font-weight: bold;
 }
+
+/* =========================
+   DRAWER OVERLAY
+========================= */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 999;
+}
+
+/* ACTIVE OVERLAY */
+.drawer-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* =========================
+   PRODUCT DRAWER PANEL
+========================= */
+.product-drawer {
+  position: fixed;
+  top: 0;
+  right: -450px;
+  width: 400px;
+  height: 100%;
+  background: white;
+  box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+  transition: 0.35s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* ACTIVE DRAWER */
+.product-drawer.active {
+  right: 0;
+}
+
+/* CLOSE BUTTON */
+.drawer-close {
+  font-size: 22px;
+  cursor: pointer;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+/* DRAWER CONTENT */
+#drawerContent img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+#drawerContent h2 {
+  margin: 10px 0;
+}
+
+#drawerContent .price {
+  color: green;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#drawerContent p {
+  color: #555;
+  line-height: 1.5;
+}
