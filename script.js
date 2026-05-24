@@ -181,6 +181,8 @@ const enquiryForm =
 
 const formStatusMessage =
   document.querySelector(".form-status-message");
+const whatsappFollowupBtn =
+  document.querySelector(".whatsapp-followup-btn");
 
 
 /* ---------------------------------------------------------
@@ -225,15 +227,24 @@ if (enquiryForm) {
          SUCCESS
       --------------------------------------------------- */
 
-      if (result.success) {
+     if (result.success) {
 
         formStatusMessage.textContent =
           "Business enquiry submitted successfully.";
-
+      
         enquiryForm.reset();
-
+      
+      
+        /* SHOW WHATSAPP BUTTON */
+      
+        if (whatsappFollowupBtn) {
+      
+          whatsappFollowupBtn.style.display =
+            "inline-block";
+      
+        }
+      
       }
-
 
       /* ---------------------------------------------------
          ERROR
