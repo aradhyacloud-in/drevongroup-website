@@ -1,11 +1,6 @@
 {
   "categories": [
     {
-      "name": "All Toys",
-      "slug": "all",
-      "products": []
-    },
-    {
       "name": "Early Explorers (0–2 Years)",
       "slug": "early-explorers",
       "products": []
