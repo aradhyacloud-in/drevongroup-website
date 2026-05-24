@@ -1,6 +1,11 @@
 let categories = [];
 let products = [];
 
+function openDrawerById(id) {
+  const product = products.find(p => p.id === id);
+  openDrawer(product);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   loadData();
 });
@@ -88,7 +93,8 @@ function renderProducts(slug) {
   // ✅ PRODUCT RENDER
   filteredProducts.forEach(p => {
     grid.innerHTML += `
-      <div class="product-card" onclick='openDrawer(${JSON.stringify(p)})'>
+      grid.innerHTML += `
+      <div class="product-card" onclick="openDrawerById('${p.id}')">
         <img src="../wooden-toys/product-images/${p.image}" alt="${p.name} loading="lazy">
 
         <div class="product-info">
