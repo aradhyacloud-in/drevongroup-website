@@ -1192,3 +1192,21 @@ body {
   }
 
 }
+
+/* =========================
+   FORM STATUS MESSAGE
+========================= */
+
+.form-status-message {
+
+  margin-top: 18px;
+
+  text-align: center;
+
+  color: #d4af37;
+
+  font-size: 15px;
+
+  line-height: 1.6;
+
+}
