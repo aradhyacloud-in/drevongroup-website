@@ -170,19 +170,99 @@ if (slides.length > 0 && nextBtn && prevBtn) {
    ========================================================= */
 
 /*
-  Future enquiry form logic will go here.
-
-  Example:
-  - form validation
-  - dropdown handling
-  - conditional fields
-  - form submission
-  - email integration
-  - WhatsApp integration
-
-  IMPORTANT:
-  Keep all enquiry-related JS inside this section only.
+  Handles:
+  - AJAX form submission
+  - success/error messages
+  - keeps users on website
 */
+
+const enquiryForm =
+  document.getElementById("businessEnquiryForm");
+
+const formStatusMessage =
+  document.querySelector(".form-status-message");
+
+
+/* ---------------------------------------------------------
+   AJAX FORM SUBMISSION
+--------------------------------------------------------- */
+
+if (enquiryForm) {
+
+  enquiryForm.addEventListener("submit", async function (event) {
+
+    event.preventDefault();
+
+    formStatusMessage.textContent =
+      "Submitting your enquiry...";
+
+
+    /* -----------------------------------------------------
+       FORM DATA
+    ----------------------------------------------------- */
+
+    const formData = new FormData(enquiryForm);
+
+
+    /* -----------------------------------------------------
+       SEND DATA TO WEB3FORMS
+    ----------------------------------------------------- */
+
+    try {
+
+      const response = await fetch(
+        "https://api.web3forms.com/submit",
+        {
+          method: "POST",
+          body: formData
+        }
+      );
+
+      const result = await response.json();
+
+
+      /* ---------------------------------------------------
+         SUCCESS
+      --------------------------------------------------- */
+
+      if (result.success) {
+
+        formStatusMessage.textContent =
+          "Business enquiry submitted successfully.";
+
+        enquiryForm.reset();
+
+      }
+
+
+      /* ---------------------------------------------------
+         ERROR
+      --------------------------------------------------- */
+
+      else {
+
+        formStatusMessage.textContent =
+          "Something went wrong. Please try again.";
+
+      }
+
+    }
+
+
+    /* -----------------------------------------------------
+       NETWORK ERROR
+    ----------------------------------------------------- */
+
+    catch (error) {
+
+      formStatusMessage.textContent =
+        "Network error. Please try again later.";
+
+    }
+
+  });
+
+}
 
 
 
