@@ -12,6 +12,21 @@ body {
   color: white;
 }
 
+/* SEARCH BAR */
+.shop-search {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.shop-search input {
+  width: 60%;
+  max-width: 400px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
 /* FILTERS */
 .category-filters {
   display: flex;
@@ -27,6 +42,12 @@ body {
   border-radius: 20px;
   background: #ddd;
   cursor: pointer;
+}
+
+/* ACTIVE CATEGORY BUTTON */
+.category-filters button.active {
+  background: black;
+  color: white;
 }
 
 /* PRODUCT GRID */
