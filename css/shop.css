@@ -155,3 +155,19 @@ body {
   color: #555;
   line-height: 1.5;
 }
+
+
+/* =========================================
+   DRAWER FADE ANIMATION
+========================================= */
+
+.drawer-content-fade {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.25s ease;
+}
+
+.drawer-content-show {
+  opacity: 1;
+  transform: translateY(0);
+}
