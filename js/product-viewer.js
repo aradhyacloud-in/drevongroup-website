@@ -95,6 +95,7 @@ function openDrawer(product) {
 
   drawer.classList.add("active");
   overlay.classList.add("active");
+  content.classList.add("drawer-content-show");
 }
 
 
@@ -106,64 +107,79 @@ function updateDrawer(product) {
 
   if (!product) return;
 
-  if (!product.images || product.images.length === 0) {
-    product.images = ["placeholder.jpg"];
-  }
+  // START FADE OUT
+  content.classList.remove("drawer-content-show");
+  content.classList.add("drawer-content-fade");
 
-  let mainImage = product.images[0];
+  setTimeout(() => {
 
-  content.innerHTML = `
-    <div class="main-image">
-      <img id="mainProductImage"
-           src="../wooden-toys/product-images/${mainImage}">
-    </div>
+    // SAFE IMAGE HANDLING
+    if (!product.images || product.images.length === 0) {
+      product.images = ["placeholder.jpg"];
+    }
 
-    <div class="thumbnails">
-      ${product.images.map(img => `
-        <img src="../wooden-toys/product-images/${img}"
-             onclick="changeImage('${img}')">
-      `).join("")}
-    </div>
+    let mainImage = product.images[0];
 
-    <h2>${product.name}</h2>
-    <div class="price">${product.price}</div>
-    <p>${product.description}</p>
+    // UPDATE CONTENT
+    content.innerHTML = `
+      <div class="main-image">
+        <img id="mainProductImage"
+             src="../wooden-toys/product-images/${mainImage}">
+      </div>
 
-    <div style="display:flex; gap:10px; margin-top:10px;">
-      <button onclick="prevProduct()" style="
-        flex:1;
-        padding:10px;
+      <div class="thumbnails">
+        ${product.images.map(img => `
+          <img src="../wooden-toys/product-images/${img}"
+               onclick="changeImage('${img}')">
+        `).join("")}
+      </div>
+
+      <h2>${product.name}</h2>
+
+      <div class="price">${product.price}</div>
+
+      <p>${product.description}</p>
+
+      <div style="display:flex; gap:10px; margin-top:10px;">
+        <button onclick="prevProduct()" style="
+          flex:1;
+          padding:10px;
+          border:none;
+          background:#eee;
+          cursor:pointer;
+          border-radius:6px;
+        ">← Prev</button>
+
+        <button onclick="nextProduct()" style="
+          flex:1;
+          padding:10px;
+          border:none;
+          background:#eee;
+          cursor:pointer;
+          border-radius:6px;
+        ">Next →</button>
+      </div>
+
+      <button style="
+        margin-top:15px;
+        padding:10px 15px;
+        width:100%;
+        background:black;
+        color:white;
         border:none;
-        background:#eee;
         cursor:pointer;
         border-radius:6px;
-      ">← Prev</button>
+      ">
+        Add to Cart (Coming Soon)
+      </button>
+    `;
 
-      <button onclick="nextProduct()" style="
-        flex:1;
-        padding:10px;
-        border:none;
-        background:#eee;
-        cursor:pointer;
-        border-radius:6px;
-      ">Next →</button>
-    </div>
+    // FADE IN
+    content.classList.remove("drawer-content-fade");
+    content.classList.add("drawer-content-show");
 
-    <button style="
-      margin-top:15px;
-      padding:10px 15px;
-      width:100%;
-      background:black;
-      color:white;
-      border:none;
-      cursor:pointer;
-      border-radius:6px;
-    ">
-      Add to Cart (Coming Soon)
-    </button>
-  `;
+  }, 150);
 }
-
 
 /* =========================================================
    3. CLOSE DRAWER
