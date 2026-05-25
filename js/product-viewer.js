@@ -79,18 +79,18 @@ function openDrawer(product) {
     </div>
 
     <!-- ACTION BUTTON -->
-    <button style="
-      margin-top:15px;
-      padding:10px 15px;
-      width:100%;
-      background:black;
-      color:white;
-      border:none;
-      cursor:pointer;
-      border-radius:6px;
-    ">
-      Add to Cart (Coming Soon)
-    </button>
+    <button onclick='addToCart(${JSON.stringify(product)})' style="
+     margin-top:15px;
+     padding:10px 15px;
+     width:100%;
+     background:black;
+     color:white;
+     border:none;
+     cursor:pointer;
+     border-radius:6px;
+      ">
+     Add to Cart
+   </button>
   `;
 
   drawer.classList.add("active");
