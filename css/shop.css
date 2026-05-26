@@ -377,7 +377,7 @@ body {
 
 .toast-notification {
   position: fixed;
-  bottom: 540px;
+  bottom: 500px;
   right: 30px;
   background: black;
   color: white;
