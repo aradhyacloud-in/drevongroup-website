@@ -278,3 +278,32 @@ body {
   min-width: 20px;
   text-align: center;
 }
+
+/* =========================================
+   CART QUANTITY CONTROLS
+========================================= */
+
+.cart-quantity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.cart-quantity button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: black;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.cart-quantity span {
+  font-size: 16px;
+  font-weight: bold;
+  min-width: 20px;
+  text-align: center;
+}
