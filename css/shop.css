@@ -371,3 +371,29 @@ body {
     top: unset;
   }
 }
+/* =========================================
+   TOAST NOTIFICATION
+========================================= */
+
+.toast-notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: black;
+  color: white;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.35s ease;
+  z-index: 99999;
+}
+
+/* SHOW TOAST */
+.toast-show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
