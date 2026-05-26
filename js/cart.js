@@ -59,3 +59,23 @@ function updateCartCount() {
 document.addEventListener("DOMContentLoaded", () => {
   updateCartCount();
 });
+
+/* =========================================
+   TOAST NOTIFICATION
+========================================= */
+
+function showToast(message) {
+
+  const toast =
+    document.getElementById("toastNotification");
+
+  if (!toast) return;
+
+  toast.innerText = "✓ " + message;
+
+  toast.classList.add("toast-show");
+
+  setTimeout(() => {
+    toast.classList.remove("toast-show");
+  }, 2500);
+}
