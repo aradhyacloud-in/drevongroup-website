@@ -33,9 +33,7 @@ function addToCart(product, quantity = 1) {
   }
 
   saveCart();
-
-  // Optional feedback
-  alert(product.name + " added to cart");
+ 
 }
 
 /* =========================================
