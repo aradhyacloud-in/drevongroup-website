@@ -33,6 +33,7 @@ function addToCart(product, quantity = 1) {
   }
 
   saveCart();
+  showToast(product.name + " added to cart");
  
 }
 
