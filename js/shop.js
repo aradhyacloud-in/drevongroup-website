@@ -128,7 +128,9 @@ function renderProducts(slug) {
 
     grid.innerHTML += `
       <div class="product-card" onclick="openDrawerById('${p.id}')">
-
+      
+      ${getBadgeByCategory(p.category)}
+      
         <img 
           src="../wooden-toys/product-images/${image}" 
           alt="${p.name}" 
@@ -143,4 +145,32 @@ function renderProducts(slug) {
       </div>
     `;
   });
+}
+
+/* =========================================================
+   CATEGORY BADGE SYSTEM
+========================================================= */
+
+function getBadgeByCategory(category) {
+
+  switch(category) {
+
+    case "early-explorers":
+      return `<div class="product-badge">Sensory Play</div>`;
+
+    case "little-builders":
+      return `<div class="product-badge">Motor Skills</div>`;
+
+    case "heritage-culture":
+      return `<div class="product-badge">Heritage Toy</div>`;
+
+    case "nature-decor":
+      return `<div class="product-badge">Nursery Decor</div>`;
+
+    case "educational-montessori":
+      return `<div class="product-badge">Montessori</div>`;
+
+    default:
+      return "";
+  }
 }
