@@ -397,3 +397,13 @@ body {
   visibility: visible;
   transform: translateY(0);
 }
+/* MOBILE TOAST */
+@media (max-width: 768px) {
+
+  .toast-notification {
+    right: 15px;
+    left: 15px;
+    bottom: 20px;
+    text-align: center;
+  }
+}
