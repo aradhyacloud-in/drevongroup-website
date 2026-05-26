@@ -30,10 +30,19 @@ function renderCartPage() {
   }
 
   // RENDER ITEMS
-  let html = "";
+   let html = "";
+   let totalItems = 0;
+   let subtotal = 0;
 
   cart.forEach((item, index) => {
-
+      totalItems += item.quantity;
+      
+      /* REMOVE ₹ SYMBOL FOR CALCULATION */
+      const numericPrice =
+        Number(item.price.replace(/[^\d]/g, ""));
+      
+      subtotal += numericPrice * item.quantity;
+     
     html += `
       <div class="cart-item">
 
@@ -68,6 +77,11 @@ function renderCartPage() {
   });
 
   container.innerHTML = html;
+   document.getElementById("summaryItems").innerText =
+   totalItems;
+   
+   document.getElementById("summaryTotal").innerText =
+     "₹" + subtotal;
 }
 
 /* =========================================
