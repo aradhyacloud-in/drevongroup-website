@@ -105,6 +105,40 @@ body {
 }
 
 /* =========================================
+   PRODUCT BADGE
+========================================= */
+
+.product-badge {
+
+  position: absolute;
+
+  top: 14px;
+
+  left: 14px;
+
+  background: rgba(0,0,0,0.85);
+
+  color: white;
+
+  padding: 7px 14px;
+
+  border-radius: 30px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  z-index: 5;
+
+  letter-spacing: 0.4px;
+
+  backdrop-filter: blur(4px);
+
+  box-shadow:
+    0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* =========================================
    PRODUCT IMAGE
 ========================================= */
 
