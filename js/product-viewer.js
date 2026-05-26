@@ -173,7 +173,7 @@ function updateDrawer(product) {
         ">Next →</button>
       </div>
 
-      <button style="
+      <button onclick='addToCart(products[currentProductIndex], selectedQuantity)' style="
         margin-top:15px;
         padding:10px 15px;
         width:100%;
@@ -182,9 +182,9 @@ function updateDrawer(product) {
         border:none;
         cursor:pointer;
         border-radius:6px;
-      ">
-        Add to Cart (Coming Soon)
-      </button>
+         ">
+        Add to Cart
+         </button>
     `;
 
     // FADE IN
