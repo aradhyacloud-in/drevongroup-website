@@ -12,6 +12,7 @@
    GLOBAL STATE
 ========================================================= */
 let currentProductIndex = null;
+let selectedQuantity = 1;
 
 
 /* =========================================================
@@ -30,6 +31,7 @@ function openDrawer(product) {
   }
 
   let mainImage = product.images[0];
+   selectedQuantity = 1;
 
   content.innerHTML = `
     <!-- MAIN IMAGE -->
@@ -78,8 +80,19 @@ function openDrawer(product) {
       ">Next →</button>
     </div>
 
+
+      <!-- QUANTITY SELECTOR -->
+      <div class="quantity-selector">
+      
+        <button onclick="decreaseQuantity()">−</button>
+      
+        <span id="quantityValue">1</span>
+      
+        <button onclick="increaseQuantity()">+</button>
+      
+      </div>
     <!-- ACTION BUTTON -->
-    <button onclick='addToCart(${JSON.stringify(product)})' style="
+    <button onclick='addToCart(${JSON.stringify(product)}, selectedQuantity)' style="
      margin-top:15px;
      padding:10px 15px;
      width:100%;
@@ -231,4 +244,34 @@ function prevProduct() {
     (currentProductIndex - 1 + products.length) % products.length;
 
   updateDrawer(products[currentProductIndex]);
+}
+
+/* =========================================================
+   QUANTITY SYSTEM
+========================================================= */
+
+function increaseQuantity() {
+
+  selectedQuantity++;
+
+  updateQuantityUI();
+}
+
+function decreaseQuantity() {
+
+  if (selectedQuantity > 1) {
+    selectedQuantity--;
+  }
+
+  updateQuantityUI();
+}
+
+function updateQuantityUI() {
+
+  const quantityElement =
+    document.getElementById("quantityValue");
+
+  if (!quantityElement) return;
+
+  quantityElement.innerText = selectedQuantity;
 }
