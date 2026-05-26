@@ -132,6 +132,7 @@ function updateDrawer(product) {
     }
 
     let mainImage = product.images[0];
+     selectedQuantity = 1;
 
     // UPDATE CONTENT
     content.innerHTML = `
@@ -172,6 +173,17 @@ function updateDrawer(product) {
           border-radius:6px;
         ">Next →</button>
       </div>
+
+<!-- QUANTITY SELECTOR -->
+         <div class="quantity-selector">
+         
+           <button onclick="decreaseQuantity()">−</button>
+         
+           <span id="quantityValue">${selectedQuantity}</span>
+         
+           <button onclick="increaseQuantity()">+</button>
+         
+         </div>
 
       <button onclick='addToCart(products[currentProductIndex], selectedQuantity)' style="
         margin-top:15px;
