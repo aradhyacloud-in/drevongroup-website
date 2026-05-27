@@ -193,6 +193,35 @@ body {
   line-height: 1.6;
 }
 
+/* =========================================
+   PRODUCT CARD LINK
+========================================= */
+
+.product-link {
+
+  margin-top: 16px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #111;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  transition: 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.product-card:hover .product-link {
+
+  transform: translateX(4px);
+}
+
 /* PRODUCT PRICE */
 .price {
 
@@ -204,6 +233,7 @@ body {
 
   color: #000;
 }
+
 
 /* =========================
    DRAWER OVERLAY
