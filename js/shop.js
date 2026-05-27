@@ -420,16 +420,40 @@ function initSearch() {
 
   const input = document.getElementById("searchInput");
   const icon = document.getElementById("searchIcon");
-
+  const suggestionBox = document.getElementById("searchSuggestions");
+   
   console.log("Search init:", input, icon); // DEBUG
 
   if (!input) return;
 
-  input.addEventListener("input", () => {
+ input.addEventListener("input", () => {
 
- searchQuery = input.value.toLowerCase().trim();
-   applyFilters();
-  });
+  searchQuery = input.value.toLowerCase().trim();
+
+  // still keep your filtering working
+  applyFilters();
+
+  // suggestions logic
+  if (!searchQuery) {
+    suggestionBox.classList.remove("active");
+    suggestionBox.innerHTML = "";
+    return;
+  }
+
+  const matches = products
+    .filter(p =>
+      p.name.toLowerCase().includes(searchQuery)
+    )
+    .slice(0, 5);
+
+  suggestionBox.innerHTML = matches.map(p =>
+    `<div onclick="selectSuggestion('${p.name.replace(/'/g, "\\'")}')">
+      ${p.name}
+    </div>`
+  ).join("");
+
+  suggestionBox.classList.add("active");
+});
 
   if (icon) {
     icon.addEventListener("click", () => {
@@ -542,3 +566,29 @@ function renderFilteredProducts(list, category) {
     `;
   });
 }
+
+function selectSuggestion(name) {
+
+  const input = document.getElementById("searchInput");
+  const suggestionBox = document.getElementById("searchSuggestions");
+
+  input.value = name;
+  searchQuery = name.toLowerCase().trim();
+
+  suggestionBox.classList.remove("active");
+  suggestionBox.innerHTML = "";
+
+  applyFilters();
+}
+
+document.addEventListener("click", (e) => {
+
+  const box = document.getElementById("searchSuggestions");
+  const input = document.getElementById("searchInput");
+
+  if (!box || !input) return;
+
+  if (!box.contains(e.target) && e.target !== input) {
+    box.classList.remove("active");
+  }
+});
