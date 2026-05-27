@@ -574,27 +574,48 @@ body {
 ========================================= */
 
 .toast-notification {
+
   position: fixed;
-  bottom: 500px;
-  right: 30px;
+
+  left: 50%;
+
+  bottom: 30px;
+
+  transform:
+    translateX(-50%)
+    translateY(20px);
+
   background: black;
+
   color: white;
+
   padding: 14px 22px;
+
   border-radius: 10px;
+
   font-size: 14px;
+
   opacity: 0;
+
   visibility: hidden;
+
   pointer-events: none;
-  transform: translateY(20px);
+
   transition: all 0.35s ease;
+
   z-index: 99999;
 }
 
 /* SHOW TOAST */
 .toast-show {
+
   opacity: 1;
+
   visibility: visible;
-  transform: translateY(0);
+
+  transform:
+    translateX(-50%)
+    translateY(0);
 }
 
 /* MOBILE TOAST */
