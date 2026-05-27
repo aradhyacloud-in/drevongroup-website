@@ -140,6 +140,11 @@ function renderProducts(slug) {
           <h3>${p.name}</h3>
           <p class="price">${p.price}</p>
           <p class="desc">${p.description}</p>
+
+            <div class="product-link">
+              Explore Product →
+            </div>
+          
         </div>
 
       </div>
