@@ -135,13 +135,40 @@ function renderProducts(slug) {
           src="../wooden-toys/product-images/${image}" 
           alt="${p.name}" 
           loading="lazy">
-
-        <div class="product-info">
-          <h3>${p.name}</h3>
-          <p class="price">${p.price}</p>
-          <p class="desc">${p.description}</p>
-
-        </div>
+         
+            <div class="product-info">
+         
+           <h3>${p.name}</h3>
+         
+           <p class="price">${p.price}</p>
+         
+           <p class="desc">${p.description}</p>
+         
+           <!-- GRID QUANTITY -->
+           <div class="grid-quantity">
+         
+             <button onclick="event.stopPropagation(); decreaseGridQty('${p.id}')">
+               −
+             </button>
+         
+             <span id="gridQty-${p.id}">1</span>
+         
+             <button onclick="event.stopPropagation(); increaseGridQty('${p.id}')">
+               +
+             </button>
+         
+           </div>
+         
+           <!-- GRID ADD TO CART -->
+           <button
+             class="grid-cart-btn"
+             onclick="event.stopPropagation(); addGridProductToCart('${p.id}')">
+         
+             Add to Cart
+         
+           </button>
+         
+         </div>
 
       </div>
     `;
