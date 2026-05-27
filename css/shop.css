@@ -798,3 +798,77 @@ body {
 
   opacity: 0.92;
 }
+
+/* =========================================
+   PRODUCT IMAGE WRAPPER
+========================================= */
+
+.product-image-wrapper {
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* =========================================
+   CARD IMAGE NAV BUTTONS
+========================================= */
+
+.card-image-nav {
+
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 34px;
+
+  height: 34px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(0,0,0,0.65);
+
+  color: white;
+
+  cursor: pointer;
+
+  z-index: 5;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+
+  backdrop-filter: blur(4px);
+}
+
+/* LEFT BUTTON */
+.card-image-nav.left {
+
+  left: 10px;
+}
+
+/* RIGHT BUTTON */
+.card-image-nav.right {
+
+  right: 10px;
+}
+
+/* SHOW ON HOVER */
+.product-card:hover .card-image-nav {
+
+  opacity: 1;
+}
+
+/* BUTTON HOVER */
+.card-image-nav:hover {
+
+  transform:
+    translateY(-50%)
+    scale(1.08);
+}
