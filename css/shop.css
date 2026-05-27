@@ -980,37 +980,44 @@ body {
   object-fit: cover;
 }
 
-/* =========================================================
-   THUMBNAIL SYSTEM (CLEAN FINAL VERSION)
-   ---------------------------------------------------------
-   PURPOSE:
-   - Uniform thumbnail styling
-   - Clear hover effect
-   - Reliable active selection highlight
-========================================================= */
+/* =========================================
+   THUMBNAILS
+========================================= */
+
+.thumbnails {
+
+  display: flex;
+
+  gap: 12px;
+
+  margin-top: 15px;
+
+  flex-wrap: wrap;
+}
 
 .thumbnails img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 10px;
-    cursor: pointer;
 
-    border: 2px solid transparent;
-    transition: all 0.25s ease;
+  width: 80px !important;
+
+  height: 80px;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  border: 2px solid transparent;
+
+  transition: 0.25s ease;
 }
 
-/* HOVER EFFECT */
+/* HOVER */
 .thumbnails img:hover {
-    transform: translateY(-2px);
-    border-color: #000;
-}
 
-/* ACTIVE THUMBNAIL */
-.thumbnails img.active-thumb {
-    border: 2px solid #000;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border-color: black;
+
+  transform: translateY(-2px);
 }
 
 /* =========================================
@@ -1225,4 +1232,4 @@ body {
     border: 2px solid #111;
     padding: 2px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+} 
