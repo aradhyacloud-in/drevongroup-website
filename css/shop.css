@@ -1209,6 +1209,15 @@ body {
   opacity: 0.92;
 }
 
+/* =========================================================
+   THUMBNAIL UI ENHANCEMENT
+   ---------------------------------------------------------
+   WHAT THIS DOES:
+   - Makes thumbnails feel interactive
+   - Adds hover animation
+   - Highlights selected thumbnail
+========================================================= */
+
 .thumbnails img {
     cursor: pointer;
     transition: all 0.25s ease;
