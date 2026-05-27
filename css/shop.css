@@ -61,6 +61,17 @@ body {
   position: relative;
 }
 
+.search-icon {
+  position: absolute;
+  right: calc(50% - 320px);
+  margin-top: 16px;
+
+  opacity: 0.6;
+  font-size: 16px;
+
+  pointer-events: none;
+}
+
 /* FILTERS */
 .category-filters {
   display: flex;
