@@ -202,3 +202,61 @@ function getBadgeByCategory(category) {
       return "";
   }
 }
+
+/* =========================================================
+   GRID PRODUCT QUANTITY SYSTEM
+========================================================= */
+
+let gridQuantities = {};
+
+/* INCREASE GRID QTY */
+function increaseGridQty(productId) {
+
+  if (!gridQuantities[productId]) {
+    gridQuantities[productId] = 1;
+  }
+
+  gridQuantities[productId]++;
+
+  updateGridQtyUI(productId);
+}
+
+/* DECREASE GRID QTY */
+function decreaseGridQty(productId) {
+
+  if (!gridQuantities[productId]) {
+    gridQuantities[productId] = 1;
+  }
+
+  if (gridQuantities[productId] > 1) {
+    gridQuantities[productId]--;
+  }
+
+  updateGridQtyUI(productId);
+}
+
+/* UPDATE UI */
+function updateGridQtyUI(productId) {
+
+  const qtyElement =
+    document.getElementById(`gridQty-${productId}`);
+
+  if (!qtyElement) return;
+
+  qtyElement.innerText =
+    gridQuantities[productId] || 1;
+}
+
+/* ADD GRID PRODUCT TO CART */
+function addGridProductToCart(productId) {
+
+  const product =
+    products.find(p => p.id === productId);
+
+  if (!product) return;
+
+  const quantity =
+    gridQuantities[productId] || 1;
+
+  addToCart(product, quantity);
+}
