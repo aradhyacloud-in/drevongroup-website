@@ -1304,3 +1304,49 @@ body {
   opacity: 1 !important;               /* Prevents faded rendering */
   caret-color: #000;                  /* Makes cursor visible clearly */
 }
+
+
+/* =========================================================
+   SEARCH SUGGESTIONS DROPDOWN
+   (appears below search bar)
+========================================================= */
+
+.search-suggestions {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 650px;
+
+  background: #fff;
+  border-radius: 12px;
+
+  margin-top: -10px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+  overflow: hidden;
+
+  display: none;
+
+  z-index: 999;
+}
+
+.search-suggestions.active {
+  display: block;
+}
+
+.search-suggestions div {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #111;
+
+  border-bottom: 1px solid #eee;
+
+  transition: 0.2s ease;
+}
+
+.search-suggestions div:hover {
+  background: #f5f5f5;
+}
