@@ -252,8 +252,14 @@ function closeDrawer() {
 
 
 /* =========================================================
-   4. CHANGE IMAGE (THUMBNAILS)
+   4 CHANGE IMAGE (CLEAN ORIGINAL VERSION)
+   ---------------------------------------------------------
+   PURPOSE:
+   - Only handle image switching
+   - Keep existing fade effect
+   - No extra logic that can break UI
 ========================================================= */
+
 function changeImage(img) {
 
   const mainImg =
@@ -273,21 +279,7 @@ function changeImage(img) {
     mainImg.style.opacity = "1";
 
   }, 150);
-
-  /* ACTIVE THUMBNAIL */
-  document
-    .querySelectorAll(".thumbnails img")
-    .forEach(thumb => {
-
-      thumb.classList.remove("active-thumb");
-
-      if (thumb.src.includes(img)) {
-        thumb.classList.add("active-thumb");
-      }
-    });
 }
-
-
 /* =========================================================
    5. CLICK OUTSIDE TO CLOSE
 ========================================================= */
