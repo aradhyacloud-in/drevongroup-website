@@ -1,18 +1,26 @@
 [
   {
-    "id": "p1",
-    "name": "Baby Rattle Wooden Toy",
-    "price": "₹299",
-    
-    "images": [
-      "rattle.jpg",
-      "rattle-2.jpg",
-      "rattle-3.jpg"
-    ],
-    
-    "description": "Safe sensory toy for infants",
-    "category": "early-explorers"
-  },
+  "id": "p1",
+
+  "name": "Wooden Rattle & Shaker Set",
+
+  "price": "₹599",
+
+  "images": [
+    "rattle-shaker-1.webp",
+    "rattle-shaker-2.webp",
+    "rattle-shaker-3.webp",
+    "rattle-shaker-4.webp",
+    "rattle-shaker-5.webp",
+    "rattle-shaker-6.webp"
+  ],
+
+  "description":
+    "Handcrafted wooden rattles and shakers designed for safe sensory exploration, gentle sound stimulation, and early motor skill development.",
+
+  "category": "early-explorers"
+},
+  
   {
     "id": "p2",
     "name": "Wooden Stacking Rings",
