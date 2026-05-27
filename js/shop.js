@@ -131,10 +131,36 @@ function renderProducts(slug) {
       
       ${getBadgeByCategory(p.category)}
       
-        <img 
-          src="../wooden-toys/product-images/${image}" 
-          alt="${p.name}" 
-          loading="lazy">
+        
+            <div class="product-image-wrapper">
+            
+              <!-- PREV IMAGE -->
+              <button
+                class="card-image-nav left"
+                onclick="event.stopPropagation(); prevCardImage('${p.id}')">
+            
+                ←
+            
+              </button>
+            
+              <!-- PRODUCT IMAGE -->
+              <img
+                id="cardImage-${p.id}"
+                src="../wooden-toys/product-images/${image}"
+                alt="${p.name}"
+                loading="lazy">
+            
+              <!-- NEXT IMAGE -->
+              <button
+                class="card-image-nav right"
+                onclick="event.stopPropagation(); nextCardImage('${p.id}')">
+            
+                →
+            
+              </button>
+            
+            </div>
+        
          
             <div class="product-info">
          
