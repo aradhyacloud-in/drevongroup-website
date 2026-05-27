@@ -19,6 +19,9 @@ let selectedQuantity = 1;
    1. OPEN DRAWER FUNCTION
 ========================================================= */
 function openDrawer(product) {
+
+  currentDrawerImageIndex = 0;
+   
   const drawer = document.getElementById("productDrawer");
   const overlay = document.getElementById("productDrawerOverlay");
   const content = document.getElementById("drawerContent");
