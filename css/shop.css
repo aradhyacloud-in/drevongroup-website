@@ -1208,3 +1208,19 @@ body {
 
   opacity: 0.92;
 }
+
+.thumbnails img {
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border-radius: 6px;
+}
+
+.thumbnails img:hover {
+    transform: scale(1.05);
+}
+
+.active-thumb {
+    border: 2px solid #111;
+    padding: 2px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
