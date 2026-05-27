@@ -208,7 +208,7 @@ body {
 
 .product-link {
 
-  margin-top: 16px;
+  margin-top: 8px;
 
   font-size: 14px;
 
@@ -216,13 +216,11 @@ body {
 
   color: #111;
 
-  display: inline-flex;
+  display: block;
 
-  align-items: center;
+  opacity: 0.85;
 
-  gap: 6px;
-
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 /* HOVER EFFECT */
@@ -238,7 +236,7 @@ body {
 
   font-weight: bold;
 
-  margin-bottom: 10px;
+  margin-bottom: 2px;
 
   color: #000;
 }
