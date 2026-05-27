@@ -275,20 +275,20 @@ function changeImage(img) {
 
   }, 150);
 
-  /* ACTIVE THUMBNAIL */
-  document
-    .querySelectorAll(".thumbnails img")
-    .forEach(thumb => {
+  /* =====================================================
+     ACTIVE THUMBNAIL FIX (NEW - SAFE ADDITION)
+  ===================================================== */
 
-      thumb.classList.remove("active-thumb");
+  const thumbs = document.querySelectorAll(".thumbnails img");
 
-      if (thumb.src.includes(img)) {
-        thumb.classList.add("active-thumb");
-      }
-    });
+  thumbs.forEach(thumb => {
+    thumb.classList.remove("active-thumb");
+
+    if (thumb.src.includes(img)) {
+      thumb.classList.add("active-thumb");
+    }
+  });
 }
-
-
 /* =========================================================
    5. CLICK OUTSIDE TO CLOSE
 ========================================================= */
