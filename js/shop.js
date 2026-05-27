@@ -286,3 +286,76 @@ function addGridProductToCart(productId) {
 
   addToCart(product, quantity);
 }
+
+/* =========================================================
+   PRODUCT CARD IMAGE SLIDER
+========================================================= */
+
+let cardImageIndexes = {};
+
+/* NEXT IMAGE */
+function nextCardImage(productId) {
+
+  const product =
+    products.find(p => p.id === productId);
+
+  if (!product || !product.images) return;
+
+  if (!cardImageIndexes[productId]) {
+    cardImageIndexes[productId] = 0;
+  }
+
+  cardImageIndexes[productId]++;
+
+  if (
+    cardImageIndexes[productId] >=
+    product.images.length
+  ) {
+    cardImageIndexes[productId] = 0;
+  }
+
+  updateCardImage(productId);
+}
+
+/* PREVIOUS IMAGE */
+function prevCardImage(productId) {
+
+  const product =
+    products.find(p => p.id === productId);
+
+  if (!product || !product.images) return;
+
+  if (!cardImageIndexes[productId]) {
+    cardImageIndexes[productId] = 0;
+  }
+
+  cardImageIndexes[productId]--;
+
+  if (cardImageIndexes[productId] < 0) {
+    cardImageIndexes[productId] =
+      product.images.length - 1;
+  }
+
+  updateCardImage(productId);
+}
+
+/* UPDATE IMAGE */
+function updateCardImage(productId) {
+
+  const product =
+    products.find(p => p.id === productId);
+
+  if (!product) return;
+
+  const imageElement =
+    document.getElementById(`cardImage-${productId}`);
+
+  if (!imageElement) return;
+
+  const currentIndex =
+    cardImageIndexes[productId] || 0;
+
+  imageElement.src =
+    "../wooden-toys/product-images/" +
+    product.images[currentIndex];
+}
