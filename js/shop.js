@@ -29,8 +29,8 @@ function loadData() {
     categories = catData.categories || [];
     products = prodData || [];
 
-    renderFilters();
-    renderProducts("all");
+   renderFilters();
+   applyFilters();
   })
 
   .catch(err => {
