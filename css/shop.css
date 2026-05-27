@@ -1076,3 +1076,99 @@ body {
 
   transform: translateY(-2px);
 }
+
+/* =========================================
+   GRID QUANTITY SYSTEM
+========================================= */
+
+.grid-quantity {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  margin-top: 18px;
+}
+
+.grid-quantity button {
+
+  width: 34px;
+
+  height: 34px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #111;
+
+  color: white;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+/* HOVER */
+.grid-quantity button:hover {
+
+  transform: translateY(-1px);
+
+  background: #000;
+}
+
+.grid-quantity span {
+
+  min-width: 20px;
+
+  text-align: center;
+
+  font-weight: 600;
+
+  font-size: 16px;
+}
+
+/* =========================================
+   GRID ADD TO CART BUTTON
+========================================= */
+
+.grid-cart-btn {
+
+  width: 100%;
+
+  margin-top: 16px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: black;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+/* HOVER */
+.grid-cart-btn:hover {
+
+  transform: translateY(-2px);
+
+  opacity: 0.92;
+}
