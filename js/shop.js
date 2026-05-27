@@ -413,29 +413,36 @@ function updateCardImage(productId) {
 /* =========================================================
    SEARCH FUNCTIONALITY
 ========================================================= */
-
 function initSearch() {
 
   const input = document.getElementById("searchInput");
   const icon = document.getElementById("searchIcon");
 
+  console.log("Search init:", input, icon); // DEBUG
+
   if (!input) return;
 
-  // TEXT INPUT SEARCH (already working)
-  input.addEventListener("input", (e) => {
+  input.addEventListener("input", () => {
 
-    searchQuery = e.target.value.toLowerCase().trim();
+    searchQuery = input.value.toLowerCase().trim();
 
-    applyFilters();
+    if (searchQuery === "") {
+      renderProducts(activeCategory);
+    } else {
+      applyFilters();
+    }
   });
 
-  // ICON CLICK SEARCH (NEW)
   if (icon) {
     icon.addEventListener("click", () => {
 
       searchQuery = input.value.toLowerCase().trim();
 
-      applyFilters();
+      if (searchQuery === "") {
+        renderProducts(activeCategory);
+      } else {
+        applyFilters();
+      }
     });
   }
 }
@@ -460,12 +467,12 @@ function applyFilters() {
     );
   }
 
-  renderFilteredProducts(filtered);
+  renderFilteredProducts(filtered, activeCategory);
 }
 
 /* RENDER FILTERED PRODUCTS (SEARCH + CATEGORY) */
 
-function renderFilteredProducts(list) {
+function renderFilteredProducts(list, category) {
 
   const grid = document.getElementById("productGrid");
 
