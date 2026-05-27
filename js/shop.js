@@ -8,6 +8,7 @@ let searchQuery = "";
 ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
   loadData();
+   console.log("initSearch running");
   initSearch();
 });
 
@@ -424,13 +425,8 @@ function initSearch() {
 
   input.addEventListener("input", () => {
 
-    searchQuery = input.value.toLowerCase().trim();
-
-    if (searchQuery === "") {
-      renderProducts(activeCategory);
-    } else {
-      applyFilters();
-    }
+ searchQuery = input.value.toLowerCase().trim();
+   applyFilters();
   });
 
   if (icon) {
