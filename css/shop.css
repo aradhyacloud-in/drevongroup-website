@@ -208,44 +208,6 @@ body {
   line-height: 1.6;
 }
 
-/* =========================================
-   PRODUCT CARD LINK
-========================================= */
-
-.product-link {
-
-  margin-top: auto;
-
-  padding-top: 10px;
-
-  font-size: 14px;
-
-  font-weight: 700;
-
-  color: #111;
-
-  border-top: 1px solid #eee;
-
-  width: 100%;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  opacity: 0.9;
-
-  transition: all 0.3s ease;
-}
-
-/* HOVER EFFECT */
-.product-card:hover .product-link {
-
-  transform: translateX(4px);
-
-  color: black;
-}
 /* PRODUCT PRICE */
 .price {
 
