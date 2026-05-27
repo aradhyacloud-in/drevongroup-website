@@ -608,6 +608,21 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+
+  .product-drawer {
+
+    width: 95%;
+
+    max-height: 94vh;
+
+    padding: 22px;
+
+    border-radius: 18px;
+  }
+
+}
+
 /* =========================================
    PREMIUM CTA SECTION
 ========================================= */
