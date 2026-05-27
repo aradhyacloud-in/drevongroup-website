@@ -407,3 +407,12 @@ function updateDrawerMainImage(product) {
     "../wooden-toys/product-images/" +
     product.images[currentDrawerImageIndex];
 }
+
+function clearActiveThumbs(thumbContainer) {
+    const thumbs = thumbContainer.querySelectorAll(".thumbnail");
+    thumbs.forEach(t => t.classList.remove("active-thumb"));
+}
+
+function setActiveThumb(thumb) {
+    thumb.classList.add("active-thumb");
+}
