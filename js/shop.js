@@ -417,15 +417,27 @@ function updateCardImage(productId) {
 function initSearch() {
 
   const input = document.getElementById("searchInput");
+  const icon = document.getElementById("searchIcon");
 
   if (!input) return;
 
+  // TEXT INPUT SEARCH (already working)
   input.addEventListener("input", (e) => {
 
     searchQuery = e.target.value.toLowerCase().trim();
 
     applyFilters();
   });
+
+  // ICON CLICK SEARCH (NEW)
+  if (icon) {
+    icon.addEventListener("click", () => {
+
+      searchQuery = input.value.toLowerCase().trim();
+
+      applyFilters();
+    });
+  }
 }
 
 /* APPLY CATEGORY + SEARCH TOGETHER */
