@@ -33,7 +33,13 @@ function openDrawer(product) {
   let mainImage = product.images[0];
    selectedQuantity = 1;
 
-  content.innerHTML = `
+content.innerHTML = `
+
+<div class="product-modal-layout">
+
+  <!-- LEFT SIDE -->
+  <div class="product-modal-left">
+
     <!-- MAIN IMAGE -->
     <div class="main-image">
       <img id="mainProductImage"
@@ -43,68 +49,96 @@ function openDrawer(product) {
 
     <!-- THUMBNAILS -->
     <div class="thumbnails">
+
       ${product.images.map(img => `
-        <img src="../wooden-toys/product-images/${img}"
-             onclick="changeImage('${img}')"
-             alt="thumbnail">
+
+        <img
+          src="../wooden-toys/product-images/${img}"
+          onclick="changeImage('${img}')"
+          alt="thumbnail">
+
       `).join("")}
+
     </div>
 
-    <!-- TITLE -->
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="product-modal-right">
+
     <h2>${product.name}</h2>
 
-    <!-- PRICE -->
     <div class="price">${product.price}</div>
 
-    <!-- DESCRIPTION -->
     <p>${product.description}</p>
 
-    <!-- NAVIGATION BUTTONS (NEW) -->
-    <div style="display:flex; gap:10px; margin-top:10px;">
+    <!-- PRODUCT NAVIGATION -->
+    <div style="display:flex; gap:10px; margin-top:20px;">
+
       <button onclick="prevProduct()" style="
         flex:1;
-        padding:10px;
+        padding:12px;
         border:none;
-        background:#eee;
+        background:#f2f2f2;
         cursor:pointer;
-        border-radius:6px;
-      ">← Prev</button>
+        border-radius:10px;
+      ">
+
+        ← Prev
+
+      </button>
 
       <button onclick="nextProduct()" style="
         flex:1;
-        padding:10px;
+        padding:12px;
         border:none;
-        background:#eee;
+        background:#f2f2f2;
         cursor:pointer;
-        border-radius:6px;
-      ">Next →</button>
+        border-radius:10px;
+      ">
+
+        Next →
+
+      </button>
+
     </div>
 
+    <!-- QUANTITY -->
+    <div class="quantity-selector">
 
-      <!-- QUANTITY SELECTOR -->
-      <div class="quantity-selector">
-      
-        <button onclick="decreaseQuantity()">−</button>
-      
-        <span id="quantityValue">1</span>
-      
-        <button onclick="increaseQuantity()">+</button>
-      
-      </div>
-    <!-- ACTION BUTTON -->
-    <button onclick='addToCart(${JSON.stringify(product)}, selectedQuantity)' style="
-     margin-top:15px;
-     padding:10px 15px;
-     width:100%;
-     background:black;
-     color:white;
-     border:none;
-     cursor:pointer;
-     border-radius:6px;
-      ">
-     Add to Cart
-   </button>
-  `;
+      <button onclick="decreaseQuantity()">−</button>
+
+      <span id="quantityValue">${selectedQuantity}</span>
+
+      <button onclick="increaseQuantity()">+</button>
+
+    </div>
+
+    <!-- ADD TO CART -->
+    <button
+      onclick='addToCart(products[currentProductIndex], selectedQuantity)'
+      style="
+      margin-top:10px;
+      padding:15px;
+      width:100%;
+      background:black;
+      color:white;
+      border:none;
+      cursor:pointer;
+      border-radius:12px;
+      font-size:15px;
+      font-weight:600;
+    ">
+
+      Add to Cart
+
+    </button>
+
+  </div>
+
+</div>
+
+`;
 
   drawer.classList.add("active");
   overlay.classList.add("active");
