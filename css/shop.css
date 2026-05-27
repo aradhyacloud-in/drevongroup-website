@@ -1047,3 +1047,32 @@ body {
     height: 65px;
   }
 }
+
+
+/* =========================================
+   MAIN IMAGE SMOOTH TRANSITION
+========================================= */
+
+#mainProductImage {
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.35s ease;
+}
+
+/* IMAGE HOVER */
+.main-image img:hover {
+
+  transform: scale(1.02);
+}
+
+/* =========================================
+   ACTIVE THUMBNAIL
+========================================= */
+
+.thumbnails img.active-thumb {
+
+  border-color: black;
+
+  transform: translateY(-2px);
+}
