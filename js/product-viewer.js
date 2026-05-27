@@ -1,4 +1,3 @@
-
 /* =========================================================
    PRODUCT VIEWER SYSTEM (DRAWER)
    - Opens product detail drawer
@@ -253,14 +252,8 @@ function closeDrawer() {
 
 
 /* =========================================================
-   CHANGE IMAGE FUNCTION (THUMBNAIL CLICK HANDLER)
-   ---------------------------------------------------------
-   WHAT THIS DOES:
-   - Smooth fade transition for main image
-   - Updates active thumbnail highlight
-   - Does NOT affect cart or product logic
+   4. CHANGE IMAGE (THUMBNAILS)
 ========================================================= */
-
 function changeImage(img) {
 
   const mainImg =
@@ -268,42 +261,32 @@ function changeImage(img) {
 
   if (!mainImg) return;
 
-  /* STEP 1: FADE OUT CURRENT IMAGE */
+  /* FADE OUT */
   mainImg.style.opacity = "0";
 
   setTimeout(() => {
 
-    /* STEP 2: UPDATE IMAGE SOURCE */
     mainImg.src =
       "../wooden-toys/product-images/" + img;
 
-    /* STEP 3: FADE IN IMAGE */
+    /* FADE IN */
     mainImg.style.opacity = "1";
 
   }, 150);
 
-  /* =========================================================
-     STEP 4: ACTIVE THUMBNAIL HIGHLIGHT SYSTEM
-     ---------------------------------------------------------
-     WHAT THIS DOES:
-     - Removes active class from all thumbnails
-     - Adds active class to clicked image
-  ========================================================= */
+  /* ACTIVE THUMBNAIL */
+  document
+    .querySelectorAll(".thumbnails img")
+    .forEach(thumb => {
 
-  const thumbs = document.querySelectorAll(".thumbnails img");
+      thumb.classList.remove("active-thumb");
 
-  thumbs.forEach(thumb => {
-
-    thumb.classList.remove("active-thumb");
-
-    const fileName = thumb.src.split("/").pop();
-
-    if (fileName === img) {
-      thumb.classList.add("active-thumb");
-    }
-
-  });
+      if (thumb.src.includes(img)) {
+        thumb.classList.add("active-thumb");
+      }
+    });
 }
+
 
 /* =========================================================
    5. CLICK OUTSIDE TO CLOSE
