@@ -1,4 +1,3 @@
-
 let categories = [];
 let products = [];
 let activeCategory = "all";
@@ -14,10 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
    LOAD JSON DATA
 ========================================================= */
 function loadData() {
+
   Promise.all([
     fetch("../data/wooden-toys.json").then(res => res.json()),
     fetch("../data/wooden-toys-products.json").then(res => res.json())
   ])
+
   .then(([catData, prodData]) => {
 
     categories = catData.categories || [];
@@ -25,15 +26,22 @@ function loadData() {
 
     renderFilters();
     renderProducts("all");
-
   })
+
   .catch(err => {
+
     console.error("Data load error:", err);
 
     const grid = document.getElementById("productGrid");
+
     if (grid) {
+
       grid.innerHTML = `
-        <p style="text-align:center;color:red;">
+        <p style="
+          text-align:center;
+          color:red;
+          padding:40px;
+        ">
           Failed to load products
         </p>
       `;
@@ -42,14 +50,17 @@ function loadData() {
 }
 
 /* =========================================================
-   OPEN DRAWER BY ID
+   OPEN DRAWER
 ========================================================= */
 function openDrawerById(id) {
-  const index = products.findIndex(p => p.id === id);
+
+  const index =
+    products.findIndex(p => p.id === id);
 
   if (index === -1) return;
 
-  currentProductIndex = index;   // IMPORTANT: sync index
+  currentProductIndex = index;
+
   openDrawer(products[index]);
 }
 
@@ -57,19 +68,31 @@ function openDrawerById(id) {
    RENDER CATEGORY FILTERS
 ========================================================= */
 function renderFilters() {
-  const container = document.querySelector(".category-filters");
+
+  const container =
+    document.querySelector(".category-filters");
+
   if (!container) return;
 
   let html = `
-    <button class="${activeCategory === 'all' ? 'active' : ''}"
-    onclick="setCategory('all')">All Toys</button>
+    <button
+      class="${activeCategory === "all" ? "active" : ""}"
+      onclick="setCategory('all')">
+
+      All Toys
+
+    </button>
   `;
 
   categories.forEach(cat => {
+
     html += `
-      <button class="${activeCategory === cat.slug ? 'active' : ''}"
-      onclick="setCategory('${cat.slug}')">
+      <button
+        class="${activeCategory === cat.slug ? "active" : ""}"
+        onclick="setCategory('${cat.slug}')">
+
         ${cat.name}
+
       </button>
     `;
   });
@@ -81,7 +104,9 @@ function renderFilters() {
    CHANGE CATEGORY
 ========================================================= */
 function setCategory(slug) {
+
   activeCategory = slug;
+
   renderFilters();
   renderProducts(slug);
 }
@@ -90,7 +115,10 @@ function setCategory(slug) {
    RENDER PRODUCTS
 ========================================================= */
 function renderProducts(slug) {
-  const grid = document.getElementById("productGrid");
+
+  const grid =
+    document.getElementById("productGrid");
+
   if (!grid) return;
 
   grid.innerHTML = "";
@@ -98,103 +126,123 @@ function renderProducts(slug) {
   let filteredProducts = [];
 
   if (slug === "all") {
+
     filteredProducts = products;
+
   } else {
-    filteredProducts = products.filter(p => p.category === slug);
+
+    filteredProducts =
+      products.filter(p => p.category === slug);
   }
 
   /* EMPTY STATE */
   if (!filteredProducts.length) {
+
     grid.innerHTML = `
       <div style="
-        grid-column: 1 / -1;
-        text-align: center;
-        padding: 60px;
-        color: #777;
+        grid-column:1/-1;
+        text-align:center;
+        padding:60px;
+        color:#777;
       ">
-        <h3 style="margin-bottom:10px;">No products yet</h3>
-        <p>This category will be updated soon with new wooden toys.</p>
+        <h3>No products yet</h3>
+        <p>
+          This category will be updated soon.
+        </p>
       </div>
     `;
+
     return;
   }
 
   /* PRODUCTS */
   filteredProducts.forEach(p => {
 
-    const image = (p.images && p.images.length)
-      ? p.images[0]
-      : "placeholder.jpg";
+    const image =
+      (p.images && p.images.length)
+        ? p.images[0]
+        : "placeholder.jpg";
 
     grid.innerHTML += `
-      <div class="product-card" onclick="openDrawerById('${p.id}')">
-      
-      ${getBadgeByCategory(p.category)}
-      
-        
-            <div class="product-image-wrapper">
-            
-              <!-- PREV IMAGE -->
-              <button
-                class="card-image-nav left"
-                onclick="event.stopPropagation(); prevCardImage('${p.id}')">
-            
-                ←
-            
-              </button>
-            
-              <!-- PRODUCT IMAGE -->
-              <img
-                id="cardImage-${p.id}"
-                src="../wooden-toys/product-images/${image}"
-                alt="${p.name}"
-                loading="lazy">
-            
-              <!-- NEXT IMAGE -->
-              <button
-                class="card-image-nav right"
-                onclick="event.stopPropagation(); nextCardImage('${p.id}')">
-            
-                →
-            
-              </button>
-            
-            </div>
-        
-         
-            <div class="product-info">
-         
-           <h3>${p.name}</h3>
-         
-           <p class="price">${p.price}</p>
-         
-           <p class="desc">${p.description}</p>
-         
-           <!-- GRID QUANTITY -->
-           <div class="grid-quantity">
-         
-             <button onclick="event.stopPropagation(); decreaseGridQty('${p.id}')">
-               −
-             </button>
-         
-             <span id="gridQty-${p.id}">1</span>
-         
-             <button onclick="event.stopPropagation(); increaseGridQty('${p.id}')">
-               +
-             </button>
-         
-           </div>
-         
-           <!-- GRID ADD TO CART -->
-           <button
-             class="grid-cart-btn"
-             onclick="event.stopPropagation(); addGridProductToCart('${p.id}')">
-         
-             Add to Cart
-         
-           </button>
-         
-         </div>
+
+      <div
+        class="product-card"
+        onclick="openDrawerById('${p.id}')">
+
+        ${getBadgeByCategory(p.category)}
+
+        <!-- IMAGE WRAPPER -->
+        <div class="product-image-wrapper">
+
+          <!-- PREV -->
+          <button
+            class="card-image-nav left"
+            onclick="event.stopPropagation(); prevCardImage('${p.id}')">
+
+            ←
+
+          </button>
+
+          <!-- IMAGE -->
+          <img
+            id="cardImage-${p.id}"
+            src="../wooden-toys/product-images/${image}"
+            alt="${p.name}"
+            loading="lazy">
+
+          <!-- NEXT -->
+          <button
+            class="card-image-nav right"
+            onclick="event.stopPropagation(); nextCardImage('${p.id}')">
+
+            →
+
+          </button>
+
+        </div>
+
+        <!-- INFO -->
+        <div class="product-info">
+
+          <h3>${p.name}</h3>
+
+          <p class="price">${p.price}</p>
+
+          <p class="desc">${p.description}</p>
+
+          <!-- QUANTITY -->
+          <div class="grid-quantity">
+
+            <button
+              onclick="event.stopPropagation(); decreaseGridQty('${p.id}')">
+
+              −
+
+            </button>
+
+            <span id="gridQty-${p.id}">
+              1
+            </span>
+
+            <button
+              onclick="event.stopPropagation(); increaseGridQty('${p.id}')">
+
+              +
+
+            </button>
+
+          </div>
+
+          <!-- ADD TO CART -->
+          <button
+            class="grid-cart-btn"
+            onclick="event.stopPropagation(); addGridProductToCart('${p.id}')">
+
+            Add to Cart
+
+          </button>
+
+        </div>
 
       </div>
     `;
@@ -202,9 +250,8 @@ function renderProducts(slug) {
 }
 
 /* =========================================================
-   CATEGORY BADGE SYSTEM
+   CATEGORY BADGES
 ========================================================= */
-
 function getBadgeByCategory(category) {
 
   switch(category) {
@@ -230,142 +277,9 @@ function getBadgeByCategory(category) {
 }
 
 /* =========================================================
-   GRID PRODUCT QUANTITY SYSTEM
-========================================================= */
-
-let gridQuantities = {};
-
-/* INCREASE GRID QTY */
-function increaseGridQty(productId) {
-
-  if (!gridQuantities[productId]) {
-    gridQuantities[productId] = 1;
-  }
-
-  gridQuantities[productId]++;
-
-  updateGridQtyUI(productId);
-}
-
-/* DECREASE GRID QTY */
-function decreaseGridQty(productId) {
-
-  if (!gridQuantities[productId]) {
-    gridQuantities[productId] = 1;
-  }
-
-  if (gridQuantities[productId] > 1) {
-    gridQuantities[productId]--;
-  }
-
-  updateGridQtyUI(productId);
-}
-
-/* UPDATE UI */
-function updateGridQtyUI(productId) {
-
-  const qtyElement =
-    document.getElementById(`gridQty-${productId}`);
-
-  if (!qtyElement) return;
-
-  qtyElement.innerText =
-    gridQuantities[productId] || 1;
-}
-
-/* ADD GRID PRODUCT TO CART */
-function addGridProductToCart(productId) {
-
-  const product =
-    products.find(p => p.id === productId);
-
-  if (!product) return;
-
-  const quantity =
-    gridQuantities[productId] || 1;
-
-  addToCart(product, quantity);
-}
-
-/* =========================================================
-   PRODUCT CARD IMAGE SLIDER
-========================================================= */
-
-let cardImageIndexes = {};
-
-/* NEXT IMAGE */
-function nextCardImage(productId) {
-
-  const product =
-    products.find(p => p.id === productId);
-
-  if (!product || !product.images) return;
-
-  if (!cardImageIndexes[productId]) {
-    cardImageIndexes[productId] = 0;
-  }
-
-  cardImageIndexes[productId]++;
-
-  if (
-    cardImageIndexes[productId] >=
-    product.images.length
-  ) {
-    cardImageIndexes[productId] = 0;
-  }
-
-  updateCardImage(productId);
-}
-
-/* PREVIOUS IMAGE */
-function prevCardImage(productId) {
-
-  const product =
-    products.find(p => p.id === productId);
-
-  if (!product || !product.images) return;
-
-  if (!cardImageIndexes[productId]) {
-    cardImageIndexes[productId] = 0;
-  }
-
-  cardImageIndexes[productId]--;
-
-  if (cardImageIndexes[productId] < 0) {
-    cardImageIndexes[productId] =
-      product.images.length - 1;
-  }
-
-  updateCardImage(productId);
-}
-
-/* UPDATE IMAGE */
-function updateCardImage(productId) {
-
-  const product =
-    products.find(p => p.id === productId);
-
-  if (!product) return;
-
-  const imageElement =
-    document.getElementById(`cardImage-${productId}`);
-
-  if (!imageElement) return;
-
-  const currentIndex =
-    cardImageIndexes[productId] || 0;
-
-  imageElement.src =
-    "../wooden-toys/product-images/" +
-    product.images[currentIndex];
-}
-
-
-/* =========================================================
    GRID QUANTITY SYSTEM
 ========================================================= */
-
-const gridQuantities = {};
+let gridQuantities = {};
 
 /* INCREASE */
 function increaseGridQty(productId) {
@@ -408,7 +322,6 @@ function updateGridQtyUI(productId) {
 /* =========================================================
    GRID ADD TO CART
 ========================================================= */
-
 function addGridProductToCart(productId) {
 
   const product =
@@ -420,4 +333,77 @@ function addGridProductToCart(productId) {
     gridQuantities[productId] || 1;
 
   addToCart(product, qty);
+}
+
+/* =========================================================
+   CARD IMAGE SLIDER
+========================================================= */
+let cardImageIndexes = {};
+
+/* NEXT IMAGE */
+function nextCardImage(productId) {
+
+  const product =
+    products.find(p => p.id === productId);
+
+  if (!product || !product.images) return;
+
+  if (cardImageIndexes[productId] == null) {
+    cardImageIndexes[productId] = 0;
+  }
+
+  cardImageIndexes[productId]++;
+
+  if (
+    cardImageIndexes[productId] >=
+    product.images.length
+  ) {
+    cardImageIndexes[productId] = 0;
+  }
+
+  updateCardImage(productId);
+}
+
+/* PREVIOUS IMAGE */
+function prevCardImage(productId) {
+
+  const product =
+    products.find(p => p.id === productId);
+
+  if (!product || !product.images) return;
+
+  if (cardImageIndexes[productId] == null) {
+    cardImageIndexes[productId] = 0;
+  }
+
+  cardImageIndexes[productId]--;
+
+  if (cardImageIndexes[productId] < 0) {
+
+    cardImageIndexes[productId] =
+      product.images.length - 1;
+  }
+
+  updateCardImage(productId);
+}
+
+/* UPDATE CARD IMAGE */
+function updateCardImage(productId) {
+
+  const product =
+    products.find(p => p.id === productId);
+
+  if (!product) return;
+
+  const imageElement =
+    document.getElementById(`cardImage-${productId}`);
+
+  if (!imageElement) return;
+
+  const currentIndex =
+    cardImageIndexes[productId] || 0;
+
+  imageElement.src =
+    "../wooden-toys/product-images/" +
+    product.images[currentIndex];
 }
