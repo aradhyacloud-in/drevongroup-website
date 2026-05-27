@@ -253,11 +253,36 @@ function closeDrawer() {
    4. CHANGE IMAGE (THUMBNAILS)
 ========================================================= */
 function changeImage(img) {
-  const mainImg = document.getElementById("mainProductImage");
+
+  const mainImg =
+    document.getElementById("mainProductImage");
 
   if (!mainImg) return;
 
-  mainImg.src = "../wooden-toys/product-images/" + img;
+  /* FADE OUT */
+  mainImg.style.opacity = "0";
+
+  setTimeout(() => {
+
+    mainImg.src =
+      "../wooden-toys/product-images/" + img;
+
+    /* FADE IN */
+    mainImg.style.opacity = "1";
+
+  }, 150);
+
+  /* ACTIVE THUMBNAIL */
+  document
+    .querySelectorAll(".thumbnails img")
+    .forEach(thumb => {
+
+      thumb.classList.remove("active-thumb");
+
+      if (thumb.src.includes(img)) {
+        thumb.classList.add("active-thumb");
+      }
+    });
 }
 
 
