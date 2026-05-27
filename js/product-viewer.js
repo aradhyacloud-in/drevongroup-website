@@ -346,3 +346,61 @@ function updateQuantityUI() {
 
   quantityElement.innerText = selectedQuantity;
 }
+
+/* =========================================================
+   DRAWER IMAGE NAVIGATION
+========================================================= */
+
+let currentDrawerImageIndex = 0;
+
+/* NEXT IMAGE */
+function nextDrawerImage() {
+
+  const product =
+    products[currentProductIndex];
+
+  if (!product || !product.images) return;
+
+  currentDrawerImageIndex++;
+
+  if (
+    currentDrawerImageIndex >=
+    product.images.length
+  ) {
+    currentDrawerImageIndex = 0;
+  }
+
+  updateDrawerMainImage(product);
+}
+
+/* PREVIOUS IMAGE */
+function prevDrawerImage() {
+
+  const product =
+    products[currentProductIndex];
+
+  if (!product || !product.images) return;
+
+  currentDrawerImageIndex--;
+
+  if (currentDrawerImageIndex < 0) {
+
+    currentDrawerImageIndex =
+      product.images.length - 1;
+  }
+
+  updateDrawerMainImage(product);
+}
+
+/* UPDATE MAIN IMAGE */
+function updateDrawerMainImage(product) {
+
+  const mainImage =
+    document.getElementById("mainProductImage");
+
+  if (!mainImage) return;
+
+  mainImage.src =
+    "../wooden-toys/product-images/" +
+    product.images[currentDrawerImageIndex];
+}
