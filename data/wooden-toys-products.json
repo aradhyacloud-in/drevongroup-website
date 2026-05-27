@@ -22,19 +22,20 @@
 },
   
   {
-    "id": "p2",
-    "name": "Wooden Stacking Rings",
-    "price": "₹399",
-    
-   "images": [
-      "rattle.jpg",
-      "rattle-2.jpg",
-      "rattle-3.jpg"
-    ],
-    
-    "description": "Build motor skills and coordination",
-    "category": "little-builders"
-  },
+  "id": "p2",
+  "name": "Kathakali Doll Set",
+  "price": "₹899",
+  "images": [
+    "kathakali-doll-set-1.webp",
+    "kathakali-doll-set-2.webp",
+    "kathakali-doll-set-3.webp",
+    "kathakali-doll-set-4.webp",
+    "kathakali-doll-set-5.webp"
+  ],
+  "description": "Add a touch of Indian heritage to your space with this beautifully handcrafted set of 4 Kathakali wooden dolls. Each doll stands at 12cm tall and is meticulously hand-painted with vibrant colors, capturing the essence of Kerala's classical dance-drama. Perfect as a unique cultural decor piece for your home or office desk, or as a thoughtful gift for art and culture enthusiasts.",
+  "category": "heritage-culture"
+},
+  
   {
     "id": "p3",
     "name": "Traditional Spinning Top",
