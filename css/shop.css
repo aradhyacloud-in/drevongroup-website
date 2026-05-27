@@ -30,7 +30,7 @@ body {
 
   border: 1px solid rgba(212,175,55,0.25);
 
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.95);
   backdrop-filter: blur(10px);
 
   color: #000;
@@ -1291,4 +1291,16 @@ body {
 .shop-search input:focus::placeholder {
   opacity: 0;
   transition: opacity 0.2s ease;
+}
+
+/* =========================================================
+   FORCE SEARCH INPUT TEXT VISIBILITY FIX
+   (Fixes light/washed-out text issue caused by overrides)
+========================================================= */
+
+#searchInput {
+  color: #000 !important;              /* Forces pure black text */
+  -webkit-text-fill-color: #000 !important;  /* Fixes Chrome/Safari autofill issues */
+  opacity: 1 !important;               /* Prevents faded rendering */
+  caret-color: #000;                  /* Makes cursor visible clearly */
 }
