@@ -66,18 +66,20 @@
   "category": "little-builders"
 },
 
-  {
+    {
     "id": "p5",
-    "name": "Alphabet Learning Set",
-    "price": "₹499",
-    
+    "name": "Wooden Monkey Figurine",
+    "price": "₹399",
     "images": [
-      "rattle.jpg",
-      "rattle-2.jpg",
-      "rattle-3.jpg"
+      "monkey-1.webp",
+      "monkey-2.webp",
+      "monkey-3.webp",
+      "monkey-4.webp",
+      "monkey-5.webp",
+      "monkey-6.webp",
+      "monkey-7.webp"
     ],
-
-    "description": "Montessori learning kit",
-    "category": "educational-montessori"
+    "description": "A charming 15 cm handcrafted wooden monkey figurine featuring a glossy green finish and natural wood accents, perfect for adding a touch of playful character to your home or office decor.",
+    "category": "nature-decor"
   }
 ]
