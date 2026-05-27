@@ -279,16 +279,29 @@ function changeImage(img) {
      ACTIVE THUMBNAIL FIX (NEW - SAFE ADDITION)
   ===================================================== */
 
-  const thumbs = document.querySelectorAll(".thumbnails img");
+/* =========================================================
+   FIXED THUMBNAIL ACTIVE STATE MATCHING
+   ---------------------------------------------------------
+   WHY:
+   - thumb.src is full URL in browser
+   - img is only filename
+   - so we normalize both before comparing
+========================================================= */
 
-  thumbs.forEach(thumb => {
-    thumb.classList.remove("active-thumb");
+const thumbs = document.querySelectorAll(".thumbnails img");
 
-    if (thumb.src.includes(img)) {
-      thumb.classList.add("active-thumb");
-    }
-  });
-}
+thumbs.forEach(thumb => {
+
+  thumb.classList.remove("active-thumb");
+
+  // Extract filename from full URL
+  const thumbFileName = thumb.src.split("/").pop();
+
+  if (thumbFileName === img) {
+    thumb.classList.add("active-thumb");
+  }
+
+});
 /* =========================================================
    5. CLICK OUTSIDE TO CLOSE
 ========================================================= */
