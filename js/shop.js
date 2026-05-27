@@ -1,12 +1,14 @@
 let categories = [];
 let products = [];
 let activeCategory = "all";
+let searchQuery = "";
 
 /* =========================================================
    INIT
 ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
   loadData();
+  initSearch();
 });
 
 /* =========================================================
@@ -406,4 +408,120 @@ function updateCardImage(productId) {
   imageElement.src =
     "../wooden-toys/product-images/" +
     product.images[currentIndex];
+}
+
+/* =========================================================
+   SEARCH FUNCTIONALITY
+========================================================= */
+
+function initSearch() {
+
+  const input = document.getElementById("searchInput");
+
+  if (!input) return;
+
+  input.addEventListener("input", (e) => {
+
+    searchQuery = e.target.value.toLowerCase().trim();
+
+    applyFilters();
+  });
+}
+
+/* APPLY CATEGORY + SEARCH TOGETHER */
+function applyFilters() {
+
+  let filtered = products;
+
+  /* CATEGORY FILTER */
+  if (activeCategory !== "all") {
+    filtered = filtered.filter(
+      p => p.category === activeCategory
+    );
+  }
+
+  /* SEARCH FILTER */
+  if (searchQuery) {
+    filtered = filtered.filter(p =>
+      p.name.toLowerCase().includes(searchQuery) ||
+      p.description.toLowerCase().includes(searchQuery)
+    );
+  }
+
+  renderFilteredProducts(filtered);
+}
+
+/* RENDER FILTERED PRODUCTS (SEARCH + CATEGORY) */
+
+function renderFilteredProducts(list) {
+
+  const grid = document.getElementById("productGrid");
+
+  if (!grid) return;
+
+  grid.innerHTML = "";
+
+  if (!list.length) {
+
+    grid.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:60px;
+        color:#777;
+      ">
+        <h3>No products found</h3>
+        <p>Try a different search or category</p>
+      </div>
+    `;
+
+    return;
+  }
+
+  list.forEach(p => {
+
+    const image =
+      (p.images && p.images.length)
+        ? p.images[0]
+        : "placeholder.jpg";
+
+    grid.innerHTML += `
+
+      <div
+        class="product-card"
+        onclick="openDrawerById('${p.id}')">
+
+        ${getBadgeByCategory(p.category)}
+
+        <div class="product-image-wrapper">
+
+          <button class="card-image-nav left"
+            onclick="event.stopPropagation(); prevCardImage('${p.id}')">
+            ←
+          </button>
+
+          <img
+            id="cardImage-${p.id}"
+            src="../wooden-toys/product-images/${image}"
+            alt="${p.name}"
+            loading="lazy">
+
+          <button class="card-image-nav right"
+            onclick="event.stopPropagation(); nextCardImage('${p.id}')">
+            →
+          </button>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>${p.name}</h3>
+          <p class="price">${p.price}</p>
+          <p class="desc">${p.description}</p>
+
+        </div>
+
+      </div>
+    `;
+  });
 }
