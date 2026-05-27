@@ -37,19 +37,20 @@
 },
   
   {
-    "id": "p3",
-    "name": "Traditional Spinning Top",
-    "price": "₹199",
-    
-    "images": [
-      "rattle.jpg",
-      "rattle-2.jpg",
-      "rattle-3.jpg"
-    ],
-    
-    "description": "Heritage Indian toy",
-    "category": "heritage-culture"
-  },
+  "id": "p3",
+  "name": "Yakshagana Doll Set",
+  "price": "₹799",
+  "images": [
+    "yakshagana-dolls-1.webp",
+    "yakshagana-dolls-2.webp",
+    "yakshagana-dolls-3.webp",
+    "yakshagana-dolls-4.webp",
+    "yakshagana-dolls-5.webp"
+  ],
+  "description": "Authentic wooden Yakshagana doll set handcrafted by Channapatna artisans using eco-friendly natural dyes. Includes premium hand-finished detailing and comes with a reusable gift box. A perfect representation of Karnataka’s traditional art form.",
+  "category": "heritage-culture"
+},
+  
   {
     "id": "p4",
     "name": "Wooden Wall Decor Elephant",
