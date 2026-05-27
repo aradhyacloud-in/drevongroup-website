@@ -75,7 +75,7 @@ content.innerHTML = `
     <!-- PRODUCT NAVIGATION -->
     <div style="display:flex; gap:10px; margin-top:20px;">
 
-      <button onclick="prevProduct()" style="
+     <button onclick="prevDrawerImage()" style="
         flex:1;
         padding:12px;
         border:none;
@@ -88,7 +88,7 @@ content.innerHTML = `
 
       </button>
 
-      <button onclick="nextProduct()" style="
+     <button onclick="nextDrawerImage()" style="
         flex:1;
         padding:12px;
         border:none;
