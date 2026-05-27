@@ -253,8 +253,14 @@ function closeDrawer() {
 
 
 /* =========================================================
-   4. CHANGE IMAGE (THUMBNAILS)
+   CHANGE IMAGE FUNCTION (THUMBNAIL CLICK HANDLER)
+   ---------------------------------------------------------
+   WHAT THIS DOES:
+   - Smooth fade transition for main image
+   - Updates active thumbnail highlight
+   - Does NOT affect cart or product logic
 ========================================================= */
+
 function changeImage(img) {
 
   const mainImg =
@@ -262,46 +268,43 @@ function changeImage(img) {
 
   if (!mainImg) return;
 
-  /* FADE OUT */
+  /* STEP 1: FADE OUT CURRENT IMAGE */
   mainImg.style.opacity = "0";
 
   setTimeout(() => {
 
+    /* STEP 2: UPDATE IMAGE SOURCE */
     mainImg.src =
       "../wooden-toys/product-images/" + img;
 
-    /* FADE IN */
+    /* STEP 3: FADE IN IMAGE */
     mainImg.style.opacity = "1";
 
   }, 150);
 
-  /* =====================================================
-     ACTIVE THUMBNAIL FIX (NEW - SAFE ADDITION)
-  ===================================================== */
+  /* =========================================================
+     STEP 4: ACTIVE THUMBNAIL HIGHLIGHT SYSTEM
+     ---------------------------------------------------------
+     WHAT THIS DOES:
+     - Removes active class from all thumbnails
+     - Adds active class to clicked image
+  ========================================================= */
 
-/* =========================================================
-   FIXED THUMBNAIL ACTIVE STATE MATCHING
-   ---------------------------------------------------------
-   WHY:
-   - thumb.src is full URL in browser
-   - img is only filename
-   - so we normalize both before comparing
-========================================================= */
+  const thumbs = document.querySelectorAll(".thumbnails img");
 
-const thumbs = document.querySelectorAll(".thumbnails img");
+  thumbs.forEach(thumb => {
 
-thumbs.forEach(thumb => {
+    thumb.classList.remove("active-thumb");
 
-  thumb.classList.remove("active-thumb");
+    const fileName = thumb.src.split("/").pop();
 
-  // Extract filename from full URL
-  const thumbFileName = thumb.src.split("/").pop();
+    if (fileName === img) {
+      thumb.classList.add("active-thumb");
+    }
 
-  if (thumbFileName === img) {
-    thumb.classList.add("active-thumb");
-  }
+  });
+}
 
-});
 /* =========================================================
    5. CLICK OUTSIDE TO CLOSE
 ========================================================= */
