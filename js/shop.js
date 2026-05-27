@@ -1,3 +1,5 @@
+console.log("shop.js loaded");
+
 let categories = [];
 let products = [];
 let activeCategory = "all";
