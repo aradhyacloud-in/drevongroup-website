@@ -7,8 +7,8 @@
   "price": "₹599",
 
   "images": [
-    "rattle-shaker-1.webp",
     "rattle-shaker-2.webp",
+    "rattle-shaker-1.webp",
     "rattle-shaker-3.webp",
     "rattle-shaker-4.webp",
     "rattle-shaker-5.webp",
@@ -71,12 +71,12 @@
     "name": "Wooden Monkey Figurine",
     "price": "₹399",
     "images": [
+      "monkey-6.webp",
       "monkey-1.webp",
       "monkey-2.webp",
       "monkey-3.webp",
       "monkey-4.webp",
       "monkey-5.webp",
-      "monkey-6.webp",
       "monkey-7.webp"
     ],
     "description": "A charming 15 cm handcrafted wooden monkey figurine featuring a glossy green finish and natural wood accents, perfect for adding a touch of playful character to your home or office decor.",
