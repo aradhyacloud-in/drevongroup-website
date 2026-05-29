@@ -68,8 +68,11 @@ body {
 
 .search-icon {
   position: absolute;
-  right: calc(50% - 320px);
-  margin-top: 16px;
+
+  right: 30px;
+
+  top: 50%;
+  transform: translateY(-50%);
 
   opacity: 0.6;
   font-size: 16px;
@@ -111,7 +114,7 @@ body {
   display: grid;
 
   grid-template-columns:
-    repeat(auto-fill, minmax(260px, 260px));
+    repeat(auto-fit, minmax(240px, 1fr));
 
   justify-content: center;
 
@@ -1119,7 +1122,7 @@ body {
 
     height: 92vh;
 
-    padding: 20px;
+    padding: 16px;
   }
 
   .product-modal-right h2 {
@@ -1324,6 +1327,7 @@ body {
   margin-top: -10px;
 
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-sizing: border-box;
 
   overflow: hidden;
 
@@ -1349,4 +1353,43 @@ body {
 
 .search-suggestions div:hover {
   background: #f5f5f5;
+}
+
+/* =========================================
+   MOBILE CART FIX
+========================================= */
+
+@media (max-width: 768px) {
+
+  .cart-item {
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .cart-item img {
+
+    width: 100%;
+
+    height: auto;
+  }
+}
+
+/* =========================================
+   MOBILE FLOATING CART
+========================================= */
+
+@media (max-width: 768px) {
+
+  .floating-cart {
+
+    width: 54px;
+    height: 54px;
+
+    font-size: 22px;
+
+    right: 15px;
+    bottom: 15px;
+  }
 }
