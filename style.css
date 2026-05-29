@@ -1018,19 +1018,64 @@ body {
    RESPONSIVE
 ========================= */
 
+/* =========================================================
+   TABLET RESPONSIVE
+========================================================= */
+
 @media (max-width: 992px) {
 
+  /* HERO */
+
+  .hero h1 {
+
+    font-size: 56px;
+
+    line-height: 1.12;
+
+  }
+
+  .subtext {
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+  }
+
+  /* SLIDER */
+
+  .cinematic-slider {
+
+    height: 72vh;
+
+  }
+
   .slide-content h2 {
-    font-size: 46px;
+
+    font-size: 48px;
+
   }
 
   .slide-content p {
+
     font-size: 17px;
+
   }
 
-  .products-grid {
-    grid-template-columns: 1fr;
+  /* PRODUCTS */
+
+  .products-section {
+
+    padding: 100px 40px;
+
   }
+
+  .product-card {
+
+    min-height: 320px;
+
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -1143,15 +1188,69 @@ body {
   }
 }
 
+/* =========================================================
+   SMALL MOBILE DEVICES
+========================================================= */
+
 @media (max-width: 480px) {
 
+  /* HERO */
+
+  .hero h1 {
+
+    font-size: 34px;
+
+  }
+
+  .subtext {
+
+    font-size: 14px;
+
+  }
+
+  /* SLIDER */
+
+  .cinematic-slider {
+
+    height: 55vh;
+
+  }
+
   .slide-content h2 {
+
     font-size: 28px;
+
   }
 
   .slide-content p {
-    font-size: 14px;
+
+    font-size: 13px;
+
   }
+
+  /* SECTION HEADINGS */
+
+  .products-header h2,
+  .section h2 {
+
+    font-size: 30px;
+
+  }
+
+  /* PRODUCT CARDS */
+
+  .product-card {
+
+    padding: 28px 22px;
+
+  }
+
+  .product-content h3 {
+
+    font-size: 22px;
+
+  }
+
 }
 
 /* =========================================================
@@ -1396,28 +1495,297 @@ body {
    RESPONSIVE
 ========================= */
 
+/* =========================================================
+   MOBILE RESPONSIVE
+========================================================= */
+
 @media (max-width: 768px) {
 
-  .enquiry-hero h1 {
+  /* =========================
+     NAVBAR
+  ========================= */
+
+  .navbar {
+
+    flex-direction: column;
+
+    gap: 22px;
+
+    padding: 18px 20px;
+
+  }
+
+  .logo-area {
+
+    flex-direction: column;
+
+    gap: 10px;
+
+  }
+
+  .logo img {
+
+    height: 48px;
+
+  }
+
+  .brand-text {
+
+    font-size: 20px;
+
+    letter-spacing: 4px;
+
+    text-align: center;
+
+  }
+
+  .nav-links {
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 16px;
+
+  }
+
+  .nav-links a {
+
+    font-size: 12px;
+
+  }
+
+  .nav-cta {
+
+    width: 100%;
+
+    text-align: center;
+
+  }
+
+  /* =========================
+     HERO
+  ========================= */
+
+  .hero {
+
+    min-height: auto;
+
+    padding:
+      120px 20px
+      90px;
+
+  }
+
+  .hero-inner {
+
+    gap: 22px;
+
+  }
+
+  .hero h1 {
 
     font-size: 42px;
 
-  }
+    line-height: 1.12;
 
-  .enquiry-container {
-
-    padding: 35px 25px;
+    letter-spacing: -1px;
 
   }
 
-  .enquiry-container h2 {
+  .subtext {
 
-    font-size: 30px;
+    font-size: 15px;
+
+    line-height: 1.9;
+
+  }
+
+  .hero-highlight {
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+  }
+
+  /* BUTTONS */
+
+  .hero-buttons {
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 14px;
+
+  }
+
+  .btn {
+
+    width: 100%;
+
+    max-width: 320px;
+
+  }
+
+  /* =========================
+     SLIDER
+  ========================= */
+
+  .cinematic-slider {
+
+    height: 60vh;
+
+  }
+
+  .slide-content {
+
+    bottom: 10%;
+
+  }
+
+  .slide-content h2 {
+
+    font-size: 34px;
+
+    line-height: 1.15;
+
+    letter-spacing: -1px;
+
+  }
+
+  .slide-content p {
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+  }
+
+  /* SLIDER BUTTONS */
+
+  .prev,
+  .next {
+
+    width: 42px;
+
+    height: 42px;
+
+    font-size: 20px;
+
+  }
+
+  .prev {
+
+    left: 12px;
+
+  }
+
+  .next {
+
+    right: 12px;
+
+  }
+
+  /* =========================
+     SECTIONS
+  ========================= */
+
+  .section {
+
+    padding: 90px 20px;
+
+  }
+
+  .section h2 {
+
+    font-size: 34px;
+
+    line-height: 1.2;
+
+  }
+
+  /* =========================
+     PRODUCTS
+  ========================= */
+
+  .products-section {
+
+    padding: 90px 20px;
+
+  }
+
+  .products-header h2 {
+
+    font-size: 36px;
+
+    line-height: 1.2;
+
+  }
+
+  .products-subtext {
+
+    font-size: 16px;
+
+  }
+
+  .products-grid {
+
+    gap: 24px;
+
+  }
+
+  .product-card {
+
+    min-height: auto;
+
+    padding: 32px 28px;
+
+    border-radius: 22px;
+
+  }
+
+  .product-content h3 {
+
+    font-size: 26px;
+
+  }
+
+  .product-content p {
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+  }
+
+  .product-btn {
+
+    width: 100%;
+
+    text-align: center;
+
+  }
+
+  /* =========================
+     FOOTER
+  ========================= */
+
+  .footer-wrapper {
+
+    grid-template-columns: 1fr;
+
+    gap: 42px;
+
+    text-align: center;
+
+    padding:
+      0 30px 60px;
 
   }
 
 }
-
 /* =========================
    FORM STATUS MESSAGE
 ========================= */
