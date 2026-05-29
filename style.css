@@ -1,12 +1,38 @@
 /* =========================
    BASE
 ========================= */
+/* =========================
+   GLOBAL RESET
+========================= */
+
 * {
+
   margin: 0;
   padding: 0;
+
   box-sizing: border-box;
 
-  font-family: "Inter", "Segoe UI", sans-serif;
+  font-family:
+    "Inter",
+    "Segoe UI",
+    sans-serif;
+
+}
+
+/* =========================
+   GLOBAL SMOOTH MOTION
+========================= */
+
+a,
+button,
+.card,
+.product-card,
+.product-btn,
+.btn {
+
+  transition:
+    all 0.35s ease;
+
 }
 
 html {
@@ -323,7 +349,13 @@ body {
 }
 
 .primary:hover {
-  transform: translateY(-3px);
+
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(212,175,55,0.22);
+
 }
 
 /* GHOST */
@@ -335,10 +367,17 @@ body {
 }
 
 .ghost:hover {
+
   background: #d4af37;
+
   color: #000;
 
-  transform: translateY(-3px);
+  transform:
+    translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(212,175,55,0.18);
+
 }
 
 /* HIGHLIGHT */
@@ -592,10 +631,42 @@ body {
    SECTIONS
 ========================= */
 
+/* =========================
+   PREMIUM SECTIONS
+========================= */
+
 .section {
-  padding: 110px 60px;
+
+  padding: 120px 60px;
 
   text-align: center;
+
+  position: relative;
+
+}
+
+/* SECTION REVEAL ANIMATION */
+
+.reveal {
+
+  opacity: 0;
+
+  transform:
+    translateY(40px);
+
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+
+}
+
+.reveal.active {
+
+  opacity: 1;
+
+  transform:
+    translateY(0);
+
 }
 
 .section h2 {
@@ -745,7 +816,7 @@ body {
   min-height: 360px;
 
   padding: 42px;
-
+ 
   border-radius: 26px;
 
   background:
@@ -765,6 +836,7 @@ body {
 
   justify-content: space-between;
 
+  isolation: isolate;
   overflow: hidden;
 
   backdrop-filter: blur(12px);
@@ -773,6 +845,37 @@ body {
     transform 0.45s ease,
     border 0.45s ease,
     box-shadow 0.45s ease;
+
+}
+
+/* PREMIUM CARD LIGHT EFFECT */
+
+.product-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(212,175,55,0.12),
+      transparent 35%
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.45s ease;
+
+  z-index: -1;
+
+}
+
+.product-card:hover::before {
+
+  opacity: 1;
 
 }
 
@@ -1113,6 +1216,7 @@ body {
     height: auto;
 
     padding: 100px 20px;
+     position: relative;
   }
 
   .hero h1 {
@@ -1127,6 +1231,35 @@ body {
     flex-direction: column;
   }
 
+   /* HERO AMBIENT GLOW */
+
+.hero::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 700px;
+  height: 700px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(212,175,55,0.12),
+      transparent 70%
+    );
+
+  top: -250px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 1;
+
+  pointer-events: none;
+
+}
+   
   /* SLIDER */
 
   .cinematic-slider {
@@ -1621,13 +1754,29 @@ body {
 
   }
 
-  .btn {
+  /* PREMIUM BUTTONS */
 
-    width: 100%;
+.btn {
 
-    max-width: 320px;
+  display: inline-flex;
 
-  }
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 28px;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  letter-spacing: 0.5px;
+
+  transition:
+    all 0.35s ease;
+
+}
 
   /* =========================
      SLIDER
