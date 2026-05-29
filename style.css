@@ -13,33 +13,57 @@ html {
   scroll-behavior: smooth;
 }
 
+/* =========================
+   PREMIUM GLOBAL BACKGROUND
+========================= */
+
 body {
-  background: radial-gradient(circle at top, #111, #070707);
+
+  background:
+    radial-gradient(circle at top,
+    rgba(212,175,55,0.08),
+    transparent 28%),
+
+    linear-gradient(
+      180deg,
+      #060606 0%,
+      #0b0b0b 35%,
+      #101010 100%
+    );
+
   color: #fff;
 
   overflow-x: hidden;
 }
 
 /* =========================
-   NAVBAR
+   PREMIUM NAVBAR
 ========================= */
 
 .navbar {
+
   position: sticky;
+
   top: 0;
+
   z-index: 1000;
 
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
 
-  padding: 18px 70px;
+  padding: 20px 72px;
 
-  background: rgba(10, 10, 10, 0.65);
+  background: rgba(8, 8, 8, 0.72);
 
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(18px);
 
-  border-bottom: 1px solid rgba(255, 215, 0, 0.08);
+  border-bottom: 1px solid rgba(212,175,55,0.08);
+
+  transition: all 0.4s ease;
+
 }
 
 /* LOGO AREA */
@@ -62,13 +86,17 @@ body {
   );
 }
 
-/* BRAND */
+/* =========================
+   BRAND LOGO TEXT
+========================= */
 
 .brand-text {
-  font-size: 32px;
+
+  font-size: 28px;
+
   font-weight: 600;
 
-  letter-spacing: 7px;
+  letter-spacing: 8px;
 
   color: #d4af37;
 
@@ -76,8 +104,12 @@ body {
 
   white-space: nowrap;
 
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
+  text-shadow:
+    0 0 10px rgba(212,175,55,0.12),
+    0 0 25px rgba(212,175,55,0.05);
+
 }
+
 
 /* NAV LINKS */
 
@@ -90,20 +122,59 @@ body {
   gap: 32px;
 }
 
+/* =========================
+   NAVIGATION LINKS
+========================= */
+
 .nav-links a {
-  color: #ddd;
+
+  position: relative;
+
+  color: #d8d8d8;
 
   text-decoration: none;
 
-  font-size: 14px;
+  font-size: 13px;
 
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 
-  transition: 0.3s ease;
+  text-transform: uppercase;
+
+  transition: 0.35s ease;
+
 }
 
 .nav-links a:hover {
+
   color: #d4af37;
+
+}
+
+/* PREMIUM HOVER LINE */
+
+.nav-links a::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0%;
+
+  height: 1px;
+
+  background: #d4af37;
+
+  transition: 0.35s ease;
+
+}
+
+.nav-links a:hover::after {
+
+  width: 100%;
+
 }
 
 /* CTA */
@@ -129,29 +200,48 @@ body {
 }
 
 /* =========================
-   HERO SECTION
+   PREMIUM HERO SECTION
 ========================= */
 
 .hero {
-  height: 90vh;
+
+  min-height: 92vh;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   text-align: center;
 
-  padding: 0 20px;
+  padding:
+    140px 20px
+    100px;
+
+  position: relative;
+
+  overflow: hidden;
+
 }
 
+/* HERO CONTENT */
+
 .hero-inner {
+
   width: 100%;
-  max-width: 950px;
+
+  max-width: 1100px;
 
   display: flex;
+
   flex-direction: column;
 
-  gap: 18px;
+  gap: 26px;
+
+  position: relative;
+
+  z-index: 2;
+
 }
 
 /* TAG */
@@ -166,27 +256,38 @@ body {
   text-transform: uppercase;
 }
 
-/* HERO TITLE */
+/* HERO HEADLINE */
 
 .hero h1 {
-  font-size: 62px;
-  font-weight: 600;
 
-  line-height: 1.15;
+  font-size: 72px;
+
+  font-weight: 650;
+
+  line-height: 1.08;
+
+  letter-spacing: -2px;
+
+  max-width: 1050px;
+
+  margin: auto;
+
 }
 
-/* SUBTEXT */
+/* HERO DESCRIPTION */
 
 .subtext {
-  max-width: 800px;
+
+  max-width: 880px;
 
   margin: 0 auto;
 
-  color: #b5b5b5;
+  color: #b8b8b8;
 
-  font-size: 18px;
+  font-size: 19px;
 
-  line-height: 1.8;
+  line-height: 1.9;
+
 }
 
 /* BUTTONS */
@@ -242,27 +343,24 @@ body {
 
 /* HIGHLIGHT */
 
+/* PREMIUM HERO HIGHLIGHT */
+
 .hero-highlight {
-  margin-top: 25px;
 
-  font-size: 34px;
-  font-weight: 800;
+  margin-top: 18px;
 
-  letter-spacing: 2px;
+  font-size: 18px;
+
+  font-weight: 600;
+
+  letter-spacing: 4px;
 
   text-transform: uppercase;
 
-  background: linear-gradient(
-    90deg,
-    #c9a24a,
-    #f5d27a,
-    #b8862b
-  );
+  color: #d4af37;
 
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  opacity: 0.95;
 
-  text-shadow: 0 0 10px rgba(201, 162, 74, 0.25);
 }
 
 /* =========================
