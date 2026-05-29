@@ -292,3 +292,39 @@ if (enquiryForm) {
   - notifications
   - reusable modals
 */
+
+/* =========================================================
+   PREMIUM SCROLL REVEAL ANIMATION
+========================================================= */
+
+const revealElements = document.querySelectorAll(
+  ".section, .product-card"
+);
+
+const revealOnScroll = () => {
+
+  revealElements.forEach((element) => {
+
+    const windowHeight = window.innerHeight;
+
+    const revealTop =
+      element.getBoundingClientRect().top;
+
+    const revealPoint = 120;
+
+    if (revealTop < windowHeight - revealPoint) {
+
+      element.classList.add("reveal", "active");
+
+    }
+
+  });
+
+};
+
+window.addEventListener(
+  "scroll",
+  revealOnScroll
+);
+
+revealOnScroll();
