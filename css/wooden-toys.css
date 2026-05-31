@@ -433,6 +433,7 @@ body {
 /* WRAPPER */
 
 .footer-wrapper {
+
   max-width: 1400px;
 
   margin: auto;
@@ -441,21 +442,27 @@ body {
 
   display: grid;
 
-  grid-template-columns: 1fr 1fr 1.4fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
 
-  gap: 40px;
+  gap: 50px;
 
   align-items: start;
+
 }
+
+   
 /* FOOTER COLUMN */
 
 .footer-column {
+
   display: flex;
   flex-direction: column;
+
   align-items: flex-start;
 
-  width: 100%;
-  min-width: 0;
+  justify-content: flex-start;
+
+  text-align: left;
 }
 
 /* HEADINGS */
@@ -573,14 +580,20 @@ body {
 /* ADDRESS ALIGNMENT */
 .footer-column:last-child p {
   text-align: left;
+  align-items: flex-start;
 }
 
 /* CONTACT ICON ROWS */
 
 .contact-item {
+
   display: flex;
-  align-items: center;
+
+  align-items: flex-start;
+
   gap: 10px;
+
+  width: 100%;
 }
 
 .contact-icon {
@@ -637,11 +650,8 @@ body {
 
   .footer-wrapper {
     grid-template-columns: 1fr;
-
     gap: 45px;
-
     padding: 0 25px 60px;
-
     text-align: center;
   }
 
@@ -656,18 +666,13 @@ body {
   .linkedin-row {
     justify-content: center;
   }
-}
 
- /* CENTER CONTACT ITEMS ON MOBILE */
   .contact-item,
   .email-item {
-
     justify-content: center;
   }
 
-  /* CENTER ADDRESS TEXT */
   .footer-column:last-child p {
-
     text-align: center;
   }
 }
