@@ -7,36 +7,14 @@
    HOMEPAGE CINEMATIC SLIDER
    ========================================================= */
 
-/*
-  This section controls:
-  - image/video slideshow
-  - next/previous navigation
-  - automatic transitions
-  - video autoplay handling
-
-  Runs ONLY if slider elements exist.
-*/
-
 const slides = document.querySelectorAll(".slide");
-
 const nextBtn = document.querySelector(".next");
-
 const prevBtn = document.querySelector(".prev");
 
 let currentSlide = 0;
-
 let slideTimeout;
 
-
-/* ---------------------------------------------------------
-   INITIALIZE SLIDER SAFELY
---------------------------------------------------------- */
-
 if (slides.length > 0 && nextBtn && prevBtn) {
-
-  /* -------------------------------------------------------
-     SHOW ACTIVE SLIDE
-  ------------------------------------------------------- */
 
   function showSlide(index) {
 
@@ -58,52 +36,46 @@ if (slides.length > 0 && nextBtn && prevBtn) {
 
     });
 
-    const activeSlide = slides[index];
+    currentSlide = index;
+
+    const activeSlide = slides[currentSlide];
 
     activeSlide.classList.add("active");
 
     const activeVideo =
       activeSlide.querySelector("video");
 
-/* -----------------------------------------------------
-   VIDEO SLIDE HANDLING
------------------------------------------------------ */
+    /* VIDEO SLIDE */
 
-if (activeVideo) {
+    if (activeVideo) {
 
-  const audioEnabled =
-    localStorage.getItem("drevonVideoAudio");
+      activeVideo.loop = false;
 
-  activeVideo.muted =
-    audioEnabled !== "enabled";
+      activeVideo.play().catch(() => {});
 
-  activeVideo.play();
+      activeVideo.onended = () => {
 
-  activeVideo.onended = () => {
+        nextSlide();
 
-    nextSlide();
+      };
 
-  };
+    }
 
-}
+    /* IMAGE SLIDES */
 
-/* -----------------------------------------------------
-   IMAGE SLIDE AUTO TRANSITION
------------------------------------------------------ */
+    else {
 
-else {
+      slideTimeout = setTimeout(() => {
 
-  slideTimeout = setTimeout(() => {
+        nextSlide();
 
-    nextSlide();
+      }, 5000);
 
-  }, 5000);
+    }
 
-}
+  }
 
-  /* -------------------------------------------------------
-     NEXT SLIDE
-  ------------------------------------------------------- */
+  /* NEXT */
 
   function nextSlide() {
 
@@ -119,10 +91,7 @@ else {
 
   }
 
-
-  /* -------------------------------------------------------
-     PREVIOUS SLIDE
-  ------------------------------------------------------- */
+  /* PREVIOUS */
 
   function prevSlide() {
 
@@ -138,10 +107,7 @@ else {
 
   }
 
-
-  /* -------------------------------------------------------
-     BUTTON EVENTS
-  ------------------------------------------------------- */
+  /* BUTTONS */
 
   nextBtn.addEventListener("click", () => {
 
@@ -155,15 +121,32 @@ else {
 
   });
 
-
-  /* -------------------------------------------------------
-     INITIAL SLIDER LOAD
-  ------------------------------------------------------- */
+  /* INITIAL LOAD */
 
   showSlide(currentSlide);
 
 }
 
+/* =========================================================
+   VIDEO CLICK TO ENABLE SOUND
+   ========================================================= */
+
+const heroVideo =
+  document.getElementById("heroVideo");
+
+if (heroVideo) {
+
+  heroVideo.addEventListener("click", () => {
+
+    heroVideo.muted = false;
+
+    heroVideo.volume = 1;
+
+    heroVideo.play();
+
+  });
+
+}
 
 
 /* =========================================================
@@ -330,25 +313,3 @@ window.addEventListener(
 
 revealOnScroll();
 
-/* =========================================================
-   VIDEO CLICK TO UNMUTE
-========================================================= */
-
-const heroVideo = document.getElementById("heroVideo");
-
-if (heroVideo) {
-
-  heroVideo.addEventListener("click", () => {
-
-    heroVideo.muted = false;
-
-    heroVideo.volume = 1;
-
-    localStorage.setItem(
-      "drevonVideoAudio",
-      "enabled"
-    );
-
-  });
-
-}
