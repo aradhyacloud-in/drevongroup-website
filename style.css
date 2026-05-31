@@ -1492,6 +1492,17 @@ h6 {
 
   text-align: center;
 
+     background:
+       radial-gradient(
+         circle at top,
+         rgba(212,175,55,0.12),
+         transparent 40%
+       ),
+       linear-gradient(
+         180deg,
+         #0b0b0b,
+         #181818
+       );
 }
 
 .enquiry-hero-content {
@@ -1509,6 +1520,7 @@ h6 {
   font-size: 62px;
 
   line-height: 1.1;
+  color: #ffffff;
 
 }
 
