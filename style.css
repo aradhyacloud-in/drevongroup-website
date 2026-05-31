@@ -461,21 +461,21 @@ h6 {
   width: 100%;
   height: 100%;
 
-  object-fit: contain;
+  object-fit: cover;
 
   transform: none;
 
-  filter:none;
-   
+  filter:
+    brightness(0.95)
+    contrast(1.02);
 
 }
+
+
 
 /* CINEMATIC OVERLAY */
 
 .overlay {
-
-  position:absolute;
-  inset:0;
 
   background:
 
@@ -490,8 +490,6 @@ h6 {
       rgba(0,0,0,0.10),
       transparent
     );
-
-  z-index:1;
 
 }
 
