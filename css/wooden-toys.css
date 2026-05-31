@@ -431,11 +431,8 @@ body {
 /* WRAPPER */
 
 .footer-wrapper {
-
   max-width: 1400px;
-
   margin: auto;
-
   padding: 0 80px 70px;
 
   display: grid;
@@ -443,9 +440,6 @@ body {
   grid-template-columns: repeat(4, 1fr);
 
   gap: 50px;
-
-  align-items: start;
-
 }
 
    
