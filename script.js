@@ -70,18 +70,20 @@ if (slides.length > 0 && nextBtn && prevBtn) {
        VIDEO SLIDE HANDLING
     ----------------------------------------------------- */
 
-    if (activeVideo) {
-
+      const audioEnabled =
+        localStorage.getItem("drevonVideoAudio");
+      
+      if (audioEnabled === "enabled") {
+      
+        activeVideo.muted = false;
+      
+      } else {
+      
+        activeVideo.muted = true;
+      
+      }
+      
       activeVideo.play();
-
-      activeVideo.onended = () => {
-
-        nextSlide();
-
-      };
-
-    }
-
 
     /* -----------------------------------------------------
        IMAGE SLIDE AUTO TRANSITION
@@ -328,3 +330,26 @@ window.addEventListener(
 );
 
 revealOnScroll();
+
+/* =========================================================
+   VIDEO CLICK TO UNMUTE
+========================================================= */
+
+const heroVideo = document.getElementById("heroVideo");
+
+if (heroVideo) {
+
+  heroVideo.addEventListener("click", () => {
+
+    heroVideo.muted = false;
+
+    heroVideo.volume = 1;
+
+    localStorage.setItem(
+      "drevonVideoAudio",
+      "enabled"
+    );
+
+  });
+
+}
