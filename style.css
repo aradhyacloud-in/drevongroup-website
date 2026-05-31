@@ -1539,9 +1539,10 @@ h6 {
 
   border-radius: 24px;
 
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,0.05);
 
-  border: 1px solid rgba(255,215,0,0.08);
+ border: 1px solid rgba(212,175,55,0.15);
+
 
   backdrop-filter: blur(12px);
 
@@ -1554,7 +1555,8 @@ h6 {
   text-align: center;
 
   font-size: 40px;
-
+ 
+ color: #ffffff;
 }
 
 .enquiry-container .section-sub {
@@ -1562,6 +1564,7 @@ h6 {
   margin-bottom: 45px;
 
   text-align: center;
+   color: #cfcfcf;
 
 }
 
@@ -2085,5 +2088,20 @@ h6 {
   transform: translateY(-3px);
 
   box-shadow: 0 10px 25px rgba(37,211,102,0.25);
+
+}
+
+/* =========================
+   BUSINESS ENQUIRY PAGE ONLY
+========================= */
+
+.enquiry-page {
+
+  background:
+    linear-gradient(
+      180deg,
+      #f9f7f2 0%,
+      #ece5d8 100%
+    );
 
 }
