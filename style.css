@@ -1482,11 +1482,10 @@ h6 {
    ========================================================= */
 
 
-/* ====================================
-   FIX: BUSINESS ENQUIRY HERO ALIGNMENT
-========================= */===========
 
 .enquiry-hero {
+
+  padding: 140px 20px 90px;
 
   text-align: center;
 
@@ -1495,36 +1494,28 @@ h6 {
 .enquiry-hero-content {
 
   max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: auto;
 
 }
 
-/* FORCE FULL CENTER ALIGNMENT */
-.enquiry-hero .tag,
-.enquiry-hero h1,
-.enquiry-hero .subtext {
-
-  width: 100%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-
-}
-
-/* REMOVE ANY LEFT SHIFT EFFECT */
 .enquiry-hero h1 {
 
-  margin-left: 0;
-  margin-right: 0;
+  margin-top: 18px;
 
-  display: block;
+  font-size: 62px;
+
+  line-height: 1.1;
 
 }
+
+.enquiry-hero .subtext {
+
+  margin-top: 22px;
+
+}
+
+
 /* =========================
    ENQUIRY SECTION
 ========================= */
