@@ -127,8 +127,9 @@ if (slides.length > 0 && nextBtn && prevBtn) {
 
 }
 
+
 /* =========================================================
-   VIDEO CLICK TO ENABLE SOUND
+   VIDEO CLICK TO ENABLE SOUND ONCE
    ========================================================= */
 
 const heroVideo =
@@ -138,12 +139,23 @@ if (heroVideo) {
 
   heroVideo.addEventListener("click", () => {
 
-     alert("Video clicked")
-     heroVideo.muted = false;
-
+    heroVideo.muted = false;
     heroVideo.volume = 1;
 
-    heroVideo.play();
+    localStorage.setItem(
+      "drevonVideoAudio",
+      "enabled"
+    );
+
+  });
+
+  heroVideo.addEventListener("ended", () => {
+
+    heroVideo.muted = true;
+
+    localStorage.removeItem(
+      "drevonVideoAudio"
+    );
 
   });
 
