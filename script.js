@@ -65,42 +65,48 @@ if (slides.length > 0 && nextBtn && prevBtn) {
     const activeVideo =
       activeSlide.querySelector("video");
 
+/* -----------------------------------------------------
+   VIDEO SLIDE HANDLING
+----------------------------------------------------- */
 
-    /* -----------------------------------------------------
-       VIDEO SLIDE HANDLING
-    ----------------------------------------------------- */
+if (activeVideo) {
 
-      const audioEnabled =
-        localStorage.getItem("drevonVideoAudio");
-      
-      if (audioEnabled === "enabled") {
-      
-        activeVideo.muted = false;
-      
-      } else {
-      
-        activeVideo.muted = true;
-      
-      }
-      
-      activeVideo.play();
+  const audioEnabled =
+    localStorage.getItem("drevonVideoAudio");
 
-    /* -----------------------------------------------------
-       IMAGE SLIDE AUTO TRANSITION
-    ----------------------------------------------------- */
+  if (audioEnabled === "enabled") {
 
-    else {
+    activeVideo.muted = false;
 
-      slideTimeout = setTimeout(() => {
+  } else {
 
-        nextSlide();
-
-      }, 5000);
-
-    }
+    activeVideo.muted = true;
 
   }
 
+  activeVideo.play();
+
+  activeVideo.onended = () => {
+
+    nextSlide();
+
+  };
+
+}
+
+/* -----------------------------------------------------
+   IMAGE SLIDE AUTO TRANSITION
+----------------------------------------------------- */
+
+else {
+
+  slideTimeout = setTimeout(() => {
+
+    nextSlide();
+
+  }, 5000);
+
+}
 
   /* -------------------------------------------------------
      NEXT SLIDE
