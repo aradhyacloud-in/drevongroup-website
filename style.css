@@ -1483,53 +1483,51 @@ h6 {
 
 
 /* =========================
-   ENQUIRY HERO
+   BUSINESS ENQUIRY HERO
 ========================= */
 
-.enquiry-hero {
+.enquiry-hero .tag {
 
-  padding: 140px 20px 90px;
+  color: #f4d77a;
 
-  text-align: center;
+  font-weight: 600;
 
-     background:
-       radial-gradient(
-         circle at top,
-         rgba(212,175,55,0.12),
-         transparent 40%
-       ),
-       linear-gradient(
-         180deg,
-         #0b0b0b,
-         #181818
-       );
-}
+  letter-spacing: 4px;
 
-.enquiry-hero-content {
-
-  max-width: 900px;
-
-  margin: auto;
+  text-shadow:
+    0 0 12px rgba(244,215,122,0.6),
+    0 0 25px rgba(244,215,122,0.3);
 
 }
 
 .enquiry-hero h1 {
 
-  margin-top: 18px;
+  color: #d4af37;
 
   font-size: 62px;
 
-  line-height: 1.1;
-  color: #ffffff;
+  font-weight: 700;
+
+  text-shadow:
+    0 0 20px rgba(212,175,55,0.7),
+    0 0 40px rgba(212,175,55,0.4),
+    0 0 60px rgba(212,175,55,0.2);
 
 }
 
 .enquiry-hero .subtext {
 
-  margin-top: 22px;
+  color: #f5f5f5;
+
+  font-size: 20px;
+
+  line-height: 1.9;
+
+  max-width: 850px;
+
+  margin: 22px auto 0;
 
 }
-
 
 /* =========================
    ENQUIRY SECTION
