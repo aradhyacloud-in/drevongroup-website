@@ -74,15 +74,8 @@ if (activeVideo) {
   const audioEnabled =
     localStorage.getItem("drevonVideoAudio");
 
-  if (audioEnabled === "enabled") {
-
-    activeVideo.muted = false;
-
-  } else {
-
-    activeVideo.muted = true;
-
-  }
+  activeVideo.muted =
+    audioEnabled !== "enabled";
 
   activeVideo.play();
 
