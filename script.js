@@ -138,7 +138,8 @@ if (heroVideo) {
 
   heroVideo.addEventListener("click", () => {
 
-    heroVideo.muted = false;
+     alert("Video clicked")
+     heroVideo.muted = false;
 
     heroVideo.volume = 1;
 
