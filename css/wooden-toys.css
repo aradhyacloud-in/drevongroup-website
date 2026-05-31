@@ -76,18 +76,29 @@ body {
 ========================= */
 
 .toys-hero {
+
   position: relative;
-  width: 100%;
-  height: 90vh;
+
+  width: 90%;
+
+  max-width: 1400px;
+
+  aspect-ratio: 16 / 9;
+
+  margin: 60px auto;
+
   overflow: hidden;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.12);
 
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
 
-  padding: 0; /* IMPORTANT: removes split issue */
-  margin: 0;
+  text-align: center;
 }
 
 /* SLIDESHOW WRAPPER */
@@ -111,9 +122,9 @@ body {
   height: 100%;
 
   object-fit: cover;
-   
-  filter: brightness(1.08) contrast(1.06) saturate(1.12);
 
+  transform: none;
+   
   opacity: 0;
 
   transition: opacity 1.2s ease-in-out;
@@ -129,7 +140,7 @@ body {
 .toys-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(30, 20, 10, 0.55);
+  background: rgba(30,20,10,0.25);
   z-index: 1;
 }
 
@@ -709,9 +720,15 @@ body {
 
   .toys-hero {
 
-    height: 75vh;
+    width: 95%;
 
-    min-height: 620px;
+    aspect-ratio: 16 / 9;
+
+    margin: 30px auto;
+
+    min-height: auto;
+
+    height: auto;
   }
 }
 
