@@ -1492,6 +1492,7 @@ h6 {
 }
 
 .enquiry-hero-content {
+  display: flex;
   max-width: 900px;
   margin: auto;
   text-align: center;
@@ -1499,9 +1500,10 @@ h6 {
 
 .enquiry-hero .logo {
   display: block;
-  margin: 0 auto 15px auto; /* centers + space below */
-  width: 120px; /* adjust size if needed */
+  margin: 0 auto 10px auto;/* centers + space below */
+  width: 90px; /* adjust size if needed */
   height: auto;
+  margin-bottom: 8px;
 }
 
 .enquiry-hero h1 {
