@@ -1482,57 +1482,49 @@ h6 {
    ========================================================= */
 
 
-/* =========================
-   BUSINESS ENQUIRY HERO
-========================= */
+/* ====================================
+   FIX: BUSINESS ENQUIRY HERO ALIGNMENT
+========================= */===========
 
-.enquiry-hero .tag {
-
-  color: #f4d77a;
-
-  font-weight: 600;
-
-  align-items: center;
+.enquiry-hero {
 
   text-align: center;
 
-  letter-spacing: 4px;
+}
 
-  text-shadow:
-    0 0 12px rgba(244,215,122,0.6),
-    0 0 25px rgba(244,215,122,0.3);
+.enquiry-hero-content {
+
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
 }
 
-.enquiry-hero h1 {
-
-  color: #d4af37;
-
-  font-size: 62px;
-
-  font-weight: 700;
-
-  text-shadow:
-    0 0 20px rgba(212,175,55,0.7),
-    0 0 40px rgba(212,175,55,0.4),
-    0 0 60px rgba(212,175,55,0.2);
-
-}
-
+/* FORCE FULL CENTER ALIGNMENT */
+.enquiry-hero .tag,
+.enquiry-hero h1,
 .enquiry-hero .subtext {
 
-  color: #f5f5f5;
-
-  font-size: 20px;
-
-  line-height: 1.9;
-
-  max-width: 850px;
-
-  margin: 22px auto 0;
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
+/* REMOVE ANY LEFT SHIFT EFFECT */
+.enquiry-hero h1 {
+
+  margin-left: 0;
+  margin-right: 0;
+
+  display: block;
+
+}
 /* =========================
    ENQUIRY SECTION
 ========================= */
