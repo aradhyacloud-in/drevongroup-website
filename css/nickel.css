@@ -171,13 +171,14 @@ h1, h2, h3, h4 {
     transform: scale(1.05);
 }
 
+
 /* Hero Section */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
-    /* Using nickel1.webp from assets folder */
-    background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.9)), url('../assets/images/nickel1.webp') center/cover;
+    /* Swapped to nickel8.webp for a clean, text-free background */
+    background: linear-gradient(rgba(10,10,10,0.8), rgba(10,10,10,0.9)), url('../assets/images/nickel8.webp') center/cover;
     border-bottom: 1px solid #333;
 }
 .hero-content {
