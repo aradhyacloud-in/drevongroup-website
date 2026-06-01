@@ -2124,3 +2124,27 @@ body.enquiry-page {
     );
 
 }
+
+/* =========================================================
+   DARK NAVBAR (For Business Enquiry Page Only)
+========================================================= */
+
+body.enquiry-page .navbar {
+  background: rgba(15, 15, 18, 0.85); /* Deep charcoal to match dark theme */
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15); /* Premium gold accent line */
+}
+
+/* Make navbar text white on the dark page so it is visible */
+body.enquiry-page .nav-links a {
+  color: #f5f5f5; 
+}
+
+/* Keep the gold hover effect */
+body.enquiry-page .nav-links a:hover {
+  color: #d4af37; 
+}
+
+/* Optional: Update the brand text to pop more on the dark background */
+body.enquiry-page .brand-text {
+  text-shadow: 0 0 15px rgba(212,175,55,0.2);
+}
