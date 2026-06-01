@@ -145,6 +145,23 @@ h1, h2, h3, h4 {
     color: var(--gold);
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-logo {
+    height: 45px; /* Adjust this value depending on how large you want the logo */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
