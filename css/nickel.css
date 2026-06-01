@@ -145,17 +145,26 @@ h1, h2, h3, h4 {
     color: var(--gold);
 }
 
+/* Add this to your navbar section in nickel.css */
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
+    gap: 12px; /* Adds space between the image and the text */
 }
 
 .nav-logo {
-    height: 45px; /* Adjust this value depending on how large you want the logo */
+    height: 45px; 
     width: auto;
     object-fit: contain;
     transition: transform 0.3s ease;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 2px;
 }
 
 .nav-logo:hover {
