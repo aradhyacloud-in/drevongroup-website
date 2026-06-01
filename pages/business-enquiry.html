@@ -1,308 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
   <title>Business Enquiry | Drevon Group</title>
 
-  <!-- FAVICON -->
   <link rel="icon" href="../images/favicon.png" sizes="32x32">
   <link rel="apple-touch-icon" href="../images/favicon.png">
 
-  <!-- MAIN CSS -->
   <link rel="stylesheet" href="../style.css">
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
 <body class="enquiry-page">
 
-  <!-- ================= NAVBAR ================= -->
   <header class="navbar">
-
-    <!-- LOGO -->
     <div class="logo-area">
-
       <div class="logo">
-        <img src="../logo.png" alt="Drevon Group">
+        <img src="../logo.png" alt="Drevon Group Logo">
       </div>
-
       <div class="brand-text">DREVON GROUP</div>
-
     </div>
 
-    <!-- NAVIGATION -->
-     <nav>
-      
-        <ul class="nav-links">
-      
-          <!-- HOME -->
-          <li>
-            <a href="#">Home</a>
-          </li>
-      
-          <!-- NICKEL -->
-          <li>
-            <a href="/pages/nickel.html"
-               target="_blank"
-               rel="noopener noreferrer">
-               Nickel
-            </a>
-          </li>
-      
-          <!-- WOODEN TOYS -->
-          <li>
-            <a href="/pages/wooden-toys.html"
-               target="_blank"
-               rel="noopener noreferrer">
-               Wooden Toys
-            </a>
-          </li>
-      
-          <!-- FINLAND CHOCOLATES -->
-          <li>
-            <a href="#">
-               Finland Chocolates
-            </a>
-          </li>
-      
-          <!-- REAL ESTATE -->
-          <li>
-            <a href="#">
-               Real Estate
-            </a>
-          </li>
-      
-          <!-- APPLIED INTELLIGENCE -->
-          <li>
-            <a href="#">
-               Applied Intelligence
-            </a>
-          </li>
-      
-        </ul>
-      
-      </nav>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="/pages/nickel.html" target="_blank" rel="noopener noreferrer">Nickel</a></li>
+        <li><a href="/pages/wooden-toys.html" target="_blank" rel="noopener noreferrer">Wooden Toys</a></li>
+        <li><a href="#">Finland Chocolates</a></li>
+        <li><a href="#">Real Estate</a></li>
+        <li><a href="#">Applied Intelligence</a></li>
+      </ul>
+    </nav>
 
-    <!-- CTA -->
-    <a class="nav-cta" href="../index.html">
-      Back to Home
-    </a>
-
+    <a class="nav-cta" href="../index.html">Back to Home</a>
   </header>
 
-  <!-- ================= PAGE HERO ================= -->
-  <section class="enquiry-hero">
-
+  <section class="enquiry-hero reveal fade-down">
     <div class="enquiry-hero-content">
-
-      <img src="../logo.png" alt="Drevon Group">
-
-      <p class="tag">
-        DREVON GROUP
-      </p>
-
-      <h1>
-        Business Enquiry
-      </h1>
-
+      <img src="../logo.png" alt="Drevon Group" class="hero-logo">
+      <p class="tag tracking-wide">GLOBAL PROCUREMENT & PARTNERSHIPS</p>
+      <h1>Business Enquiry</h1>
       <p class="subtext">
-        Tell us about your requirement, sourcing needs,
-        partnership opportunity, or product inquiry.
+        Connect with our international desk. Tell us about your sourcing needs, partnership opportunities, or product inquiries.
       </p>
-
     </div>
-
   </section>
 
-  <!-- ================= ENQUIRY SECTION ================= -->
   <section class="business-enquiry-section">
+    <div class="enquiry-container reveal fade-up">
+      <h2>Submit Your Requirement</h2>
+      <p class="section-sub">Our executive team will review your enquiry and respond promptly.</p>
 
-    <div class="enquiry-container">
+      <form id="businessEnquiryForm" class="business-enquiry-form">
+        <input type="hidden" name="access_key" value="0e868ae5-355b-4bdf-882a-8a3cbd9adf1a">
 
-      <h2>
-        Submit Your Requirement
-      </h2>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="e.g. Alexander Ivanov" required>
+          </div>
 
-      <p class="section-sub">
-        Our team will review your enquiry and get back to you.
-      </p>
+          <div class="form-group">
+            <label for="email">Corporate Email</label>
+            <input type="email" id="email" name="email" placeholder="name@company.com" required>
+          </div>
+        </div>
 
-     <form
-        id="businessEnquiryForm"
-        class="business-enquiry-form"
-      >
-     <input
-        type="hidden"
-        name="access_key"
-        value="0e868ae5-355b-4bdf-882a-8a3cbd9adf1a"
-      >
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number (with Country Code)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+971 50 123 4567" required>
+          </div>
 
-  <!-- FULL NAME -->
-  <div class="form-group">
+          <div class="form-group">
+            <label for="company">Company / Organization</label>
+            <input type="text" id="company" name="company" placeholder="Enter your company name">
+          </div>
+        </div>
 
-    <label for="fullName">
-      Full Name
-    </label>
+        <div class="form-group">
+          <label for="enquiryType">Area of Interest</label>
+          <div class="select-wrapper">
+            <select id="enquiryType" name="enquiryType" required>
+              <option value="" disabled selected>Select an enquiry type</option>
+              <option value="nickel">High-Purity Nickel Wire (0.025mm)</option>
+              <option value="wooden-toys">Handcrafted Wooden Toys</option>
+              <option value="chocolates">Finland Chocolates</option>
+              <option value="real-estate">Drevon Estates (Mining & Agricultural)</option>
+              <option value="tech">Drevon Applied Intelligence (AI, Web, ERP)</option>
+              <option value="general">General Business Inquiry</option>
+            </select>
+            <i class="fa-solid fa-chevron-down select-icon"></i>
+          </div>
+        </div>
 
-    <input
-      type="text"
-      id="fullName"
-      name="fullName"
-      placeholder="Enter your full name"
-      required
-    >
+        <div class="form-group">
+          <label for="message">Detailed Requirement</label>
+          <textarea id="message" name="message" rows="5" placeholder="Please specify volume, technical specifications, or target destination..." required></textarea>
+        </div>
 
-  </div>
+        <div class="form-actions">
+          <button type="submit" class="enquiry-submit-btn">
+            <span>Submit Enquiry</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+        
+        <p class="form-status-message" id="formStatus"></p>
 
-
-  <!-- EMAIL -->
-  <div class="form-group">
-
-    <label for="email">
-      Email Address
-    </label>
-
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="Enter your email address"
-      required
-    >
-
-  </div>
-
-
-  <!-- PHONE -->
-  <div class="form-group">
-
-    <label for="phone">
-      Phone Number
-    </label>
-
-    <input
-      type="tel"
-      id="phone"
-      name="phone"
-      placeholder="Enter your phone number"
-    >
-
-  </div>
-
-
-  <!-- COMPANY -->
-  <div class="form-group">
-
-    <label for="company">
-      Company Name
-    </label>
-
-    <input
-      type="text"
-      id="company"
-      name="company"
-      placeholder="Enter your company name"
-    >
-
-  </div>
-
-
-  <!-- ENQUIRY TYPE -->
-  <div class="form-group">
-
-    <label for="enquiryType">
-      Enquiry Type
-    </label>
-
-    <select
-      id="enquiryType"
-      name="enquiryType"
-      required
-    >
-
-      <option value="">
-        Select an enquiry type
-      </option>
-
-      <option value="nickel">
-        Nickel & Metal Requirement
-      </option>
-
-      <option value="wooden-toys">
-        Handcrafted Wooden Toys
-      </option>
-
-      <option value="partnership">
-        Finland Chocolates
-      </option>
-
-      <option value="apps-games">
-       Drevon Estates (Mining & Agricultural Lands)
-      </option>
-
-      <option value="general">
-        Drevon Applied Intelligence (AI, Web, Apps, Games & ERP)
-      </option>
-      
-      <option value="general">
-        General Business Inquiry
-      </option>
-    </select>
-
-  </div>
-
-
-  <!-- MESSAGE -->
-  <div class="form-group">
-
-    <label for="message">
-      Requirement Details
-    </label>
-
-    <textarea
-      id="message"
-      name="message"
-      rows="6"
-      placeholder="Tell us about your requirement..."
-      required
-    ></textarea>
-
-  </div>
-
-
-  <!-- SUBMIT BUTTON -->
-  <button type="submit" class="enquiry-submit-btn">
-
-    Submit Business Enquiry
-
-  </button>
-    <p class="form-status-message"></p>
-    <a
-      href="https://wa.me/919513094545"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="whatsapp-followup-btn"
-    >
-    
-     <i class="fa-brands fa-whatsapp"></i>
-
-      Continue on WhatsApp
-    
-    </a>
-
-</form>
-
+        <div class="whatsapp-container">
+          <p class="whatsapp-text">Require immediate assistance?</p>
+          <a href="https://wa.me/919513094545" target="_blank" rel="noopener noreferrer" class="whatsapp-followup-btn">
+            <i class="fa-brands fa-whatsapp"></i> Connect on WhatsApp
+          </a>
+        </div>
+      </form>
     </div>
-
   </section>
 
-  <!-- JS -->
   <script src="../script.js"></script>
-
 </body>
 </html>
