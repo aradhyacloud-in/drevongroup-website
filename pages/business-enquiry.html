@@ -3,21 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Business Enquiry | Drevon Group</title>
+  <title>Client Portal & Business Enquiry | Drevon Group</title>
 
-  <link rel="icon" href="../images/favicon.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="../images/favicon.png">
+  <!-- FAVICONS -->
+  <link rel="icon" href="../assets/images/favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../assets/images/favicon.png">
 
-  <link rel="stylesheet" href="../css/business-enquiry.css">
+  <!-- FONTS & ICONS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- DEDICATED ENQUIRY CSS (Standalone & Bulletproof) -->
+  <link rel="stylesheet" href="../css/business-enquiry.css">
 </head>
 
 <body class="enquiry-page">
 
+  <!-- ================= PREMIUM NAVBAR ================= -->
   <header class="navbar">
     <div class="logo-area">
       <div class="logo">
-        <img src="../logo.png" alt="Drevon Group Logo">
+        <img src="../logo.png" alt="Drevon Group">
       </div>
       <div class="brand-text">DREVON GROUP</div>
     </div>
@@ -25,34 +31,39 @@
     <nav>
       <ul class="nav-links">
         <li><a href="../index.html">Home</a></li>
-        <li><a href="/pages/nickel.html" target="_blank" rel="noopener noreferrer">Nickel</a></li>
-        <li><a href="/pages/wooden-toys.html" target="_blank" rel="noopener noreferrer">Wooden Toys</a></li>
+        <li><a href="nickel.html" target="_blank" rel="noopener noreferrer">Nickel</a></li>
+        <li><a href="wooden-toys.html" target="_blank" rel="noopener noreferrer">Wooden Toys</a></li>
         <li><a href="#">Finland Chocolates</a></li>
         <li><a href="#">Real Estate</a></li>
         <li><a href="#">Applied Intelligence</a></li>
       </ul>
     </nav>
 
-    <a class="nav-cta" href="../index.html">Back to Home</a>
+    <a class="nav-cta" href="../index.html">Back to Main Site</a>
   </header>
 
+  <!-- ================= HERO SECTION ================= -->
   <section class="enquiry-hero reveal fade-down">
     <div class="enquiry-hero-content">
-      <img src="../logo.png" alt="Drevon Group" class="hero-logo">
-      <p class="tag tracking-wide">GLOBAL PROCUREMENT & PARTNERSHIPS</p>
-      <h1>Business Enquiry</h1>
+      <p class="tag">GLOBAL PROCUREMENT & PARTNERSHIPS</p>
+      <h1>Initiate Partnership</h1>
       <p class="subtext">
-        Connect with our international desk. Tell us about your sourcing needs, partnership opportunities, or product inquiries.
+        Connect directly with our international desk. Detail your sourcing requirements, technological needs, or strategic partnership proposals below.
       </p>
     </div>
   </section>
 
+  <!-- ================= SECURE FORM SECTION ================= -->
   <section class="business-enquiry-section">
     <div class="enquiry-container reveal fade-up">
-      <h2>Submit Your Requirement</h2>
-      <p class="section-sub">Our executive team will review your enquiry and respond promptly.</p>
+      
+      <div class="form-header">
+        <h2>Secure Client Portal</h2>
+        <p class="section-sub">Our executive team ensures absolute confidentiality and will respond promptly.</p>
+      </div>
 
       <form id="businessEnquiryForm" class="business-enquiry-form">
+        <!-- WEB3FORMS ACCESS KEY -->
         <input type="hidden" name="access_key" value="0e868ae5-355b-4bdf-882a-8a3cbd9adf1a">
 
         <div class="form-row">
@@ -63,33 +74,33 @@
 
           <div class="form-group">
             <label for="email">Corporate Email</label>
-            <input type="email" id="email" name="email" placeholder="name@company.com" required>
+            <input type="email" id="email" name="email" placeholder="executive@company.com" required>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="phone">Phone Number (with Country Code)</label>
+            <label for="phone">Direct Contact (with Country Code)</label>
             <input type="tel" id="phone" name="phone" placeholder="+971 50 123 4567" required>
           </div>
 
           <div class="form-group">
             <label for="company">Company / Organization</label>
-            <input type="text" id="company" name="company" placeholder="Enter your company name">
+            <input type="text" id="company" name="company" placeholder="Enter operating entity name">
           </div>
         </div>
 
         <div class="form-group">
-          <label for="enquiryType">Area of Interest</label>
+          <label for="enquiryType">Sector of Interest</label>
           <div class="select-wrapper">
             <select id="enquiryType" name="enquiryType" required>
-              <option value="" disabled selected>Select an enquiry type</option>
-              <option value="nickel">High-Purity Nickel Wire (0.025mm)</option>
-              <option value="wooden-toys">Handcrafted Wooden Toys</option>
+              <option value="" disabled selected>Select an operational division</option>
+              <option value="nickel">Industrial Metals (0.025mm Nickel Wire)</option>
+              <option value="wooden-toys">Artisanal Woodcraft</option>
               <option value="chocolates">Finland Chocolates</option>
-              <option value="real-estate">Drevon Estates (Mining & Agricultural)</option>
-              <option value="tech">Drevon Applied Intelligence (AI, Web, ERP)</option>
-              <option value="general">General Business Inquiry</option>
+              <option value="real-estate">Drevon Estates (Land & Mining)</option>
+              <option value="tech">Applied Intelligence (AI & ERP Solutions)</option>
+              <option value="general">Strategic Investment / General</option>
             </select>
             <i class="fa-solid fa-chevron-down select-icon"></i>
           </div>
@@ -97,12 +108,12 @@
 
         <div class="form-group">
           <label for="message">Detailed Requirement</label>
-          <textarea id="message" name="message" rows="5" placeholder="Please specify volume, technical specifications, or target destination..." required></textarea>
+          <textarea id="message" name="message" rows="5" placeholder="Specify volume requirements, technical specifications, or target logistics..." required></textarea>
         </div>
 
         <div class="form-actions">
           <button type="submit" class="enquiry-submit-btn">
-            <span>Submit Enquiry</span>
+            <span>Transmit Requirement</span>
             <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
@@ -110,17 +121,16 @@
         <p class="form-status-message" id="formStatus"></p>
 
         <div class="whatsapp-container">
-          <p class="whatsapp-text">Require immediate assistance?</p>
+          <p class="whatsapp-text">Require immediate escalation?</p>
           <a href="https://wa.me/919513094545" target="_blank" rel="noopener noreferrer" class="whatsapp-followup-btn">
-            <i class="fa-brands fa-whatsapp"></i> Connect on WhatsApp
+            <i class="fa-brands fa-whatsapp"></i> Connect with the Executive Desk
           </a>
         </div>
       </form>
     </div>
   </section>
 
+  <!-- DEDICATED ENQUIRY SCRIPT -->
   <script src="../js/business-enquiry.js"></script>
-</body>
-</html>
 </body>
 </html>
