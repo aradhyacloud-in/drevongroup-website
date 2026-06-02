@@ -104,17 +104,4 @@ document.addEventListener("DOMContentLoaded", () => {
     showSlide(currentSlide);
   }
 
-  /* --- 3. BUSINESS ENQUIRY FORM LOGIC --- */
-  const form = document.getElementById("businessEnquiryForm");
-  if (form) {
-    form.addEventListener("submit", function(e) {
-      const btn = form.querySelector(".enquiry-submit-btn span");
-      const icon = form.querySelector(".enquiry-submit-btn i");
-      if (btn && icon) {
-        btn.innerText = "Transmitting...";
-        icon.className = "fa-solid fa-spinner fa-spin";
-      }
-    });
-  }
-
-});
+ 
