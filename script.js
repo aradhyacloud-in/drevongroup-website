@@ -1,114 +1,202 @@
 /* =========================================================
-   DREVON GROUP - HOMEPAGE CORE JAVASCRIPT
+   DREVON GROUP - MAIN JAVASCRIPT FILE
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-  /* ---------------------------------------------------------
-     1. HIGH-END SCROLL REVEAL ANIMATIONS
-     Uses a very subtle intersection observer for a premium feel
-  --------------------------------------------------------- */
-  const revealElements = document.querySelectorAll(".reveal-up, .reveal-fade");
+/* =========================================================
+   HOMEPAGE CINEMATIC SLIDER
+   ========================================================= */
 
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        observer.unobserve(entry.target); // Only animate once
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+let currentSlide = 0;
+let slideTimeout;
+
+if (slides.length > 0 && nextBtn && prevBtn) {
+
+  function showSlide(index) {
+
+    clearTimeout(slideTimeout);
+
+    slides.forEach((slide) => {
+
+      slide.classList.remove("active");
+
+      const video = slide.querySelector("video");
+
+      if (video) {
+
+        video.pause();
+
+        video.currentTime = 0;
+
       }
+
     });
-  }, { 
-    threshold: 0.15, // Triggers when 15% of the element is visible
-    rootMargin: "0px 0px -50px 0px" // Slight offset so it reveals right as it enters
+
+    currentSlide = index;
+
+    const activeSlide = slides[currentSlide];
+
+    activeSlide.classList.add("active");
+
+    const activeVideo =
+      activeSlide.querySelector("video");
+
+    /* VIDEO SLIDE */
+
+    if (activeVideo) {
+
+      activeVideo.loop = false;
+
+      activeVideo.play().catch(() => {});
+
+      activeVideo.onended = () => {
+
+        nextSlide();
+
+      };
+
+    }
+
+    /* IMAGE SLIDES */
+
+    else {
+
+      slideTimeout = setTimeout(() => {
+
+        nextSlide();
+
+      }, 5000);
+
+    }
+
+  }
+
+  /* NEXT */
+
+  function nextSlide() {
+
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+
+      currentSlide = 0;
+
+    }
+
+    showSlide(currentSlide);
+
+  }
+
+  /* PREVIOUS */
+
+  function prevSlide() {
+
+    currentSlide--;
+
+    if (currentSlide < 0) {
+
+      currentSlide = slides.length - 1;
+
+    }
+
+    showSlide(currentSlide);
+
+  }
+
+  /* BUTTONS */
+
+  nextBtn.addEventListener("click", () => {
+
+    nextSlide();
+
   });
 
-  revealElements.forEach(el => revealObserver.observe(el));
+  prevBtn.addEventListener("click", () => {
 
-  /* ---------------------------------------------------------
-     2. CINEMATIC SLIDER LOGIC
-  --------------------------------------------------------- */
-  const slides = document.querySelectorAll(".slide");
-  const nextBtn = document.querySelector(".next");
-  const prevBtn = document.querySelector(".prev");
-  const heroVideo = document.getElementById("heroVideo");
-  const unmuteBtn = document.getElementById("unmuteBtn");
-  const sliderSection = document.querySelector(".cinematic-slider");
+    prevSlide();
 
-  let currentSlide = 0;
-  let slideInterval;
-  let isSliderVisible = true;
+  });
 
-  // Sound Toggle Logic (Custom UI for browser autoplay policies)
-  if (unmuteBtn && heroVideo) {
-    unmuteBtn.addEventListener("click", () => {
-      if (heroVideo.muted) {
-        heroVideo.muted = false;
-        unmuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Mute';
-      } else {
-        heroVideo.muted = true;
-        unmuteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i> Sound';
-      }
-    });
-  }
+  /* INITIAL LOAD */
 
-  // Smart Observer to pause video when user scrolls past the slider
-  if (sliderSection && heroVideo) {
-    const videoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        isSliderVisible = entry.isIntersecting;
-        if (isSliderVisible && slides[currentSlide].classList.contains('video-slide')) {
-          heroVideo.play().catch(() => {});
-        } else {
-          heroVideo.pause();
-        }
-      });
-    }, { threshold: 0.2 });
-    videoObserver.observe(sliderSection);
-  }
+  showSlide(currentSlide);
 
-  // Core Slider Function
-  if (slides.length > 0 && nextBtn && prevBtn) {
-    function showSlide(index) {
-      clearInterval(slideInterval);
+}
 
-      // Reset all slides
-      slides.forEach((slide) => {
-        slide.classList.remove("active");
-        const video = slide.querySelector("video");
-        if (video) {
-          video.currentTime = 0; // Reset video to start
-        }
-      });
 
-      // Activate current slide
-      currentSlide = index;
-      const activeSlide = slides[currentSlide];
-      activeSlide.classList.add("active");
+/* =========================================================
+   VIDEO CLICK TO ENABLE SOUND ONCE
+   ========================================================= */
 
-      // Handle Video vs Image Slides
-      if (activeSlide.classList.contains('video-slide') && isSliderVisible && heroVideo) {
-        heroVideo.play().catch(() => {});
-        heroVideo.onended = () => nextSlide();
-      } else {
-        // Hold image slides for 6.5 seconds
-        slideInterval = setInterval(nextSlide, 6500); 
-      }
+const heroVideo =
+  document.getElementById("heroVideo");
+
+if (heroVideo) {
+
+  heroVideo.addEventListener("click", () => {
+
+    heroVideo.muted = false;
+    heroVideo.volume = 1;
+
+    localStorage.setItem(
+      "drevonVideoAudio",
+      "enabled"
+    );
+
+  });
+
+  heroVideo.addEventListener("ended", () => {
+
+    heroVideo.muted = true;
+
+    localStorage.removeItem(
+      "drevonVideoAudio"
+    );
+
+  });
+
+}
+
+
+/
+
+
+/* =========================================================
+   PREMIUM SCROLL REVEAL ANIMATION
+========================================================= */
+
+const revealElements = document.querySelectorAll(
+  ".section, .product-card"
+);
+
+const revealOnScroll = () => {
+
+  revealElements.forEach((element) => {
+
+    const windowHeight = window.innerHeight;
+
+    const revealTop =
+      element.getBoundingClientRect().top;
+
+    const revealPoint = 120;
+
+    if (revealTop < windowHeight - revealPoint) {
+
+      element.classList.add("reveal", "active");
+
     }
 
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) >= slides.length ? 0 : currentSlide + 1;
-      showSlide(currentSlide);
-    }
+  });
 
-    function prevSlide() {
-      currentSlide = (currentSlide - 1) < 0 ? slides.length - 1 : currentSlide - 1;
-      showSlide(currentSlide);
-    }
+};
 
-    nextBtn.addEventListener("click", nextSlide);
-    prevBtn.addEventListener("click", prevSlide);
+window.addEventListener(
+  "scroll",
+  revealOnScroll
+);
 
-    // Initialize first slide on load
-    showSlide(currentSlide);
-  }
-});
+revealOnScroll();
