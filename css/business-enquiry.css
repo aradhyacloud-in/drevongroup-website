@@ -1,313 +1,129 @@
-/* =========================================================
-   BUSINESS ENQUIRY PAGE - ULTRA PREMIUM
-   ========================================================= */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Business Enquiry | Drevon Group</title>
 
-/* Global Page Setup */
-body.enquiry-page {
-  background: radial-gradient(circle at 50% 0%, #1a1b1e 0%, #0a0a0c 100%);
-  color: #ffffff;
-  font-family: 'Helvetica Neue', Arial, sans-serif; 
-  overflow-x: hidden;
-}
+  <link rel="icon" href="../images/favicon.png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../images/favicon.png">
 
-.enquiry-page {
-  background: linear-gradient(180deg, #0c1525 0%, #15233b 100%);
-}
+  <!-- 1. MAIN STYLESHEET (Fixes the Navbar Structure) -->
+  <link rel="stylesheet" href="../style.css">
+  
+  <!-- 2. ENQUIRY OVERRIDES (Applies specific page styles) -->
+  <link rel="stylesheet" href="../css/business-enquiry.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
 
-/* Animations */
-.reveal {
-  opacity: 0;
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-.fade-up { transform: translateY(40px); }
-.fade-down { transform: translateY(-40px); }
+<body class="enquiry-page">
 
-/* =========================
-   DARK NAVBAR (For Business Enquiry Page Only)
-========================= */
-body.enquiry-page .navbar {
-  background: rgba(15, 15, 18, 0.85); 
-  border-bottom: 1px solid rgba(212, 175, 55, 0.15); 
-}
+  <header class="navbar">
+    <div class="logo-area">
+      <div class="logo">
+        <img src="../logo.png" alt="Drevon Group Logo">
+      </div>
+      <div class="brand-text">DREVON GROUP</div>
+    </div>
 
-body.enquiry-page .nav-links a {
-  color: #f5f5f5; 
-}
+    <nav>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="/pages/nickel.html" target="_blank" rel="noopener noreferrer">Nickel</a></li>
+        <li><a href="/pages/wooden-toys.html" target="_blank" rel="noopener noreferrer">Wooden Toys</a></li>
+        <li><a href="#">Finland Chocolates</a></li>
+        <li><a href="#">Real Estate</a></li>
+        <li><a href="#">Applied Intelligence</a></li>
+      </ul>
+    </nav>
 
-body.enquiry-page .nav-links a:hover {
-  color: #d4af37; 
-}
+    <a class="nav-cta" href="../index.html">Back to Home</a>
+  </header>
 
-body.enquiry-page .brand-text {
-  text-shadow: 0 0 15px rgba(212,175,55,0.2);
-}
+  <section class="enquiry-hero reveal fade-down">
+    <div class="enquiry-hero-content">
+      <img src="../logo.png" alt="Drevon Group" class="hero-logo">
+      <p class="tag tracking-wide">GLOBAL PROCUREMENT & PARTNERSHIPS</p>
+      <h1>Business Enquiry</h1>
+      <p class="subtext">
+        Connect with our international desk. Tell us about your sourcing needs, partnership opportunities, or product inquiries.
+      </p>
+    </div>
+  </section>
 
-/* =========================
-   ENQUIRY HERO
-========================= */
-.enquiry-hero {
-  padding: 160px 20px 80px;
-  text-align: center;
-  position: relative;
-}
+  <section class="business-enquiry-section">
+    <div class="enquiry-container reveal fade-up">
+      <h2>Submit Your Requirement</h2>
+      <p class="section-sub">Our executive team will review your enquiry and respond promptly.</p>
 
-.enquiry-hero::after {
-  content: '';
-  position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 100vw; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.3), transparent);
-}
+      <form id="businessEnquiryForm" class="business-enquiry-form">
+        <input type="hidden" name="access_key" value="0e868ae5-355b-4bdf-882a-8a3cbd9adf1a">
 
-.enquiry-hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="e.g. Alexander Ivanov" required>
+          </div>
 
-.hero-logo {
-  width: 100px;
-  height: auto;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 15px rgba(212,175,55,0.2));
-}
+          <div class="form-group">
+            <label for="email">Corporate Email</label>
+            <input type="email" id="email" name="email" placeholder="name@company.com" required>
+          </div>
+        </div>
 
-.enquiry-hero .tag {
-  color: #d4af37;
-  font-size: 12px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number (with Country Code)</label>
+            <input type="tel" id="phone" name="phone" placeholder="+971 50 123 4567" required>
+          </div>
 
-.enquiry-hero h1 {
-  font-size: clamp(40px, 5vw, 64px);
-  line-height: 1.1;
-  color: #ffffff;
-  margin: 0 0 20px 0;
-  font-weight: 300;
-  letter-spacing: 1px;
-}
+          <div class="form-group">
+            <label for="company">Company / Organization</label>
+            <input type="text" id="company" name="company" placeholder="Enter your company name">
+          </div>
+        </div>
 
-.enquiry-hero .subtext {
-  color: #a0a0a0;
-  font-size: 18px;
-  line-height: 1.6;
-  max-width: 600px;
-}
+        <div class="form-group">
+          <label for="enquiryType">Area of Interest</label>
+          <div class="select-wrapper">
+            <select id="enquiryType" name="enquiryType" required>
+              <option value="" disabled selected>Select an enquiry type</option>
+              <option value="nickel">High-Purity Nickel Wire (0.025mm)</option>
+              <option value="wooden-toys">Handcrafted Wooden Toys</option>
+              <option value="chocolates">Finland Chocolates</option>
+              <option value="real-estate">Drevon Estates (Mining & Agricultural)</option>
+              <option value="tech">Drevon Applied Intelligence (AI, Web, ERP)</option>
+              <option value="general">General Business Inquiry</option>
+            </select>
+            <i class="fa-solid fa-chevron-down select-icon"></i>
+          </div>
+        </div>
 
-/* =========================
-   ENQUIRY SECTION & FORM
-========================= */
-.business-enquiry-section {
-  padding: 40px 20px 120px;
-  position: relative;
-  z-index: 2;
-}
+        <div class="form-group">
+          <label for="message">Detailed Requirement</label>
+          <textarea id="message" name="message" rows="5" placeholder="Please specify volume, technical specifications, or target destination..." required></textarea>
+        </div>
 
-.enquiry-container {
-  max-width: 850px;
-  margin: auto;
-  padding: 60px;
-  border-radius: 16px;
-  background: rgba(15, 15, 18, 0.6);
-  border: 1px solid rgba(212,175,55,0.15);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-}
+        <div class="form-actions">
+          <button type="submit" class="enquiry-submit-btn">
+            <span>Submit Enquiry</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+        
+        <p class="form-status-message" id="formStatus"></p>
 
-.enquiry-container h2 {
-  text-align: center;
-  font-size: 32px;
-  color: #ffffff;
-  font-weight: 400;
-  margin-bottom: 10px;
-}
+        <div class="whatsapp-container">
+          <p class="whatsapp-text">Require immediate assistance?</p>
+          <a href="https://wa.me/919513094545" target="_blank" rel="noopener noreferrer" class="whatsapp-followup-btn">
+            <i class="fa-brands fa-whatsapp"></i> Connect on WhatsApp
+          </a>
+        </div>
+      </form>
+    </div>
+  </section>
 
-.enquiry-container .section-sub {
-  text-align: center;
-  color: #888;
-  margin-bottom: 50px;
-  font-size: 16px;
-}
-
-.business-enquiry-form {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.form-row {
-  display: flex;
-  gap: 30px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  position: relative;
-}
-
-.form-group label {
-  margin-bottom: 8px;
-  color: #d4af37;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-}
-
-/* Inputs & Textarea */
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 16px 0;
-  border: none;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  background: transparent;
-  color: #fff;
-  font-size: 16px;
-  outline: none;
-  transition: all 0.3s ease;
-  border-radius: 0;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #555;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  border-bottom: 1px solid #d4af37;
-  box-shadow: 0 4px 4px -4px rgba(212,175,55,0.4);
-}
-
-/* Custom Select Styling */
-.select-wrapper {
-  position: relative;
-}
-
-.form-group select {
-  appearance: none;
-  -webkit-appearance: none;
-  cursor: pointer;
-}
-
-.select-icon {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #d4af37;
-  pointer-events: none;
-}
-
-/* Submit Button */
-.form-actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.enquiry-submit-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: 100%;
-  padding: 20px;
-  border: 1px solid #d4af37;
-  border-radius: 4px;
-  background: linear-gradient(135deg, #d4af37 0%, #aa8429 100%);
-  color: #000;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  cursor: pointer;
-  transition: all 0.4s ease;
-}
-
-.enquiry-submit-btn:hover {
-  background: transparent;
-  color: #d4af37;
-  box-shadow: 0 0 20px rgba(212,175,55,0.2);
-}
-
-/* =========================
-   FORM STATUS MESSAGE
-========================= */
-.form-status-message {
-  margin-top: 18px;
-  text-align: center;
-  color: #d4af37;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-/* =========================
-   WHATSAPP FOLLOWUP BUTTON
-========================= */
-.whatsapp-container {
-  text-align: center;
-  margin-top: 30px;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-.whatsapp-text {
-  color: #888;
-  font-size: 14px;
-  margin-bottom: 15px;
-}
-
-.whatsapp-followup-btn {
-  display: none;
-  width: fit-content;
-  margin: 22px auto 0;
-  padding: 14px 22px;
-  border-radius: 10px;
-  background: #25D366;
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  transition: 0.3s ease;
-  align-items: center;
-  gap: 10px;
-}
-
-.whatsapp-followup-btn i {
-  font-size: 22px;
-}
-
-.whatsapp-followup-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(37,211,102,0.25);
-  opacity: 0.8;
-}
-
-/* =========================
-   RESPONSIVE DESIGN (Enquiry)
-========================= */
-@media (max-width: 768px) {
-  .form-row {
-    flex-direction: column;
-    gap: 30px;
-  }
-  .enquiry-container {
-    padding: 40px 20px;
-  }
-}
+  <script src="../js/business-enquiry.js"></script>
+</body>
+</html>
