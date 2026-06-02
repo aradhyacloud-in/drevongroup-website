@@ -1,58 +1,42 @@
 /* =========================================================
-   BUSINESS ENQUIRY PAGE JAVASCRIPT
+   DREVON GROUP - ENQUIRY PORTAL LOGIC
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ---------------------------------------------------------
-     1. SCROLL ANIMATIONS (Intersection Observer)
-  --------------------------------------------------------- */
+  /* --- 1. PREMIUM SCROLL REVEAL --- */
   const revealElements = document.querySelectorAll(".reveal");
-
-  const revealOptions = {
-    threshold: 0.1, 
-    rootMargin: "0px 0px -50px 0px"
-  };
-
-  const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("active");
         observer.unobserve(entry.target);
       }
     });
-  }, revealOptions);
+  }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
-  revealElements.forEach(el => {
-    revealOnScroll.observe(el);
-  });
+  revealElements.forEach(el => revealObserver.observe(el));
 
-
-  /* ---------------------------------------------------------
-     2. AJAX FORM SUBMISSION (Web3Forms) & UI HANDLING
-  --------------------------------------------------------- */
+  /* --- 2. SECURE FORM SUBMISSION (Web3Forms) --- */
   const enquiryForm = document.getElementById("businessEnquiryForm");
-  const formStatusMessage = document.querySelector(".form-status-message");
-  const whatsappFollowupBtn = document.querySelector(".whatsapp-followup-btn");
+  const formStatus = document.getElementById("formStatus");
+  const whatsappBtn = document.querySelector(".whatsapp-followup-btn");
 
   if (enquiryForm) {
     enquiryForm.addEventListener("submit", async function (event) {
-      event.preventDefault(); // Stop standard redirect
+      event.preventDefault(); 
 
-      /* --- Update Button UI --- */
       const btnText = enquiryForm.querySelector(".enquiry-submit-btn span");
       const icon = enquiryForm.querySelector(".enquiry-submit-btn i");
       
+      // Loading State
       if (btnText && icon) {
-        btnText.innerText = "Sending Enquiry...";
+        btnText.innerText = "Transmitting...";
         icon.className = "fa-solid fa-spinner fa-spin";
       }
+      formStatus.textContent = "Establishing secure connection...";
+      formStatus.style.color = "#d4af37";
 
-      if (formStatusMessage) {
-        formStatusMessage.textContent = "Submitting your enquiry...";
-      }
-
-      /* --- Fetch Data --- */
       const formData = new FormData(enquiryForm);
 
       try {
@@ -63,43 +47,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const result = await response.json();
 
-        /* --- Success Handling --- */
         if (result.success) {
-          if (formStatusMessage) {
-            formStatusMessage.textContent = "Business enquiry submitted successfully.";
-          }
-          
+          // Success State
+          formStatus.textContent = "Requirement transmitted successfully. Our desk will contact you shortly.";
+          formStatus.style.color = "#25D366"; // Green success
           enquiryForm.reset();
           
           if (btnText && icon) {
-            btnText.innerText = "Enquiry Sent";
+            btnText.innerText = "Transmission Complete";
             icon.className = "fa-solid fa-check";
           }
-          
-          /* Show WhatsApp Follow-up Button */
-          if (whatsappFollowupBtn) {
-            whatsappFollowupBtn.style.display = "inline-block";
+          if (whatsappBtn) {
+            whatsappBtn.style.display = "inline-flex";
           }
-        } 
-        
-        /* --- Error Handling --- */
-        else {
-          if (formStatusMessage) {
-            formStatusMessage.textContent = "Something went wrong. Please try again.";
-          }
-          if (btnText && icon) {
-            btnText.innerText = "Submit Enquiry";
-            icon.className = "fa-solid fa-arrow-right";
-          }
+        } else {
+          // Failure State
+          throw new Error("API Rejection");
         }
-
       } catch (error) {
-        if (formStatusMessage) {
-          formStatusMessage.textContent = "Network error. Please try again later.";
-        }
+        formStatus.textContent = "Transmission failed. Please ensure network stability or use direct contact methods.";
+        formStatus.style.color = "#ff4444"; // Red error
         if (btnText && icon) {
-          btnText.innerText = "Submit Enquiry";
-          icon.className = "fa-solid fa-arrow-right";
+          btnText.innerText = "Retry Transmission";
+          icon.className = "fa-solid fa-rotate-right";
         }
       }
     });
