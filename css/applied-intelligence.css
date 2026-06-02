@@ -69,6 +69,9 @@ html { scroll-behavior: smooth; }
 /* =========================
    TECH HERO
 ========================= */
+/* =========================
+   TECH HERO
+========================= */
 .tech-hero {
   min-height: 90vh;
   display: flex;
@@ -77,6 +80,9 @@ html { scroll-behavior: smooth; }
   text-align: center;
   position: relative;
   padding: 140px 20px;
+  /* NEW IMAGE BACKGROUND WITH DARK OVERLAY */
+  background: linear-gradient(rgba(10, 10, 12, 0.6), rgba(10, 10, 12, 0.95)), 
+              url('../assets/images/applied-intellignce1.webp') center/cover no-repeat;
 }
 
 /* Background Animated Grid */
@@ -148,6 +154,13 @@ html { scroll-behavior: smooth; }
   padding: 120px 60px;
   position: relative;
   z-index: 2;
+}
+
+/* Apply Image 2 specifically to the Consulting Section with a Parallax effect */
+.tech-services {
+  background: linear-gradient(rgba(10, 10, 12, 0.9), rgba(10, 10, 12, 0.95)), 
+              url('../assets/images/applied-intellignce2.webp') center/cover no-repeat;
+  background-attachment: fixed; /* Creates a premium premium gliding/parallax effect */
 }
 
 .section-header {
