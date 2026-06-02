@@ -3,268 +3,229 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drevon Group | Premium Global Enterprise</title>
+  <title>Drevon Group | Elite Global Enterprise</title>
 
+  <!-- FAVICON -->
   <link rel="icon" href="assets/images/favicon.png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/images/favicon.png">
   
+  <!-- FONTS & ICONS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
+  <!-- STYLESHEET -->
   <link rel="stylesheet" href="style.css">
 
-  <meta name="description" content="Drevon Group is a premium diversified enterprise operating across industrial metals, handcrafted luxury, applied intelligence, and strategic real estate.">
-  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Drevon Group is an elite enterprise operating across industrial metals, handcrafted luxury, applied intelligence, and strategic real estate.">
+  <meta name="theme-color" content="#050505">
 </head>
 
-<body>
+<body class="dark-theme">
 
+  <!-- ================= PREMIUM NAVBAR ================= -->
   <header class="navbar">
     <div class="logo-area">
-      <div class="logo">
-        <img src="logo.png" alt="Drevon Group">
-      </div>
+      <img src="logo.png" alt="Drevon Group Logo" class="nav-logo-img">
       <div class="brand-text">DREVON GROUP</div>
     </div>
 
     <nav>
       <ul class="nav-links">
         <li><a href="#">Home</a></li>
-        <li><a href="#about-drevon">About</a></li>
+        <li><a href="#about-drevon">The Group</a></li>
         <li><a href="/pages/nickel.html" target="_blank" rel="noopener noreferrer">Nickel</a></li>
         <li><a href="/pages/wooden-toys.html" target="_blank" rel="noopener noreferrer">Wooden Toys</a></li>
-        <li><a href="#">Finland Chocolates</a></li>
-        <li><a href="#">Real Estate</a></li>
-        <li><a href="#">Applied Intelligence</a></li>
+        <li><a href="#divisions">Portfolio</a></li>
       </ul>
     </nav>
 
     <a class="nav-cta" href="/pages/business-enquiry.html" target="_blank" rel="noopener noreferrer">
-      Business Enquiry
+      Client Portal
     </a>
   </header>
 
-  <section class="hero reveal">
-    <div class="hero-inner">
-      <p class="tag">Global Commerce • Industry • Technology</p>
-      <h1>Architecting Premium Businesses for a Global Economy</h1>
-      <p class="subtext">
-        Drevon Group is a diversified international enterprise bridging the gap between industrial commodities, artisanal craftsmanship, luxury consumer brands, and applied intelligence.
-      </p>
-      
-      <div class="hero-buttons">
-        <a href="#business-divisions" class="btn primary">Explore Portfolio</a>
-        <a href="/pages/business-enquiry.html" class="btn ghost" target="_blank" rel="noopener noreferrer">Partner With Us</a>
+  <!-- ================= IMMERSIVE HERO ================= -->
+  <section class="hero-immersive fade-up">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Excellence Without Compromise</span>
+      <h1 class="hero-title">Architecting the Future of Global Commerce</h1>
+      <p class="hero-desc">Bridging the gap between industrial dominance, artisanal luxury, and applied intelligence for the world's most discerning markets.</p>
+      <div class="hero-actions">
+        <a href="#divisions" class="btn-gold">Explore Portfolio</a>
+        <a href="/pages/business-enquiry.html" target="_blank" class="btn-outline">Initiate Partnership</a>
       </div>
-      <p class="hero-highlight">Global Vision • Premium Standards • Enduring Value</p>
     </div>
+    <div class="hero-glow"></div>
   </section>
 
-  <section class="cinematic-slider reveal">
-    <div class="slide video-slide active">
-      <video id="heroVideo" autoplay playsinline muted loop preload="auto">
-        <source src="assets/videos/video1.mp4" type="video/mp4">
-      </video>
-      <div class="overlay"></div>
-      <div class="slide-content">
-        <h2>Visionary Enterprise</h2>
-        <p>Unifying industry, innovation, and global commerce into a singular, premium business ecosystem.</p>
-      </div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/images/slide1.png" alt="Industrial Metals">
-      <div class="overlay"></div>
-      <div class="slide-content">
-        <h2>Strategic Metal Solutions</h2>
-        <p>Reliable, certified sourcing for industrial-grade nickel and critical materials for global manufacturing.</p>
-      </div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/images/slide2.png" alt="Wooden Toys">
-      <div class="overlay"></div>
-      <div class="slide-content">
-        <h2>Heirloom Craftsmanship</h2>
-        <p>Artisanal wooden creations blending timeless design with sustainable, heirloom-quality execution.</p>
-      </div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/images/slide3.png" alt="Applied Intelligence">
-      <div class="overlay"></div>
-      <div class="slide-content">
-        <h2>Applied Intelligence</h2>
-        <p>Transformative digital solutions, from enterprise ERP systems to bespoke software architecture.</p>
-      </div>
-    </div>
-
-    <div class="slide">
-      <img src="assets/images/slide4.png" alt="Luxury Brands">
-      <div class="overlay"></div>
-      <div class="slide-content">
-        <h2>Nordic Luxury</h2>
-        <p>Curating ultra-premium chocolate experiences sourced exclusively from master chocolatiers in Finland.</p>
-      </div>
-    </div>
-
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-  </section>
-  
-  <section class="section mission-vision-section reveal">
-    <div class="section-header">
-      <p class="tag">The Drevon Standard</p>
-      <h2>Fostering Enduring Global Value</h2>
-      <p class="subtext">
-        We do not just build businesses; we engineer ecosystems. Drevon Group is anchored by an unwavering commitment to strategic innovation and operational excellence.
-      </p>
-    </div>
-    
-    <div class="grid">
-      <div class="card hover-elevate">
-        <div class="card-icon"><i class="fa-solid fa-gem"></i></div>
-        <h3>Our Mission</h3>
-        <p>To architect globally respected enterprises through precision craftsmanship, strategic international trade, and an unyielding commitment to value creation.</p>
-      </div>
+  <!-- ================= SMART CINEMATIC SLIDER ================= -->
+  <section class="slider-section fade-up">
+    <div class="slider-container">
       
-      <div class="card hover-elevate">
-        <div class="card-icon"><i class="fa-solid fa-earth-americas"></i></div>
-        <h3>Our Vision</h3>
-        <p>To position Drevon Group at the apex of international commerce, seamlessly integrating industrial dominance with luxury consumer experiences.</p>
-      </div>
-      
-      <div class="card hover-elevate">
-        <div class="card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-        <h3>Our Philosophy</h3>
-        <p>Sustainable growth requires uncompromising quality. We forge trusted partnerships and engineer operations designed for generational impact.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="about-section reveal" id="about-drevon">
-    <div class="about-container">
-      <div class="about-content">
-        <p class="tag">About The Group</p>
-        <h2>A Modern Enterprise Engineered for Scale</h2>
-        <p class="about-text">
-          Drevon Group operates across a diversified spectrum of high-value sectors. From securing robust supply chains for industrial metals to launching elite consumer brands, our infrastructure is built for global impact.
-        </p>
-        <p class="about-text">
-          Our portfolio synergizes traditional industry with modern applied intelligence, ensuring that every division—whether trading commodities or deploying AI software—meets our rigorous standard of excellence.
-        </p>
-      </div>
-      
-      <div class="about-box">
-        <div class="about-stat">
-          <h3>Diversified Ecosystem</h3>
-          <p>Risk-mitigated growth across multiple high-yield sectors.</p>
+      <!-- VIDEO SLIDE (With Sound Fix) -->
+      <div class="slide active video-slide">
+        <video id="heroVideo" autoplay playsinline muted loop>
+          <source src="assets/videos/video1.mp4" type="video/mp4">
+        </video>
+        <button id="unmuteBtn" class="sound-toggle"><i class="fa-solid fa-volume-xmark"></i> Unmute Experience</button>
+        <div class="slide-overlay"></div>
+        <div class="slide-text">
+          <h2>Visionary Ecosystem</h2>
+          <p>Unifying industry and innovation on a global scale.</p>
         </div>
-        <div class="about-stat">
-          <h3>Global Architecture</h3>
-          <p>Strategic positioning to serve elite international markets.</p>
+      </div>
+
+      <!-- SLIDE 1 -->
+      <div class="slide">
+        <img src="assets/images/slide1.png" alt="Industrial Metals">
+        <div class="slide-overlay"></div>
+        <div class="slide-text">
+          <h2>Strategic Metals</h2>
+          <p>High-purity industrial sourcing for advanced manufacturing.</p>
         </div>
-        <div class="about-stat">
-          <h3>Uncompromising Quality</h3>
-          <p>A relentless pursuit of premium standards and client trust.</p>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="slide">
+        <img src="assets/images/slide2.png" alt="Wooden Toys">
+        <div class="slide-overlay"></div>
+        <div class="slide-text">
+          <h2>Heirloom Craftsmanship</h2>
+          <p>Artisanal luxury designed to span generations.</p>
+        </div>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="slide">
+        <img src="assets/images/slide3.png" alt="Applied Intelligence">
+        <div class="slide-overlay"></div>
+        <div class="slide-text">
+          <h2>Digital Architecture</h2>
+          <p>Transformative AI and enterprise ERP solutions.</p>
+        </div>
+      </div>
+
+      <!-- SLIDE 4 -->
+      <div class="slide">
+        <img src="assets/images/slide4.png" alt="Luxury Brands">
+        <div class="slide-overlay"></div>
+        <div class="slide-text">
+          <h2>Nordic Luxury</h2>
+          <p>Ultra-premium consumer experiences curated from Finland.</p>
+        </div>
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-btn prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="slider-btn next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT & PHILOSOPHY ================= -->
+  <section class="about-elite fade-up" id="about-drevon">
+    <div class="about-grid">
+      <div class="about-text-content">
+        <h2 class="section-title">The Standard of Global Excellence</h2>
+        <p>Drevon Group does not simply participate in markets; we define them. Our infrastructure is meticulously designed to serve elite international syndicates, sovereign interests, and high-net-worth portfolios across multiple high-yield sectors.</p>
+        <p>From securing sanction-free, ultra-high-purity metals to deploying cutting-edge artificial intelligence, our commitment to uncompromising quality remains absolute.</p>
+      </div>
+      <div class="about-pillars">
+        <div class="pillar-card">
+          <i class="fa-solid fa-globe"></i>
+          <h3>Global Reach</h3>
+          <p>Operating seamlessly across premier international jurisdictions.</p>
+        </div>
+        <div class="pillar-card">
+          <i class="fa-solid fa-shield-halved"></i>
+          <h3>Absolute Trust</h3>
+          <p>Verified, certified, and secured transactions at every level.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="products-section reveal" id="business-divisions">
-    <div class="section-header">
-      <p class="tag">Our Portfolio</p>
-      <h2>Strategic Divisions. Premium Execution.</h2>
+  <!-- ================= 5 BUSINESS DIVISIONS ================= -->
+  <section class="portfolio-section fade-up" id="divisions">
+    <div class="portfolio-header">
+      <span class="hero-eyebrow">Our Ecosystem</span>
+      <h2 class="section-title">Diversified. Sovereign. Premium.</h2>
     </div>
-    
-    <div class="products-grid">
-      <div class="product-card">
-        <div class="product-content">
-          <h3>Industrial Metals</h3>
-          <p>Providing high-purity, sanction-free nickel wire (0.025mm) and strategic metal sourcing for advanced manufacturing, aerospace, and EV sectors.</p>
-          <a href="/pages/nickel.html" class="product-btn" target="_blank" rel="noopener noreferrer">View Capabilities</a>
-        </div>
-      </div>
+
+    <div class="portfolio-grid">
       
-      <div class="product-card">
-        <div class="product-content">
-          <h3>Artisanal Woodcraft</h3>
-          <p>Preserving timeless artistry through handcrafted, heirloom-quality wooden toys and luxury décor pieces built to span generations.</p>
-          <a href="/pages/wooden-toys.html" class="product-btn" target="_blank" rel="noopener noreferrer">Explore Collection</a>
-        </div>
+      <!-- 1. Nickel -->
+      <div class="portfolio-card fade-up">
+        <div class="card-glow"></div>
+        <h3>01. Industrial Metals</h3>
+        <p>Providing certified, sanction-free 0.025mm nickel wire. Securely warehoused and ready for international deployment.</p>
+        <a href="/pages/nickel.html" target="_blank" class="card-link">View Specifications <i class="fa-solid fa-arrow-right"></i></a>
       </div>
-      
-      <div class="product-card">
-        <div class="product-content">
-          <h3>Finland Chocolates</h3>
-          <p>An upcoming luxury consumer brand introducing the world to ultra-premium, authentic Nordic chocolates tailored for high-end gifting.</p>
-          <a href="#" class="product-btn">Launching Soon</a>
-        </div>
+
+      <!-- 2. Wooden Toys -->
+      <div class="portfolio-card fade-up">
+        <div class="card-glow"></div>
+        <h3>02. Artisanal Woodcraft</h3>
+        <p>Heirloom-quality wooden creations blending timeless European design with sustainable, master-level craftsmanship.</p>
+        <a href="/pages/wooden-toys.html" target="_blank" class="card-link">Explore Collection <i class="fa-solid fa-arrow-right"></i></a>
       </div>
-      
-      <div class="product-card">
-        <div class="product-content">
-          <h3>Drevon Estates</h3>
-          <p>Securing high-potential agricultural and mineral-rich land assets, focusing on sustainable development and long-term yield.</p>
-          <a href="#" class="product-btn">Discover Opportunities</a>
-        </div>
+
+      <!-- 3. Chocolates -->
+      <div class="portfolio-card fade-up">
+        <div class="card-glow"></div>
+        <h3>03. Finland Chocolates</h3>
+        <p>An exclusive luxury consumer brand curating ultra-premium chocolate experiences sourced from master Nordic chocolatiers.</p>
+        <a href="#" class="card-link disabled">Launching Soon</a>
       </div>
-      
-      <div class="product-card">
-        <div class="product-content">
-          <h3>Applied Intelligence</h3>
-          <p>Empowering businesses with elite digital infrastructure, including AI consulting, scalable ERP systems, and custom software architecture.</p>
-          <a href="#" class="product-btn">Explore Technology</a>
-        </div>
+
+      <!-- 4. Real Estate -->
+      <div class="portfolio-card fade-up">
+        <div class="card-glow"></div>
+        <h3>04. Drevon Estates</h3>
+        <p>Strategic acquisition and development of high-potential agricultural and mineral-rich land assets for sovereign yield.</p>
+        <a href="#" class="card-link disabled">By Invitation Only</a>
       </div>
+
+      <!-- 5. Applied Intelligence -->
+      <div class="portfolio-card fade-up">
+        <div class="card-glow"></div>
+        <h3>05. Applied Intelligence</h3>
+        <p>Bespoke digital architecture, AI integration, and highly scalable ERP systems engineered for modern enterprise dominance.</p>
+        <a href="#" class="card-link">Explore Technology <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="footer-wrapper">
-      <div class="footer-column">
-        <h3>Corporate</h3>
-        <a href="/pages/privacy-policy.html" target="_blank">Privacy Policy</a>
-        <a href="/pages/terms-and-conditions.html" target="_blank">Terms & Conditions</a>
-        <a href="#about-drevon">About Us</a>
+  <!-- ================= PREMIUM FOOTER ================= -->
+  <footer class="elite-footer fade-up">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Drevon" class="footer-logo">
+        <p>Engineered for global excellence. Operating at the intersection of industry and luxury.</p>
       </div>
-
-      <div class="footer-column">
-        <h3>Divisions</h3>
-        <a href="pages/wooden-toys.html" target="_blank">Wooden Toys</a>
-        <a href="/pages/nickel.html" target="_blank">Nickel Solutions</a>
+      
+      <div class="footer-links">
+        <h4>Portfolio</h4>
+        <a href="/pages/nickel.html" target="_blank">Industrial Metals</a>
+        <a href="/pages/wooden-toys.html" target="_blank">Artisanal Woodcraft</a>
         <a href="#">Finland Chocolates</a>
         <a href="#">Drevon Estates</a>
         <a href="#">Applied Intelligence</a>
       </div>
 
-      <div class="footer-column">
-        <h3>Global Contact</h3>
-        <p class="contact-item">
-          <span class="contact-icon">📞</span>
-          <a href="tel:+919513094545">+91 95130 94545</a>
-        </p>
-        <p class="contact-item">
-          <span class="contact-icon">✉️</span>
-          <a href="mailto:aradhya@drevongroup.com">aradhya@drevongroup.com</a>
-        </p>
-        <p class="contact-item">
-          <span class="contact-icon linkedin-icon">in</span>
-          <a href="https://www.linkedin.com/in/drevon-group/" target="_blank">linkedin.com/in/drevon-group</a>
-        </p>
-      </div>
-      
-      <div class="footer-column">
-        <h3>Headquarters</h3>
-        <p>No 138/38, 1st Floor,<br>Ashwini Layout, 2nd Main,<br>Egipura, Bengaluru - 560047</p>
+      <div class="footer-contact">
+        <h4>Global Desk</h4>
+        <a href="tel:+919513094545"><i class="fa-solid fa-phone"></i> +91 95130 94545</a>
+        <a href="mailto:aradhya@drevongroup.com"><i class="fa-solid fa-envelope"></i> aradhya@drevongroup.com</a>
+        <a href="https://www.linkedin.com/in/drevon-group/" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn Official</a>
       </div>
     </div>
-    
-    <div class="footer-bottom">
-      <p>© 2026 Drevon Group. Engineered for Excellence. All rights reserved.</p>
+    <div class="footer-legal">
+      <p>&copy; 2026 Drevon Group. All Rights Reserved. | <a href="#">Privacy</a> | <a href="#">Terms</a></p>
     </div>
   </footer>
-  
+
   <script src="script.js"></script>
 </body>
 </html>
