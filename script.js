@@ -1,60 +1,68 @@
 /* =========================================================
-   DREVON GROUP - MAIN JAVASCRIPT
+   DREVON GROUP - CORE JAVASCRIPT
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =========================================================
-     GLOBAL SCROLL REVEAL ANIMATIONS
-  ========================================================= */
-  const revealElements = document.querySelectorAll(".reveal");
+  /* --- 1. GLOBAL SCROLL REVEAL ANIMATIONS --- */
+  const revealElements = document.querySelectorAll(".fade-up");
 
   const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("active");
-        observer.unobserve(entry.target); // Only animate once
+        // Add a slight delay based on index for staggered grid loading
+        setTimeout(() => {
+          entry.target.classList.add("active");
+        }, index * 100); 
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
 
   revealElements.forEach(el => revealObserver.observe(el));
 
-  /* =========================================================
-     CINEMATIC SLIDER & SMART VIDEO PLAYBACK
-  ========================================================= */
+  /* --- 2. CINEMATIC SLIDER & VIDEO AUDIO LOGIC --- */
   const slides = document.querySelectorAll(".slide");
-  const nextBtn = document.querySelector(".next");
-  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next-btn");
+  const prevBtn = document.querySelector(".prev-btn");
   const heroVideo = document.getElementById("heroVideo");
-  const sliderSection = document.querySelector(".cinematic-slider");
+  const unmuteBtn = document.getElementById("unmuteBtn");
+  const sliderSection = document.querySelector(".slider-section");
 
   let currentSlide = 0;
   let slideInterval;
   let isSliderVisible = true;
 
-  // 1. Observer to pause video/slides when out of view
+  // Video Audio Toggle (Browsers require user interaction to unmute)
+  if (unmuteBtn && heroVideo) {
+    unmuteBtn.addEventListener("click", () => {
+      if (heroVideo.muted) {
+        heroVideo.muted = false;
+        unmuteBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Mute Sound';
+      } else {
+        heroVideo.muted = true;
+        unmuteBtn.innerHTML = '<i class="fa-solid fa-volume-xmark"></i> Unmute Experience';
+      }
+    });
+  }
+
+  // Smart Visibility (Pause video when scrolled out of view)
   if (sliderSection && heroVideo) {
     const videoObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         isSliderVisible = entry.isIntersecting;
-        if (isSliderVisible) {
-          // Play video if the active slide is the video slide
-          if (slides[currentSlide].classList.contains('video-slide')) {
-            heroVideo.play().catch(() => {});
-          }
+        if (isSliderVisible && slides[currentSlide].classList.contains('video-slide')) {
+          heroVideo.play().catch(() => {});
         } else {
           heroVideo.pause();
         }
       });
     }, { threshold: 0.2 });
-    
     videoObserver.observe(sliderSection);
   }
 
-  // 2. Slide switching logic
+  // Slider Logic
   if (slides.length > 0 && nextBtn && prevBtn) {
-    
     function showSlide(index) {
       clearInterval(slideInterval);
 
@@ -62,8 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         slide.classList.remove("active");
         const video = slide.querySelector("video");
         if (video) {
-          video.pause();
-          video.currentTime = 0; // Reset video on change
+          video.currentTime = 0;
         }
       });
 
@@ -71,14 +78,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const activeSlide = slides[currentSlide];
       activeSlide.classList.add("active");
 
-      // Handle Video Slide
-      const activeVideo = activeSlide.querySelector("video");
-      if (activeVideo && isSliderVisible) {
-        activeVideo.play().catch(() => {});
+      if (activeSlide.classList.contains('video-slide') && isSliderVisible && heroVideo) {
+        heroVideo.play().catch(() => {});
         // Move to next slide when video ends naturally
-        activeVideo.onended = () => nextSlide();
+        heroVideo.onended = () => nextSlide();
       } else {
-        // Handle Image Slides (Switch every 6 seconds)
+        // Change image slide every 6 seconds
         slideInterval = setInterval(nextSlide, 6000);
       }
     }
@@ -96,26 +101,17 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn.addEventListener("click", nextSlide);
     prevBtn.addEventListener("click", prevSlide);
 
-    // Initialize first slide
     showSlide(currentSlide);
   }
 
-  /* =========================================================
-     BUSINESS ENQUIRY FORM LOGIC (Unchanged)
-  ========================================================= */
+  /* --- 3. BUSINESS ENQUIRY FORM LOGIC --- */
   const form = document.getElementById("businessEnquiryForm");
-  const statusMessage = document.querySelector(".form-status-message");
-  const whatsappFollowupBtn = document.querySelector(".whatsapp-followup-btn");
-
   if (form) {
-    form.addEventListener("submit", async function(e) {
-      // Allow default Web3Forms behavior or handle AJAX here
-      // This matches your previously established logic
+    form.addEventListener("submit", function(e) {
       const btn = form.querySelector(".enquiry-submit-btn span");
       const icon = form.querySelector(".enquiry-submit-btn i");
-      
       if (btn && icon) {
-        btn.innerText = "Sending Enquiry...";
+        btn.innerText = "Transmitting...";
         icon.className = "fa-solid fa-spinner fa-spin";
       }
     });
