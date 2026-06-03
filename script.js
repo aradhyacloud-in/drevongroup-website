@@ -22,4 +22,56 @@ document.addEventListener("DOMContentLoaded", () => {
     revealElements.forEach(el => {
         revealOnScroll.observe(el);
     });
+
+    // --- 2. PREMIUM ZOOM MODAL LOGIC ---
+    const modal = document.getElementById("premiumZoomModal");
+    const modalBody = document.getElementById("zoomModalBody");
+    const closeModalBtn = document.querySelector(".close-modal");
+    const modalOverlay = document.querySelector(".zoom-modal-overlay");
+    const zoomCards = document.querySelectorAll(".zoom-card");
+
+    zoomCards.forEach(card => {
+        card.addEventListener("click", function(e) {
+            // Prevent modal from opening if user clicked a direct link inside the card
+            if (e.target.tagName.toLowerCase() === 'a' || e.target.closest('a')) {
+                return; 
+            }
+
+            // Extract content and background image from the clicked card
+            const innerHTML = this.innerHTML;
+            const bgImage = this.style.backgroundImage;
+
+            // Inject content into modal. If it has a background (like products), apply it as a subtle overlay
+            if (bgImage && bgImage !== 'none') {
+                modalBody.innerHTML = `<div class="modal-injected-bg" style="background-image: ${bgImage};"></div> ${innerHTML}`;
+            } else {
+                modalBody.innerHTML = innerHTML;
+            }
+
+            // Show Modal & lock page scrolling
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    // Function to close modal
+    const closeModal = () => {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto";
+        // Clear content after animation finishes
+        setTimeout(() => { modalBody.innerHTML = ''; }, 400);
+    };
+
+    // Close when clicking X button
+    closeModalBtn.addEventListener("click", closeModal);
+
+    // Close when clicking the dark overlay background
+    modalOverlay.addEventListener("click", closeModal);
+
+    // Close when hitting Escape key
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active")) {
+            closeModal();
+        }
+    });
 });
