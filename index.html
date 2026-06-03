@@ -40,13 +40,15 @@
                 <span class="section-tag">Who We Are</span>
                 <h2>Vision & Mission</h2>
                 <div class="mission-vision-grid">
-                    <div class="mv-card">
+                    <div class="mv-card zoom-card">
                         <h3>Our Vision</h3>
                         <p>To be the premier global conglomerate recognized for bridging traditional heritage with cutting-edge technological advancements, delivering unparalleled value to our international partners and high-net-worth clientele.</p>
+                        <span class="click-hint"><i class="fa-solid fa-expand"></i> Click to expand</span>
                     </div>
-                    <div class="mv-card">
+                    <div class="mv-card zoom-card">
                         <h3>Our Mission</h3>
                         <p>To acquire, develop, and meticulously manage a diverse portfolio of premium assets. From sanction-free industrial metals and high-yield real estate to forward-thinking AI solutions, we execute every venture with uncompromising integrity and operational excellence.</p>
+                        <span class="click-hint"><i class="fa-solid fa-expand"></i> Click to expand</span>
                     </div>
                 </div>
             </div>
@@ -61,7 +63,7 @@
 
         <div class="products-grid">
             
-            <div class="product-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home1.webp');">
+            <div class="product-card zoom-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home1.webp');">
                 <div class="product-content">
                     <h3>Nickel & Metal Requirements</h3>
                     <p><strong>Ultra High-Purity Nickel Wire 0.025mm Diameter | Industrial Grade | Sanction-Free</strong><br>An exclusive commercial supply opportunity for a verified, 99.64% certified purity stockpile securely housed in Dubai, UAE.</p>
@@ -69,7 +71,7 @@
                 </div>
             </div>
 
-            <div class="product-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home2.webp');">
+            <div class="product-card zoom-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home2.webp');">
                 <div class="product-content">
                     <h3>Handcrafted Wooden Toys</h3>
                     <p><strong>CHANNAPATNA • HERITAGE • SUSTAINABLE CRAFT</strong><br>Timeless Artistry for Modern Play. Handcrafted in the legendary toy town of Channapatna, our collection breathes life into centuries-old traditions to restore our cultural heritage.</p>
@@ -77,7 +79,7 @@
                 </div>
             </div>
 
-            <div class="product-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home3.webp');">
+            <div class="product-card zoom-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home3.webp');">
                 <div class="product-content">
                     <h3>Finland Chocolates</h3>
                     <p>Bringing directly manufactured, high-premium Finland chocolates to the Indian market. An exclusive taste of luxury.</p>
@@ -85,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="product-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home4.webp');">
+            <div class="product-card zoom-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home4.webp');">
                 <div class="product-content">
                     <h3>Drevon Estates</h3>
                     <p>An emerging brokerage focused on the premium agricultural sector and mining lands. We facilitate the buying and selling of strategically located farmlands across Karnataka, handpicking fertile properties for long-term investment.</p>
@@ -93,7 +95,7 @@
                 </div>
             </div>
 
-            <div class="product-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home5.webp');">
+            <div class="product-card zoom-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home5.webp');">
                 <div class="product-content">
                     <h3>Drevon Applied Intelligence</h3>
                     <p><strong>Architecting the Future</strong><br>Premier technology consulting, custom ERP solutions, AI tool development, and dynamic digital experiences tailored for forward-thinking enterprises.</p>
@@ -104,16 +106,23 @@
         </div>
     </section>
 
+    <div id="premiumZoomModal" class="zoom-modal">
+        <div class="zoom-modal-overlay"></div>
+        <div class="zoom-modal-content">
+            <button class="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            <div id="zoomModalBody">
+                </div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="footer-wrapper">
-            
             <div class="footer-column">
                 <h3>Menu</h3>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms and Conditions</a>
                 <a href="#about">About Us</a>
             </div>
-
             <div class="footer-column">
                 <h3>Our Businesses</h3>
                 <a href="/pages/business-enquiry.html" target="_blank" rel="noopener noreferrer">Business Enquiry</a>
@@ -123,7 +132,6 @@
                 <a href="/pages/estates.html" target="_blank" rel="noopener noreferrer">Real Estates</a>
                 <a href="pages/applied-intelligence.html" target="_blank" rel="noopener noreferrer">Applied Intelligence</a>
             </div>
-
             <div class="footer-column">
                 <h3>Contact</h3>
                 <div class="social-icons">
@@ -133,15 +141,10 @@
                     <a href="https://www.youtube.com/@drevongroup" target="_blank" rel="noopener noreferrer" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
-
             <div class="footer-column">
                 <h3>Headquarters</h3>
-                <p>No 138/38, 1st Floor,<br>
-                   Ashwini Layout, 2nd Main,<br>
-                   Egipura, Bengaluru - 560047
-                </p>
+                <p>No 138/38, 1st Floor,<br>Ashwini Layout, 2nd Main,<br>Egipura, Bengaluru - 560047</p>
             </div>
-
         </div>
         <div class="footer-bottom">
             <p>&copy; 2026 Drevon Group. All rights reserved.</p>
