@@ -163,8 +163,8 @@ body.enquiry-page {
   .navbar { flex-direction: column; gap: 15px; padding: 20px; }
   .nav-links { flex-wrap: wrap; justify-content: center; gap: 15px; }
   
-  /* Push the section down so the tall mobile navbar doesn't cover it */
-  .enquiry-hero { padding: 240px 20px 40px; }
+  /* FIXED OVERLAP: Increased top padding to 290px to push text fully below the tall navbar */
+  .enquiry-hero { padding: 290px 20px 40px; }
   .enquiry-hero h1 { font-size: 32px; }
   
   /* Stack the form fields elegantly */
