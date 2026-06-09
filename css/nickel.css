@@ -356,3 +356,32 @@ h1, h2, h3, h4 {
     .hero h1 { font-size: 2.2rem; }
     .hero .subtitle { font-size: 1.2rem; }
 }
+
+/* YouTube Verification Button Styling */
+.youtube-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 30px;
+    background-color: transparent;
+    color: #e50914; /* Premium YouTube Red */
+    border: 2px solid #e50914;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.youtube-btn:hover {
+    background-color: #e50914;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.3);
+}
+
+.play-icon {
+    font-size: 1.1rem;
+}
