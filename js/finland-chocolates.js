@@ -15,6 +15,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     revealElements.forEach(el => revealOnScroll.observe(el));
 
+// Global function to trigger the zoom from the button
+    window.openZoomModal = (cardElement) => {
+        // Extract content and background image
+        const innerHTML = cardElement.innerHTML;
+        const bgImage = window.getComputedStyle(cardElement).backgroundImage;
+
+        // Clean content for modal
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = innerHTML;
+        const btn = tempDiv.querySelector('.product-btn');
+        if(btn) btn.remove();
+
+        // Inject
+        modalBody.innerHTML = `
+            <div class="modal-injected-bg" style="background-image: ${bgImage};"></div>
+            <div style="position: relative; z-index: 1;">
+                ${tempDiv.innerHTML}
+            </div>
+        `;
+
+        // Open modal
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    };
+    
     // --- 2. PREMIUM ZOOM MODAL LOGIC ---
     const modal = document.getElementById("premiumZoomModal");
     const modalBody = document.getElementById("zoomModalBody");
