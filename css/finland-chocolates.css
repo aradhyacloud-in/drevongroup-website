@@ -113,12 +113,27 @@ a, button, .product-card, .btn, .feature-card {
     z-index: 2;
 }
 
+/* Primary Brand Heading */
 .hero h1 {
-    font-size: 64px;
+    font-size: 72px;            /* Increased size for boldness */
     font-weight: 700;
     line-height: 1.1;
+    margin-bottom: 0;           /* Tighter margin to sit close to h2 */
+    color: #d4af37;             /* Gold color */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.4); /* Premium glow */
+}
+
+/* Secondary Sub-heading */
+.hero h2 {
+    font-size: 32px;            /* Reduced size as requested */
+    font-weight: 300;           /* Lighter weight for elegance */
+    line-height: 1.2;
     margin-bottom: 24px;
-    color: #fff;
+    color: #d4af37;             /* Matching gold color */
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 .subtext {
