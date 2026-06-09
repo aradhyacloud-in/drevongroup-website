@@ -95,7 +95,13 @@ a, button, .product-card, .btn, .mv-card {
     justify-content: center;
     text-align: center;
     position: relative;
-    background: radial-gradient(circle at 50% 0%, #1a1b1e 0%, #0a0a0c 100%);
+    
+    /* --- NEW BACKGROUND IMAGE ADDED HERE --- */
+    background: linear-gradient(rgba(10, 11, 13, 0.6), rgba(10, 11, 13, 0.95)), url('../assets/images/home_background.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Adds a slight parallax scrolling effect */
+    
     padding: 120px 20px;
 }
 
