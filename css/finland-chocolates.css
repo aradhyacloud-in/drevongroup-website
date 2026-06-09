@@ -525,3 +525,10 @@ a, button, .product-card, .btn, .feature-card {
     #zoomModalBody h3 { font-size: 28px; }
     #zoomModalBody p { font-size: 15px; }
 }
+/* Mobile view fix for Dammenberg Logo */
+@media (max-width: 768px) {
+    .hero-brand-logo {
+        max-height: 50px !important; /* Shrinks the logo for mobile */
+        margin-bottom: 16px !important; /* Slightly reduces the gap */
+    }
+}
