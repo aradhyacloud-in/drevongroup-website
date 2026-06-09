@@ -536,3 +536,23 @@ a, button, .product-card, .btn, .mv-card {
         font-size: 15px; /* Optimizes paragraph text for mobile reading */
     }
 }
+
+/* --- SMALL LAPTOP FIX (13-inch screens) --- */
+@media (max-width: 1300px) {
+    .navbar { 
+        padding: 20px 40px; /* Reduces the wide side padding */
+    }
+    .nav-links { 
+        gap: 15px; /* Brings the menu links closer together */
+    }
+    .nav-links a { 
+        font-size: 12px; /* Scales down nav text slightly so all 5 divisions fit */
+    }
+    .brand-text {
+        font-size: 20px; /* Scales down logo text */
+        letter-spacing: 4px;
+    }
+    .hero h1 { 
+        font-size: 52px; /* Scales down the massive Hero text to fit perfectly */
+    }
+}
