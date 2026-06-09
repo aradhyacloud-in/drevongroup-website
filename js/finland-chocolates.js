@@ -15,31 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     revealElements.forEach(el => revealOnScroll.observe(el));
 
-// Global function to trigger the zoom from the button
-    window.openZoomModal = (cardElement) => {
-        // Extract content and background image
-        const innerHTML = cardElement.innerHTML;
-        const bgImage = window.getComputedStyle(cardElement).backgroundImage;
-
-        // Clean content for modal
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = innerHTML;
-        const btn = tempDiv.querySelector('.product-btn');
-        if(btn) btn.remove();
-
-        // Inject
-        modalBody.innerHTML = `
-            <div class="modal-injected-bg" style="background-image: ${bgImage};"></div>
-            <div style="position: relative; z-index: 1;">
-                ${tempDiv.innerHTML}
-            </div>
-        `;
-
-        // Open modal
-        modal.classList.add("active");
-        document.body.style.overflow = "hidden";
-    };
-    
     // --- 2. PREMIUM ZOOM MODAL LOGIC ---
     const modal = document.getElementById("premiumZoomModal");
     const modalBody = document.getElementById("zoomModalBody");
@@ -47,39 +22,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalOverlay = document.querySelector(".zoom-modal-overlay");
     const zoomCards = document.querySelectorAll(".zoom-card");
 
-   zoomCards.forEach(card => {
+    // Helper to process modal injection
+    const populateModal = (cardElement) => {
+        const innerHTML = cardElement.innerHTML;
+        
+        // Extracting image URL from the background-image property
+        // This handles both inline styles and CSS classes correctly
+        const bgImage = window.getComputedStyle(cardElement).backgroundImage;
+        
+        // Clean content for modal (removes button)
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = innerHTML;
+        const btn = tempDiv.querySelector('.product-btn');
+        if(btn) btn.remove();
+
+        // Inject content
+        // bgImage is already a 'url(...)' string, so we use it directly
+        modalBody.innerHTML = `
+            <div class="modal-injected-bg" style="background-image: ${bgImage};"></div>
+            <div style="position: relative; z-index: 1;">
+                ${tempDiv.innerHTML}
+            </div>
+        `;
+
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+    };
+
+    // Global function for onclick="openZoomModal(this.closest('.product-card'))"
+    window.openZoomModal = (cardElement) => {
+        populateModal(cardElement);
+    };
+
+    // Click listener for the card itself
+    zoomCards.forEach(card => {
         card.addEventListener("click", function(e) {
             if (e.target.closest('.product-btn')) return;
-
-            const innerHTML = this.innerHTML;
-            
-            // 1. Get the background image URL directly from the style attribute
-            const bgStyle = this.getAttribute('style');
-            let bgImage = '';
-            if (bgStyle && bgStyle.includes('url')) {
-                // Extracts the URL part from the inline style
-                bgImage = bgStyle.match(/url\(['"]?([^'"]+)['"]?\)/)[1];
-            }
-
-            // 2. Inject
-            const tempDiv = document.createElement('div');
-            tempDiv.innerHTML = innerHTML;
-            const btn = tempDiv.querySelector('.product-btn');
-            if(btn) btn.remove();
-
-            modalBody.innerHTML = `
-                <div class="modal-injected-bg" style="background-image: url('${bgImage}');"></div>
-                <div style="position: relative; z-index: 1;">
-                    ${tempDiv.innerHTML}
-                </div>
-            `;
-
-            modal.classList.add("active");
-            document.body.style.overflow = "hidden";
+            populateModal(this);
         });
     });
 
-    // Function to close modal
+    // --- 3. CLOSE MODAL LOGIC ---
     const closeModal = () => {
         modal.classList.remove("active");
         document.body.style.overflow = "auto";
