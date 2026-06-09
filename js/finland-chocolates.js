@@ -22,24 +22,32 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalOverlay = document.querySelector(".zoom-modal-overlay");
     const zoomCards = document.querySelectorAll(".zoom-card");
 
-    // Helper to process modal injection
+// Global function to trigger the zoom from the button or card
     const populateModal = (cardElement) => {
         const innerHTML = cardElement.innerHTML;
         
-        // Extracting image URL from the background-image property
-        // This handles both inline styles and CSS classes correctly
-        const bgImage = window.getComputedStyle(cardElement).backgroundImage;
-        
-        // Clean content for modal (removes button)
+        // 1. Get computed style
+        const style = window.getComputedStyle(cardElement);
+        const backgroundImage = style.backgroundImage;
+
+        // 2. Extract the actual URL using Regex
+        // This will find the path inside url("...") even if a gradient is present
+        let bgUrl = '';
+        const match = backgroundImage.match(/url\(['"]?([^'"]+)['"]?\)/);
+        if (match) {
+            bgUrl = match[1];
+        }
+
+        // 3. Clean content (remove the button)
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = innerHTML;
         const btn = tempDiv.querySelector('.product-btn');
         if(btn) btn.remove();
 
-        // Inject content
-        // bgImage is already a 'url(...)' string, so we use it directly
+        // 4. Inject into modal
+        // We set the background-image directly using the extracted bgUrl
         modalBody.innerHTML = `
-            <div class="modal-injected-bg" style="background-image: ${bgImage};"></div>
+            <div class="modal-injected-bg" style="background-image: url('${bgUrl}'); background-size: cover; background-position: center;"></div>
             <div style="position: relative; z-index: 1;">
                 ${tempDiv.innerHTML}
             </div>
@@ -49,6 +57,19 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.overflow = "hidden";
     };
 
+    // Global accessibility for your onclick buttons
+    window.openZoomModal = (cardElement) => {
+        populateModal(cardElement);
+    };
+
+    // Click listener for the card
+    zoomCards.forEach(card => {
+        card.addEventListener("click", function(e) {
+            if (e.target.closest('.product-btn')) return;
+            populateModal(this);
+        });
+    });
+    
     // Global function for onclick="openZoomModal(this.closest('.product-card'))"
     window.openZoomModal = (cardElement) => {
         populateModal(cardElement);
