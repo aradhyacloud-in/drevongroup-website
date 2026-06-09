@@ -2,26 +2,18 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // --- 1. SCROLL REVEAL ANIMATIONS ---
     const revealElements = document.querySelectorAll(".reveal");
+    const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 
-    const revealOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+    const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
+            if (entry.isIntersecting) {
                 entry.target.classList.add("active");
                 observer.unobserve(entry.target);
             }
         });
     }, revealOptions);
 
-    revealElements.forEach(el => {
-        revealOnScroll.observe(el);
-    });
+    revealElements.forEach(el => revealOnScroll.observe(el));
 
     // --- 2. PREMIUM ZOOM MODAL LOGIC ---
     const modal = document.getElementById("premiumZoomModal");
@@ -32,26 +24,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     zoomCards.forEach(card => {
         card.addEventListener("click", function(e) {
-            // Prevent modal from opening if user clicked a direct link inside the card
-            if (e.target.tagName.toLowerCase() === 'a' || e.target.closest('a')) {
-                // Remove the return statement if you want the button to ALSO open the modal
-                // Currently, clicking the button inside the card triggers the modal perfectly
+            // FIX: If the user clicked the button, let the default link behavior happen
+            if (e.target.closest('.product-btn')) {
+                return; 
             }
 
-            // Extract content and background image from the clicked card
+            // Extract content and background image
             const innerHTML = this.innerHTML;
-            const bgImage = this.style.backgroundImage;
+            const bgImage = window.getComputedStyle(this).backgroundImage;
 
-            // Inject content into modal. Apply background as a subtle overlay
-            if (bgImage && bgImage !== 'none') {
-                modalBody.innerHTML = `<div class="modal-injected-bg" style="background-image: ${bgImage};"></div> ${innerHTML}`;
-            } else {
-                modalBody.innerHTML = innerHTML;
-            }
+            // Prepare Modal Content
+            // We use a temporary div to strip the button out of the modal view
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = innerHTML;
+            const btn = tempDiv.querySelector('.product-btn');
+            if(btn) btn.remove();
 
-            // Hide the button inside the modal to keep it clean
-            const btnInModal = modalBody.querySelector('.product-btn');
-            if(btnInModal) btnInModal.style.display = 'none';
+            // Inject background and clean content
+            modalBody.innerHTML = `
+                <div class="modal-injected-bg" style="background-image: ${bgImage};"></div>
+                <div style="position: relative; z-index: 1;">
+                    ${tempDiv.innerHTML}
+                </div>
+            `;
 
             // Show Modal & lock page scrolling
             modal.classList.add("active");
@@ -63,11 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeModal = () => {
         modal.classList.remove("active");
         document.body.style.overflow = "auto";
-        // Clear content after animation finishes
         setTimeout(() => { modalBody.innerHTML = ''; }, 400);
     };
 
-    // Close Events
     closeModalBtn.addEventListener("click", closeModal);
     modalOverlay.addEventListener("click", closeModal);
     document.addEventListener("keydown", (e) => {
