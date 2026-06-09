@@ -370,8 +370,10 @@ a, button, .product-card, .btn, .feature-card {
     inset: 0;
     background-size: cover;
     background-position: center;
-    opacity: 0.25; /* Increased visibility of the image */
+    background-repeat: no-repeat; /* Added to prevent tiling */
+    opacity: 0.3; /* Increased slightly */
     z-index: 0;
+    filter: brightness(0.6); /* Helps the background blend into the dark theme */
 }
 
 /* Ensure text is above the image background */
