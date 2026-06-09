@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalOverlay = document.querySelector(".zoom-modal-overlay");
     const zoomCards = document.querySelectorAll(".zoom-card");
 
-    zoomCards.forEach(card => {
+  zoomCards.forEach(card => {
         card.addEventListener("click", function(e) {
             // Prevent modal from opening if user clicked a direct link inside the card
             if (e.target.tagName.toLowerCase() === 'a' || e.target.closest('a')) {
@@ -39,11 +39,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Extract content and background image from the clicked card
             const innerHTML = this.innerHTML;
-            const bgImage = this.style.backgroundImage;
+            const rawBg = this.style.backgroundImage;
 
-            // Inject content into modal. If it has a background (like products), apply it as a subtle overlay
-            if (bgImage && bgImage !== 'none') {
-                modalBody.innerHTML = `<div class="modal-injected-bg" style="background-image: ${bgImage};"></div> ${innerHTML}`;
+            // Inject content into modal.
+            if (rawBg && rawBg !== 'none') {
+                // IMPORTANT FIX: Extract JUST the image URL so we can strip away the dark gradient
+                const urlMatch = rawBg.match(/url\(['"]?(.*?)['"]?\)/);
+                const imageUrl = urlMatch ? urlMatch[0] : '';
+
+                // Apply a softer, cinematic gradient specifically for the modal so the image pops!
+                const modalBg = `linear-gradient(rgba(10, 11, 13, 0.2), rgba(10, 11, 13, 0.95)), ${imageUrl}`;
+                
+                modalBody.innerHTML = `<div class="modal-injected-bg" style="background-image: ${modalBg};"></div> ${innerHTML}`;
             } else {
                 modalBody.innerHTML = innerHTML;
             }
