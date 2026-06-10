@@ -113,7 +113,6 @@ a, button, .product-card, .btn, .feature-card {
     z-index: 2;
 }
 
-/* Primary Brand Heading */
 .hero h1 {
     font-size: 72px;
     font-weight: 700;
@@ -125,7 +124,6 @@ a, button, .product-card, .btn, .feature-card {
     text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
-/* Secondary Sub-heading */
 .hero h2 {
     font-size: 32px;
     font-weight: 300;
@@ -379,22 +377,6 @@ a, button, .product-card, .btn, .feature-card {
     justify-content: center;
 }
 
-#zoomModalBody .modal-injected-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    opacity: 0.3;
-    z-index: 0;
-    filter: brightness(0.6);
-}
-
-#zoomModalBody > div:not(.modal-injected-bg) {
-    position: relative;
-    z-index: 1;
-}
-
 #zoomModalBody h3 {
     font-size: 36px;
     color: #d4af37;
@@ -540,7 +522,6 @@ a, button, .product-card, .btn, .feature-card {
     letter-spacing: 1px;
 }
 
-/* Scope targets base block typography items exclusively */
 .footer-column > a, 
 .footer-column > p {
     display: block;
@@ -568,7 +549,6 @@ a, button, .product-card, .btn, .feature-card {
     line-height: 1.8;
 }
 
-/* Forces contact layout rows to stay side-by-side cleanly */
 .contact-info-block .contact-text-item {
     display: flex !important;
     align-items: center !important;
@@ -576,7 +556,6 @@ a, button, .product-card, .btn, .feature-card {
     margin-bottom: 12px !important;
 }
 
-/* Fixes contact links so they don't break onto separate lines */
 .contact-info-block .contact-text-item a {
     display: inline !important;
     font-size: 14px !important;
@@ -588,7 +567,6 @@ a, button, .product-card, .btn, .feature-card {
     line-height: 1 !important;
 }
 
-/* Direct text hover state highlighting */
 .contact-info-block .contact-text-item a:hover {
     transform: none !important;
     color: #d4af37 !important;
@@ -633,23 +611,15 @@ a, button, .product-card, .btn, .feature-card {
 }
 
 @media (max-width: 768px) {
-    /* Navbar Mobile Framework */
     .navbar { flex-direction: column; gap: 15px; padding: 15px; }
     .nav-links { flex-wrap: wrap; justify-content: center; }
     
-    /* Hero Title Mobile Framework */
     .hero h1 { font-size: 42px; }
-    .hero-brand-logo {
-        max-height: 50px !important;
-        margin-bottom: 16px !important;
-    }
     
-    /* Slider Mobile Sizing */
     .slide img { height: 280px; }
     .gallery-container { padding: 0 15px; gap: 10px; }
     .slider-btn { width: 35px; height: 35px; font-size: 14px; }
     
-    /* Zoom Modal Mobile Framework */
     .zoom-modal-content { 
         padding: 60px 25px 30px; 
         max-height: 85vh; 
@@ -664,7 +634,6 @@ a, button, .product-card, .btn, .feature-card {
     #zoomModalBody h3 { font-size: 28px; }
     #zoomModalBody p { font-size: 15px; }
     
-    /* Corporate Footer Mobile Framework */
     .footer-wrapper {
         grid-template-columns: 1fr !important;
         gap: 35px !important;
