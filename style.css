@@ -526,7 +526,25 @@ a, button, .product-card, .btn, .mv-card {
 @media (max-width: 768px) {
     .navbar { flex-direction: column; gap: 15px; padding: 15px; }
     .nav-links { flex-wrap: wrap; justify-content: center; }
-    .hero h1 { font-size: 42px; }
+    /* --- HERO MOBILE FIXES --- */
+    .hero { 
+        padding: 260px 20px 100px; /* Pushes the text safely below the tall mobile navbar */
+        min-height: auto; /* Allows natural spacing instead of forcing it to the center */
+    }
+    .hero h1 { 
+        font-size: 34px; /* Scaled down perfectly so words like "Investments" don't get cut off */
+        line-height: 1.3; 
+        margin-bottom: 20px; 
+    }
+    .subtext { 
+        font-size: 15px; /* Adjusted for better mobile reading */
+        line-height: 1.7; 
+        padding: 0 10px; /* Adds breathing room on the left and right edges */
+    }
+    .btn.primary {
+        padding: 14px 28px; /* Slightly smaller button to match mobile proportions */
+        font-size: 13px;
+    }
     .footer-wrapper { grid-template-columns: 1fr; text-align: center; }
     .social-icons { justify-content: center; }
     
