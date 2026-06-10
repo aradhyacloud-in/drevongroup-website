@@ -15,6 +15,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     revealElements.forEach(el => revealOnScroll.observe(el));
 
+    // --- CHOCOLATE GALLERY SLIDER LOGIC ---
+    const track = document.querySelector('.slider-track');
+    const nextButton = document.querySelector('.next-btn');
+    const prevButton = document.querySelector('.prev-btn');
+    
+    // Only execute if the slider actually exists on the page
+    if (track && nextButton && prevButton) {
+        const slides = Array.from(track.children);
+        let currentIndex = 0;
+
+        const updateSliderPosition = (index) => {
+            // Move the track sideways based on the index (0%, 100%, 200%, etc.)
+            track.style.transform = `translateX(-${index * 100}%)`;
+        };
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex === slides.length - 1) {
+                currentIndex = 0; // Loop back to start
+            } else {
+                currentIndex++; // Move to next
+            }
+            updateSliderPosition(currentIndex);
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex === 0) {
+                currentIndex = slides.length - 1; // Loop to end
+            } else {
+                currentIndex--; // Move to previous
+            }
+            updateSliderPosition(currentIndex);
+        });
+    }
+    // --- END GALLERY SLIDER LOGIC ---
+
     // --- 2. PREMIUM ZOOM MODAL LOGIC ---
     const modal = document.getElementById("premiumZoomModal");
     const modalBody = document.getElementById("zoomModalBody");
