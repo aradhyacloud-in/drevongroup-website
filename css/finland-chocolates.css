@@ -115,23 +115,23 @@ a, button, .product-card, .btn, .feature-card {
 
 /* Primary Brand Heading */
 .hero h1 {
-    font-size: 72px;            /* Increased size for boldness */
+    font-size: 72px;
     font-weight: 700;
     line-height: 1.1;
-    margin-bottom: 0;           /* Tighter margin to sit close to h2 */
-    color: #d4af37;             /* Gold color */
+    margin-bottom: 0;
+    color: #d4af37;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.4); /* Premium glow */
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
 /* Secondary Sub-heading */
 .hero h2 {
-    font-size: 32px;            /* Reduced size as requested */
-    font-weight: 300;           /* Lighter weight for elegance */
+    font-size: 32px;
+    font-weight: 300;
     line-height: 1.2;
     margin-bottom: 24px;
-    color: #d4af37;             /* Matching gold color */
+    color: #d4af37;
     letter-spacing: 1px;
     text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
@@ -194,7 +194,7 @@ a, button, .product-card, .btn, .feature-card {
 }
 
 .feature-card:hover {
-    background: rgba(58, 35, 24, 0.3); /* Subtle cocoa tint on hover */
+    background: rgba(58, 35, 24, 0.3);
     border-color: rgba(212,175,55,0.4);
     border-bottom: 3px solid #d4af37;
     transform: translateY(-5px);
@@ -344,7 +344,7 @@ a, button, .product-card, .btn, .feature-card {
 .zoom-modal-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(5, 5, 7, 0.95); /* Slightly darker for deeper focus */
+    background: rgba(5, 5, 7, 0.95);
     backdrop-filter: blur(15px);
     cursor: pointer;
 }
@@ -353,10 +353,10 @@ a, button, .product-card, .btn, .feature-card {
     position: relative;
     width: 90%;
     max-width: 800px;
-    background: #050507; /* Matches footer/dark theme */
+    background: #050507;
     border: 1px solid rgba(212,175,55,0.4);
     border-radius: 20px;
-    padding: 0; /* REMOVED padding to allow background to hit edges */
+    padding: 0;
     box-shadow: 0 40px 80px rgba(0,0,0,0.8);
     transform: scale(0.9);
     opacity: 0;
@@ -370,10 +370,9 @@ a, button, .product-card, .btn, .feature-card {
     opacity: 1;
 }
 
-/* New Body container for proper text padding */
 #zoomModalBody {
     position: relative;
-    padding: 80px 60px; /* Text lives here, image sits behind */
+    padding: 80px 60px;
     min-height: 450px;
     display: flex;
     flex-direction: column;
@@ -385,13 +384,12 @@ a, button, .product-card, .btn, .feature-card {
     inset: 0;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat; /* Added to prevent tiling */
-    opacity: 0.3; /* Increased slightly */
+    background-repeat: no-repeat;
+    opacity: 0.3;
     z-index: 0;
-    filter: brightness(0.6); /* Helps the background blend into the dark theme */
+    filter: brightness(0.6);
 }
 
-/* Ensure text is above the image background */
 #zoomModalBody > div:not(.modal-injected-bg) {
     position: relative;
     z-index: 1;
@@ -434,7 +432,6 @@ a, button, .product-card, .btn, .feature-card {
     transform: rotate(90deg);
 }
 
-
 /* ========================= ANIMATIONS ========================= */
 .reveal {
     opacity: 0;
@@ -455,7 +452,7 @@ a, button, .product-card, .btn, .feature-card {
 
 .gallery-container {
     position: relative;
-    max-width: 800px; /* Constrained 'small' size for premium look */
+    max-width: 800px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -475,25 +472,25 @@ a, button, .product-card, .btn, .feature-card {
     list-style: none;
     padding: 0;
     margin: 0;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth slide animation */
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .slide {
-    flex: 0 0 100%; /* Shows exactly one image at a time */
+    flex: 0 0 100%;
     min-width: 100%;
 }
 
 .slide img {
     width: 100%;
     height: 450px;
-    object-fit: cover; /* Ensures images fill the space perfectly without squishing */
+    object-fit: cover;
     display: block;
     filter: brightness(0.9);
     transition: filter 0.3s ease;
 }
 
 .slide img:hover {
-    filter: brightness(1); /* Slight brighten on hover */
+    filter: brightness(1);
 }
 
 .slider-btn {
@@ -520,47 +517,6 @@ a, button, .product-card, .btn, .feature-card {
     box-shadow: 0 0 15px rgba(212,175,55,0.4);
 }
 
-/* Mobile adjustments for the slider */
-@media (max-width: 768px) {
-    .slide img { height: 280px; }
-    .gallery-container { padding: 0 15px; gap: 10px; }
-    .slider-btn { width: 35px; height: 35px; font-size: 14px; }
-}
-
-
-/* ========================= RESPONSIVE ========================= */
-@media (max-width: 992px) {
-    .story-grid { grid-template-columns: 1fr; }
-    .story-image { height: 400px; }
-}
-
-@media (max-width: 768px) {
-    .navbar { flex-direction: column; gap: 15px; padding: 15px; }
-    .nav-links { flex-wrap: wrap; justify-content: center; }
-    .hero h1 { font-size: 42px; }
-    
-    .zoom-modal-content { 
-        padding: 60px 25px 30px; 
-        max-height: 85vh; 
-        overflow-y: auto; 
-        width: 95%; 
-    }
-    .close-modal {
-        top: 15px;
-        right: 15px;
-        background: rgba(212,175,55,0.15);
-    }
-    #zoomModalBody h3 { font-size: 28px; }
-    #zoomModalBody p { font-size: 15px; }
-}
-/* Mobile view fix for Dammenberg Logo */
-@media (max-width: 768px) {
-    .hero-brand-logo {
-        max-height: 50px !important; /* Shrinks the logo for mobile */
-        margin-bottom: 16px !important; /* Slightly reduces the gap */
-    }
-}
-
 /* ========================= FOOTER ========================= */
 .footer {
     background: #050507;
@@ -584,7 +540,9 @@ a, button, .product-card, .btn, .feature-card {
     letter-spacing: 1px;
 }
 
-.footer-column a, .footer-column p {
+/* Scope targets base block typography items exclusively */
+.footer-column > a, 
+.footer-column > p {
     display: block;
     margin-bottom: 14px;
     color: #a0a0a0;
@@ -594,9 +552,46 @@ a, button, .product-card, .btn, .feature-card {
     line-height: 1.8;
 }
 
-.footer-column a:hover {
+.footer-column > a:hover {
     color: #d4af37;
     transform: translateX(4px);
+}
+
+/* ========================= CONTACT OFFICE WRAPPERS ========================= */
+.contact-info-block {
+    margin-bottom: 20px;
+}
+
+.contact-info-block p {
+    color: #a0a0a0;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Forces contact layout rows to stay side-by-side cleanly */
+.contact-info-block .contact-text-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+}
+
+/* Fixes contact links so they don't break onto separate lines */
+.contact-info-block .contact-text-item a {
+    display: inline !important;
+    font-size: 14px !important;
+    color: #a0a0a0 !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+/* Direct text hover state highlighting */
+.contact-info-block .contact-text-item a:hover {
+    transform: none !important;
+    color: #d4af37 !important;
 }
 
 .social-icons {
@@ -631,60 +626,57 @@ a, button, .product-card, .btn, .feature-card {
     font-size: 13px;
 }
 
-/* ========================= FOOTER RESPONSIVE AND TEXT ALIGNMENT FIXES ========================= */
-.contact-text-item a {
-    font-size: 14px !important;
-    transition: color 0.3s ease;
+/* ========================= UNIFIED MASTER RESPONSIVE GRID ========================= */
+@media (max-width: 992px) {
+    .story-grid { grid-template-columns: 1fr; }
+    .story-image { height: 400px; }
 }
 
-.contact-text-item a:hover {
-    color: #d4af37 !important; /* Elegant gold tint change on text hover */
-}
-
-/* Mobile responsive view adjustments */
 @media (max-width: 768px) {
+    /* Navbar Mobile Framework */
+    .navbar { flex-direction: column; gap: 15px; padding: 15px; }
+    .nav-links { flex-wrap: wrap; justify-content: center; }
+    
+    /* Hero Title Mobile Framework */
+    .hero h1 { font-size: 42px; }
+    .hero-brand-logo {
+        max-height: 50px !important;
+        margin-bottom: 16px !important;
+    }
+    
+    /* Slider Mobile Sizing */
+    .slide img { height: 280px; }
+    .gallery-container { padding: 0 15px; gap: 10px; }
+    .slider-btn { width: 35px; height: 35px; font-size: 14px; }
+    
+    /* Zoom Modal Mobile Framework */
+    .zoom-modal-content { 
+        padding: 60px 25px 30px; 
+        max-height: 85vh; 
+        overflow-y: auto; 
+        width: 95%; 
+    }
+    .close-modal {
+        top: 15px;
+        right: 15px;
+        background: rgba(212,175,55,0.15);
+    }
+    #zoomModalBody h3 { font-size: 28px; }
+    #zoomModalBody p { font-size: 15px; }
+    
+    /* Corporate Footer Mobile Framework */
     .footer-wrapper {
-        grid-template-columns: 1fr !important; /* Stack columns single-file on mobile screens */
+        grid-template-columns: 1fr !important;
         gap: 35px !important;
         padding: 0 24px 40px !important;
     }
     
     .footer-column {
-        text-align: left !important; /* Left-align the copy for easier readability on narrow viewports */
+        text-align: left !important;
     }
     
-    .social-icons {
-        justify-content: flex-start !important; /* Keeps target tap circles aligned cleanly under text data */
-    }
-}
-
-/* ========================= EXTRA FOOTER ALIGNMENT FIX ========================= */
-
-/* Force layout container items to stay horizontally unified */
-.footer-column .contact-info-block .contact-text-item {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    margin-bottom: 12px !important;
-}
-
-/* Stop contact text links from wrapping to a new line */
-.footer-column .contact-info-block a {
-    display: inline !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 1 !important;
-}
-
-/* Cancel the sliding translation animation for text details on hover */
-.footer-column .contact-info-block a:hover {
-    transform: none !important; 
-    color: #d4af37 !important;
-}
-
-/* Maintain mobile specific padding constraints */
-@media (max-width: 768px) {
-    .footer-column .contact-info-block .contact-text-item {
+    .social-icons,
+    .contact-info-block .contact-text-item {
         justify-content: flex-start !important;
     }
 }
