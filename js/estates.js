@@ -42,3 +42,56 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+/*-------- product grid-------*/
+
+/* =========================================================
+   PROJECT ZOOM MODAL & YOUTUBE LOGIC
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+    const exploreBtns = document.querySelectorAll(".explore-btn");
+    const modal = document.getElementById("projectModal");
+    const overlay = document.getElementById("modalOverlay");
+    const closeBtn = document.getElementById("closeModal");
+    
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDetails = document.getElementById("modalDetails");
+    const modalVideo = document.getElementById("modalVideo");
+
+    // Open Modal and Inject Data
+    exploreBtns.forEach(btn => {
+        btn.addEventListener("click", function() {
+            // Traverse up to find the parent project card
+            const card = this.closest(".project-card");
+            
+            // Extract the data securely stored in the HTML attributes and hidden divs
+            const title = card.getAttribute("data-title");
+            const videoLink = card.getAttribute("data-video");
+            const detailsHTML = card.querySelector(".hidden-details").innerHTML;
+
+            // Inject the data into the Modal
+            modalTitle.textContent = title;
+            modalDetails.innerHTML = detailsHTML;
+            modalVideo.src = videoLink; // Starts the YouTube Video Embed
+
+            // Trigger Zoom-in Animation
+            modal.classList.add("active");
+            document.body.style.overflow = "hidden"; // Prevent background scrolling
+        });
+    });
+
+    // Close Modal Logic Function
+    function closeModal() {
+        modal.classList.remove("active");
+        document.body.style.overflow = "auto"; // Restore background scrolling
+        // Clear iframe src so video stops playing in the background
+        setTimeout(() => {
+            modalVideo.src = "";
+        }, 400); 
+    }
+
+    // Close on 'X' click
+    closeBtn.addEventListener("click", closeModal);
+    // Close on clicking the dark background overlay
+    overlay.addEventListener("click", closeModal);
+});
