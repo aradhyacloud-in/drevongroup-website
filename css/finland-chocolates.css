@@ -433,75 +433,7 @@ a, button, .product-card, .btn, .feature-card {
     color: #000;
     transform: rotate(90deg);
 }
-/* ========================= FOOTER ========================= */
-.footer {
-    background: #050507;
-    padding-top: 80px;
-    border-top: 1px solid rgba(212, 175, 55, 0.1);
-}
 
-.footer-wrapper {
-    max-width: 1200px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    padding: 0 40px 60px;
-}
-
-.footer-column h3 {
-    color: #fff;
-    margin-bottom: 24px;
-    font-size: 18px;
-    letter-spacing: 1px;
-}
-
-.footer-column a, .footer-column p {
-    display: block;
-    margin-bottom: 14px;
-    color: #a0a0a0;
-    text-decoration: none;
-    font-size: 14px;
-    transition: 0.3s ease;
-    line-height: 1.8;
-}
-
-.footer-column a:hover {
-    color: #d4af37;
-    transform: translateX(4px);
-}
-
-.social-icons {
-    display: flex;
-    gap: 16px;
-}
-
-.social-icons a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.05);
-    color: #cfcfcf;
-    border: 1px solid rgba(212,175,55,0.1);
-    margin-bottom: 0;
-}
-
-.social-icons a:hover {
-    background: #d4af37;
-    color: #000;
-    transform: translateY(-4px);
-}
-
-.footer-bottom {
-    padding: 20px;
-    text-align: center;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    color: #666;
-    font-size: 13px;
-}
 
 /* ========================= ANIMATIONS ========================= */
 .reveal {
@@ -626,5 +558,102 @@ a, button, .product-card, .btn, .feature-card {
     .hero-brand-logo {
         max-height: 50px !important; /* Shrinks the logo for mobile */
         margin-bottom: 16px !important; /* Slightly reduces the gap */
+    }
+}
+
+/* ========================= FOOTER ========================= */
+.footer {
+    background: #050507;
+    padding-top: 80px;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.footer-wrapper {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    padding: 0 40px 60px;
+}
+
+.footer-column h3 {
+    color: #fff;
+    margin-bottom: 24px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.footer-column a, .footer-column p {
+    display: block;
+    margin-bottom: 14px;
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s ease;
+    line-height: 1.8;
+}
+
+.footer-column a:hover {
+    color: #d4af37;
+    transform: translateX(4px);
+}
+
+.social-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+    color: #cfcfcf;
+    border: 1px solid rgba(212,175,55,0.1);
+    margin-bottom: 0;
+}
+
+.social-icons a:hover {
+    background: #d4af37;
+    color: #000;
+    transform: translateY(-4px);
+}
+
+.footer-bottom {
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #666;
+    font-size: 13px;
+}
+
+/* ========================= FOOTER RESPONSIVE AND TEXT ALIGNMENT FIXES ========================= */
+.contact-text-item a {
+    font-size: 14px !important;
+    transition: color 0.3s ease;
+}
+
+.contact-text-item a:hover {
+    color: #d4af37 !important; /* Elegant gold tint change on text hover */
+}
+
+/* Mobile responsive view adjustments */
+@media (max-width: 768px) {
+    .footer-wrapper {
+        grid-template-columns: 1fr !important; /* Stack columns single-file on mobile screens */
+        gap: 35px !important;
+        padding: 0 24px 40px !important;
+    }
+    
+    .footer-column {
+        text-align: left !important; /* Left-align the copy for easier readability on narrow viewports */
+    }
+    
+    .social-icons {
+        justify-content: flex-start !important; /* Keeps target tap circles aligned cleanly under text data */
     }
 }
