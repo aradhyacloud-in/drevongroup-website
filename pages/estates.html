@@ -16,9 +16,11 @@
             <img src="../logo.png" alt="Drevon Group Logo" class="logo-img">
             <span class="brand-text">DREVON GROUP</span>
         </div>
-        <div class="nav-actions">
+        <div class="nav-actions" style="display: flex; align-items: center; gap: 20px;">
+            <a href="#projects" class="nav-link" style="color: #d4af37; text-decoration: none; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 14px; transition: color 0.3s ease;">Our Projects</a>
             <a href="business-enquiry.html" class="nav-cta" target="_blank" rel="noopener noreferrer">Business Enquiry</a>
         </div>
+        
     </nav>
 
     <header class="hero" id="home">
@@ -81,6 +83,78 @@
         </div>
     </section>
 
+<section class="section projects-section" id="projects">
+        <div class="projects-header reveal text-center">
+            <span class="tag" style="margin-bottom: 10px;">Exclusive Portfolio</span>
+            <h2 style="font-size: 42px; color: #fff; margin-bottom: 40px;">Current Land Deals</h2>
+        </div>
+
+        <div class="projects-grid reveal">
+
+            <div class="project-card" data-title="8.21 Acres Near Imangala, Chitradurga" data-video="https://www.youtube.com/embed/5by80fPHHLc">
+                <div class="card-img-wrapper">
+                    <img src="../assets/images/estates1.webp" alt="Chitradurga Land">
+                    <span class="project-status status-available">Available</span>
+                </div>
+                <div class="card-content">
+                    <h3>8.21 Acres Near Imangala</h3>
+                    <p class="price">₹70 Lakhs / Acre</p>
+                    <button class="btn-explore explore-btn">Explore More</button>
+                </div>
+                <div class="hidden-details" style="display: none;">
+                    <p>Drevon Estates is proud to present a premium land asset featuring excellent connectivity and clear documentation. Perfect for agricultural or strategic land investment.</p>
+                    <br>
+                    <p style="color: #d4af37;"><strong>Property Highlights:</strong></p>
+                    <ul class="modal-list">
+                        <li><strong>Total Area:</strong> 8 Acres, 21 Guntas</li>
+                        <li><strong>Location:</strong> Near Imangala, Chitradurga (Just 1.5 km from the main highway)</li>
+                        <li><strong>Connectivity:</strong> Excellent, well-connected access road</li>
+                        <li><strong>Investment:</strong> ₹70L per acre (Slightly negotiable)</li>
+                        <li><strong>Documentation:</strong> 100% clear and ready for due diligence</li>
+                    </ul>
+                    <br>
+                    <p>At Drevon Estates, we specialize in high-value agricultural and mining land transactions, ensuring a seamless and transparent experience for our investors.</p>
+                </div>
+            </div>
+            <div class="project-card" data-title="544 Acres Prime Land in Chitradurga" data-video="https://www.youtube.com/embed/2FveQym5E_I">
+                <div class="card-img-wrapper">
+                    <img src="../assets/images/estates2.webp" alt="544 Acres Land">
+                    <span class="project-status status-available">Available</span>
+                </div>
+                <div class="card-content">
+                    <h3>544 Acres Prime Land</h3>
+                    <p class="price">₹15 Lakhs / Acre</p>
+                    <button class="btn-explore explore-btn">Explore More</button>
+                </div>
+                <div class="hidden-details" style="display: none;">
+                    <p>We are thrilled to offer a massive 544-acre and 20-gunta prime land parcel available for immediate sale. Whether you are looking for a modest 10 acres, a substantial 50 acres, or a sprawling 100-acre tract, we offer flexible buying volumes to suit your vision!</p>
+                    <br>
+                    <ul class="modal-list">
+                        <li><strong>Asking Price:</strong> ₹15 Lakhs per acre</li>
+                        <li><strong>Location:</strong> Chitradurga District, Karnataka</li>
+                        <li><strong>Legal:</strong> 100% clear titles. All property documents are completely transparent and ready for comprehensive legal verification by your experts.</li>
+                    </ul>
+                    <br>
+                    <p>Don't miss your chance to secure premium real estate in a rapidly growing region. Take the first step toward your next big venture!</p>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <div class="project-modal" id="projectModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 id="modalTitle" style="color: #d4af37; margin-bottom: 20px;">Project Title</h2>
+            <div class="modal-body" id="modalDetails" style="color: #cfcfcf; line-height: 1.8; margin-bottom: 30px;">
+                </div>
+            <div class="modal-video">
+                <iframe id="modalVideo" width="100%" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: 8px; border: 1px solid rgba(212,175,55,0.2);"></iframe>
+            </div>
+        </div>
+    </div>
+
+    //----footer----//
     <footer class="footer">
         <div class="footer-wrapper reveal">
            <div class="footer-brand">
