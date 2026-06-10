@@ -1,1 +1,204 @@
+/* =========================
+   CORE VARIABLES & RESET
+========================= */
+:root {
+    --bg-cream: #FDFBF7; /* Premium Light Cream */
+    --text-black: #1A1A1A; /* Deep Charcoal Black for less eye strain */
+    --gold-accent: #D4AF37;
+    --border-light: #E0DCD3;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+}
 
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-cream);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-cream);
+    color: var(--text-black);
+    line-height: 1.8;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1000px; /* Kept narrow for optimal reading length */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* =========================
+   HEADER SECTION
+========================= */
+.privacy-header {
+    padding: 60px 0 40px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 50px;
+}
+
+.brand-logo {
+    max-width: 180px;
+    margin-bottom: 20px;
+}
+
+.privacy-header h1 {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    color: var(--text-black);
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.last-updated {
+    font-size: 14px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* =========================
+   MAIN CONTENT TYPOGRAPHY
+========================= */
+.policy-section {
+    margin-bottom: 45px;
+}
+
+.policy-section h2 {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: var(--text-black);
+    border-left: 4px solid var(--gold-accent);
+    padding-left: 15px;
+}
+
+.policy-section p {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.policy-section ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    list-style-type: square;
+}
+
+.policy-section li {
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.policy-section li strong {
+    color: var(--text-black);
+}
+
+/* =========================
+   SUBSIDIARY BUTTON GRID
+========================= */
+.subsidiary-policies {
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 1px solid var(--border-light);
+    padding-bottom: 80px;
+}
+
+.subsidiary-policies h2 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.subsidiary-desc {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: #555;
+}
+
+/* Perfectly aligned Grid for 5 buttons */
+.button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.premium-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    padding: 18px 25px;
+    background-color: transparent;
+    border: 1px solid var(--text-black);
+    color: var(--text-black);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    transition: all 0.4s ease;
+    border-radius: 4px;
+}
+
+.premium-btn:hover {
+    background-color: var(--text-black);
+    color: var(--bg-cream);
+    border-color: var(--text-black);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-icon {
+    font-size: 18px;
+}
+
+/* =========================
+   FOOTER & ANIMATIONS
+========================= */
+.privacy-footer {
+    padding: 30px;
+    border-top: 1px solid var(--border-light);
+    font-size: 14px;
+    color: #777;
+    background-color: #F7F5EF;
+}
+
+/* Scroll Fade-In Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .privacy-header h1 {
+        font-size: 32px;
+    }
+    .button-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .premium-btn {
+        width: 100%;
+        max-width: 350px;
+    }
+}
