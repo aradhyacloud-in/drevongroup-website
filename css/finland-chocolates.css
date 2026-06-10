@@ -657,3 +657,34 @@ a, button, .product-card, .btn, .feature-card {
         justify-content: flex-start !important; /* Keeps target tap circles aligned cleanly under text data */
     }
 }
+
+/* ========================= EXTRA FOOTER ALIGNMENT FIX ========================= */
+
+/* Force layout container items to stay horizontally unified */
+.footer-column .contact-info-block .contact-text-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+}
+
+/* Stop contact text links from wrapping to a new line */
+.footer-column .contact-info-block a {
+    display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+/* Cancel the sliding translation animation for text details on hover */
+.footer-column .contact-info-block a:hover {
+    transform: none !important; 
+    color: #d4af37 !important;
+}
+
+/* Maintain mobile specific padding constraints */
+@media (max-width: 768px) {
+    .footer-column .contact-info-block .contact-text-item {
+        justify-content: flex-start !important;
+    }
+}
