@@ -182,7 +182,8 @@ html { scroll-behavior: smooth; }
 }
 /* Locks card sizes for the flex container */
 .service-card, .launch-card {
-  width: 100%; /* Lets the card automatically fill its half of the row */
+  height: 100%;
+   width: 100%; /* Lets the card automatically fill its half of the row */
 }
 
 /* Service Cards */
