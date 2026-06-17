@@ -174,17 +174,15 @@ html { scroll-behavior: smooth; }
 .section-sub { color: #888; font-size: 18px; }
 
 .services-grid, .launchpad-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* This centers the bottom row! */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* This strictly forces exactly 2 items per row */
   gap: 30px;
-  max-width: 1200px;
+  max-width: 900px; /* Keeps the 2x2 grid perfectly centered and sized */
   margin: 0 auto;
 }
 /* Locks card sizes for the flex container */
 .service-card, .launch-card {
-  width: 350px;
-  max-width: 100%;
+  width: 100%; /* Lets the card automatically fill its half of the row */
 }
 
 /* Service Cards */
