@@ -337,60 +337,30 @@ a, button, .product-card, .btn, .feature-card {
     color: #000;
 }
 
-/* ========================= CINEMATIC GLASS REVEAL ========================= */
-.zoom-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    visibility: hidden;
-    opacity: 0;
-    /* Smooth fade in for the whole screen */
-    transition: opacity 0.4s ease, visibility 0.4s ease;
-}
-
-.zoom-modal.active {
-    visibility: visible;
-    opacity: 1;
-}
-
-.zoom-modal-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85); /* Deep cinematic darkness */
-    backdrop-filter: blur(0px);
-    transition: backdrop-filter 0.5s ease;
-    cursor: pointer;
-}
-
-.zoom-modal.active .zoom-modal-overlay {
-    /* Dynamically blurs the background only after it opens */
-    backdrop-filter: blur(12px); 
-}
-
+/* ========================= ZOOM MODAL PHYSICS ========================= */
 .zoom-modal-content {
     position: relative;
     width: 90%;
     max-width: 800px;
     background: #050507;
-    border: 1px solid rgba(212,175,55,0.2);
+    border: 1px solid rgba(212,175,55,0.4);
     border-radius: 20px;
     padding: 0;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.9);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.8);
+    
+    /* Starts much closer to its final size so it doesn't have to travel far */
+    transform: scale(0.95) translateY(15px);
+    opacity: 0;
+    
+    /* FAST, smooth deceleration curve. Zero wobble, zero rubber-banding. */
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease-out;
     z-index: 2;
     overflow: hidden;
-    
-    /* Element stays exactly in place, just fades in smoothly */
-    transform: translateY(20px);
-    opacity: 0;
-    transition: transform 0.5s ease-out, opacity 0.5s ease;
 }
 
 .zoom-modal.active .zoom-modal-content {
-    /* Elegantly drifts up into focus */
-    transform: translateY(0);
+    /* Locks instantly into place */
+    transform: scale(1) translateY(0);
     opacity: 1;
 }
 
