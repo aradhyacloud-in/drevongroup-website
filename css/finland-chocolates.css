@@ -337,7 +337,7 @@ a, button, .product-card, .btn, .feature-card {
     color: #000;
 }
 
-/* ========================= ZOOM MODAL ========================= */
+/* ========================= CINEMATIC GLASS REVEAL ========================= */
 .zoom-modal {
     position: fixed;
     inset: 0;
@@ -347,7 +347,8 @@ a, button, .product-card, .btn, .feature-card {
     justify-content: center;
     visibility: hidden;
     opacity: 0;
-    transition: all 0.4s ease;
+    /* Smooth fade in for the whole screen */
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .zoom-modal.active {
@@ -358,82 +359,39 @@ a, button, .product-card, .btn, .feature-card {
 .zoom-modal-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(5, 5, 7, 0.95);
-    backdrop-filter: blur(15px);
+    background: rgba(0, 0, 0, 0.85); /* Deep cinematic darkness */
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 0.5s ease;
     cursor: pointer;
 }
 
-/* ========================= ZOOM MODAL PHYSICS ========================= */
+.zoom-modal.active .zoom-modal-overlay {
+    /* Dynamically blurs the background only after it opens */
+    backdrop-filter: blur(12px); 
+}
+
 .zoom-modal-content {
     position: relative;
     width: 90%;
     max-width: 800px;
     background: #050507;
-    border: 1px solid rgba(212,175,55,0.4);
+    border: 1px solid rgba(212,175,55,0.2);
     border-radius: 20px;
     padding: 0;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.8);
-    
-    /* Starts smaller and slightly lower for a dramatic entrance */
-    transform: scale(0.7) translateY(40px);
-    opacity: 0;
-    
-    /* Apple-style spring curve: overshoots slightly, then settles */
-    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease-out;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.9);
     z-index: 2;
     overflow: hidden;
+    
+    /* Element stays exactly in place, just fades in smoothly */
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease;
 }
 
 .zoom-modal.active .zoom-modal-content {
-    /* Springs perfectly into place at 100% size */
-    transform: scale(1) translateY(0);
+    /* Elegantly drifts up into focus */
+    transform: translateY(0);
     opacity: 1;
-}
-
-#zoomModalBody {
-    position: relative;
-    padding: 80px 60px;
-    min-height: 450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#zoomModalBody h3 {
-    font-size: 36px;
-    color: #d4af37;
-    margin-bottom: 20px;
-}
-
-#zoomModalBody p {
-    font-size: 18px;
-    color: #dfdfdf;
-    line-height: 1.8;
-}
-
-.close-modal {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(212,175,55,0.2);
-    color: #d4af37;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    z-index: 10;
-}
-
-.close-modal:hover {
-    background: #d4af37;
-    color: #000;
-    transform: rotate(90deg);
 }
 
 /* ========================= ANIMATIONS ========================= */
