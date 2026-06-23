@@ -183,7 +183,13 @@ a, button, .product-card, .btn, .feature-card {
     gap: 40px;
 }
 
-/* ========================= FEATURE CARD PHYSICS ========================= */
+/* ========================= FEATURE CARD ILLUMINATION PHYSICS ========================= */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
 .feature-card {
     padding: 40px;
     background: rgba(255,255,255,0.02);
@@ -191,33 +197,35 @@ a, button, .product-card, .btn, .feature-card {
     border-radius: 16px;
     border-bottom: 3px solid transparent;
     cursor: pointer;
-    /* Uses a classic ease-out-back curve for a gentle, luxurious lift */
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1), 
-                box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
+    /* Smooth transition for light and color only (no physical movement) */
+    transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
 }
 
-/* Hover State: Subtle float and glow */
+/* Hover State: Elegant gold halo and icon glow */
 .feature-card:hover {
-    background: rgba(58, 35, 24, 0.3);
-    border-color: rgba(212, 175, 55, 0.6);
+    background: rgba(58, 35, 24, 0.4);
+    border-color: rgba(212, 175, 55, 0.4);
     border-bottom: 3px solid #d4af37;
-    /* Scaled down to 1.02 so it doesn't distort the text or feel cartoonish */
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.15); /* Soft ambient gold light */
 }
 
-/* Click State: Fast, heavy, physical press */
+/* Make the icon specifically glow on hover */
+.feature-card:hover i {
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+}
+
+/* Click State: Immediate brightness flash */
 .feature-card:active {
-    /* Pushes slightly down and shrinks to simulate real pressure */
-    transform: translateY(2px) scale(0.98);
-    /* Very fast transition so it reacts instantly to the user's mouse */
-    transition: transform 0.1s ease-out; 
+    filter: brightness(1.5); /* Instantly flares 50% brighter */
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.4); /* Flare expands */
+    transition: filter 0.1s ease, box-shadow 0.1s ease; /* Fast, snappy reaction */
 }
 
 .feature-card i {
     font-size: 36px;
     color: #d4af37;
     margin-bottom: 20px;
+    transition: text-shadow 0.5s ease;
 }
 
 .feature-card h3 {
