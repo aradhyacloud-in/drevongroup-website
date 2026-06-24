@@ -183,49 +183,25 @@ a, button, .product-card, .btn, .feature-card {
     gap: 40px;
 }
 
-/* ========================= FEATURE CARD ILLUMINATION PHYSICS ========================= */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-}
-
 .feature-card {
     padding: 40px;
     background: rgba(255,255,255,0.02);
     border: 1px solid rgba(212,175,55,0.1);
     border-radius: 16px;
     border-bottom: 3px solid transparent;
-    cursor: pointer;
-    /* Smooth transition for light and color only (no physical movement) */
-    transition: background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease;
 }
 
-/* Hover State: Elegant gold halo and icon glow */
 .feature-card:hover {
-    background: rgba(58, 35, 24, 0.4);
-    border-color: rgba(212, 175, 55, 0.4);
+    background: rgba(58, 35, 24, 0.3);
+    border-color: rgba(212,175,55,0.4);
     border-bottom: 3px solid #d4af37;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.15); /* Soft ambient gold light */
-}
-
-/* Make the icon specifically glow on hover */
-.feature-card:hover i {
-    text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-}
-
-/* Click State: Immediate brightness flash */
-.feature-card:active {
-    filter: brightness(1.5); /* Instantly flares 50% brighter */
-    box-shadow: 0 0 50px rgba(212, 175, 55, 0.4); /* Flare expands */
-    transition: filter 0.1s ease, box-shadow 0.1s ease; /* Fast, snappy reaction */
+    transform: translateY(-5px);
 }
 
 .feature-card i {
     font-size: 36px;
     color: #d4af37;
     margin-bottom: 20px;
-    transition: text-shadow 0.5s ease;
 }
 
 .feature-card h3 {
@@ -268,6 +244,15 @@ a, button, .product-card, .btn, .feature-card {
 }
 
 /* ========================= PRODUCTS ========================= */
+.products-section {
+    background: #0a0a0c;
+}
+
+.products-section h2 {
+    font-size: 46px;
+    margin-bottom: 20px;
+}
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -288,14 +273,12 @@ a, button, .product-card, .btn, .feature-card {
     background-position: center;
     overflow: hidden;
     cursor: pointer;
-    /* Smooth hover zoom transition */
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease, border-color 0.5s ease;
 }
 
 .product-card:hover {
-    transform: scale(1.03) translateY(-10px); /* Beautiful subtle hover zoom */
-    border-color: rgba(212,175,55,0.6);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.9);
+    transform: translateY(-10px);
+    border-color: rgba(212,175,55,0.4);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
 }
 
 .product-content {
@@ -304,16 +287,26 @@ a, button, .product-card, .btn, .feature-card {
     height: 100%;
 }
 
-.product-content h3 { color: #d4af37; font-size: 28px; margin-bottom: 12px; }
-.product-content p { color: #dfdfdf; line-height: 1.7; margin-bottom: 24px; font-size: 15px; }
+.product-content h3 {
+    color: #d4af37;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.product-content p {
+    color: #dfdfdf;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    font-size: 15px;
+}
 
 .product-btn {
     display: inline-block;
     padding: 12px 24px;
     border: 1px solid rgba(212,175,55,0.35);
     border-radius: 6px;
-    background: transparent;
     color: #d4af37;
+    text-decoration: none;
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -321,11 +314,12 @@ a, button, .product-card, .btn, .feature-card {
     z-index: 2;
     margin-top: auto;
     width: fit-content;
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-.product-btn:hover { background: #d4af37; color: #000; }
+.product-btn:hover {
+    background: #d4af37;
+    color: #000;
+}
 
 /* ========================= ZOOM MODAL ========================= */
 .zoom-modal {
@@ -340,7 +334,10 @@ a, button, .product-card, .btn, .feature-card {
     transition: all 0.4s ease;
 }
 
-.zoom-modal.active { visibility: visible; opacity: 1; }
+.zoom-modal.active {
+    visibility: visible;
+    opacity: 1;
+}
 
 .zoom-modal-overlay {
     position: absolute;
@@ -359,16 +356,15 @@ a, button, .product-card, .btn, .feature-card {
     border-radius: 20px;
     padding: 0;
     box-shadow: 0 40px 80px rgba(0,0,0,0.8);
-    /* This makes the modal 'pop' in from a smaller size */
-    transform: scale(0.85) translateY(20px);
+    transform: scale(0.9);
     opacity: 0;
-    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 2;
     overflow: hidden;
 }
 
 .zoom-modal.active .zoom-modal-content {
-    transform: scale(1) translateY(0);
+    transform: scale(1);
     opacity: 1;
 }
 
@@ -381,8 +377,42 @@ a, button, .product-card, .btn, .feature-card {
     justify-content: center;
 }
 
-#zoomModalBody h3 { font-size: 36px; color: #d4af37; margin-bottom: 20px; }
-#zoomModalBody p { font-size: 18px; color: #dfdfdf; line-height: 1.8; }
+#zoomModalBody h3 {
+    font-size: 36px;
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+#zoomModalBody p {
+    font-size: 18px;
+    color: #dfdfdf;
+    line-height: 1.8;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(212,175,55,0.2);
+    color: #d4af37;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-modal:hover {
+    background: #d4af37;
+    color: #000;
+    transform: rotate(90deg);
+}
 
 /* ========================= ANIMATIONS ========================= */
 .reveal {
