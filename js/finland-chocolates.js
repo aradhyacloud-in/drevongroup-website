@@ -50,52 +50,70 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // --- END GALLERY SLIDER LOGIC ---
 
-  // --- 2. PREMIUM ZOOM MODAL LOGIC ---
+    // --- 2. PREMIUM ZOOM MODAL LOGIC ---
     const modal = document.getElementById("premiumZoomModal");
     const modalBody = document.getElementById("zoomModalBody");
     const closeModalBtn = document.querySelector(".close-modal");
     const modalOverlay = document.querySelector(".zoom-modal-overlay");
     const zoomCards = document.querySelectorAll(".zoom-card");
 
+// Global function to trigger the zoom from the button or card
     const populateModal = (cardElement) => {
         const innerHTML = cardElement.innerHTML;
         
-        // Safely extract the background image url
+        // 1. Get computed style
         const style = window.getComputedStyle(cardElement);
         const backgroundImage = style.backgroundImage;
+
+        // 2. Extract the actual URL using Regex
+        // This will find the path inside url("...") even if a gradient is present
         let bgUrl = '';
-        const match = backgroundImage.match(/url\(['"]?(.*?)['"]?\)/);
+        const match = backgroundImage.match(/url\(['"]?([^'"]+)['"]?\)/);
         if (match) {
             bgUrl = match[1];
         }
 
-        // Clean content (remove the button inside the modal)
+        // 3. Clean content (remove the button)
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = innerHTML;
         const btn = tempDiv.querySelector('.product-btn');
         if(btn) btn.remove();
 
-        // Inject HTML and ensure background is set securely
+        // 4. Inject into modal
+        // We set the background-image directly using the extracted bgUrl
         modalBody.innerHTML = `
-            <div style="position: absolute; inset: 0; background-image: url('${bgUrl}'); background-size: cover; background-position: center; opacity: 0.3; filter: brightness(0.6); z-index: 0;"></div>
+            <div class="modal-injected-bg" style="background-image: url('${bgUrl}'); background-size: cover; background-position: center;"></div>
             <div style="position: relative; z-index: 1;">
                 ${tempDiv.innerHTML}
             </div>
         `;
 
         modal.classList.add("active");
-        document.body.style.overflow = "hidden"; // Stop background scroll
+        document.body.style.overflow = "hidden";
     };
 
-    // Global function attached to the 'View Specifications' button
+    // Global accessibility for your onclick buttons
     window.openZoomModal = (cardElement) => {
         populateModal(cardElement);
     };
 
-    // Click anywhere else on the card to open it
+    // Click listener for the card
     zoomCards.forEach(card => {
         card.addEventListener("click", function(e) {
-            if (e.target.closest('.product-btn')) return; // Let the button handle itself
+            if (e.target.closest('.product-btn')) return;
+            populateModal(this);
+        });
+    });
+    
+    // Global function for onclick="openZoomModal(this.closest('.product-card'))"
+    window.openZoomModal = (cardElement) => {
+        populateModal(cardElement);
+    };
+
+    // Click listener for the card itself
+    zoomCards.forEach(card => {
+        card.addEventListener("click", function(e) {
+            if (e.target.closest('.product-btn')) return;
             populateModal(this);
         });
     });
@@ -104,14 +122,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeModal = () => {
         modal.classList.remove("active");
         document.body.style.overflow = "auto";
-        setTimeout(() => { modalBody.innerHTML = ''; }, 400); // Wait for animation to finish
+        setTimeout(() => { modalBody.innerHTML = ''; }, 400);
     };
 
-    if(closeModalBtn) closeModalBtn.addEventListener("click", closeModal);
-    if(modalOverlay) modalOverlay.addEventListener("click", closeModal);
-    
+    closeModalBtn.addEventListener("click", closeModal);
+    modalOverlay.addEventListener("click", closeModal);
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape" && modal.classList.contains("active")) {
             closeModal();
         }
     });
+});
