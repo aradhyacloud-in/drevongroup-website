@@ -13,7 +13,7 @@ img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
 .wrap{width:min(1200px,92%);margin:0 auto}
 section{padding:120px 0;position:relative}
 h1,h2,h3{font-family:var(--d);color:#fff;line-height:1.05;letter-spacing:-.02em}
-h2{font-size:clamp(2.5rem,5.4vw,4.2rem);font-weight:800;margin-bottom:22px}
+h2{font-size:clamp(2.5rem,4.2vw,3.6rem);font-weight:800;margin-bottom:22px}
 h3{font-size:1.6rem;font-weight:700}
 .lead{font-size:1.25rem;max-width:68ch;color:#d3dbe4}
 .mute{color:var(--mute)}
