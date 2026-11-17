@@ -3,80 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drevon Group | Architecting the Future</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Drevon Group | Trading & Integrated Solutions</title>
+    <meta name="description" content="Drevon Group unites Drevon Metal Trading and Drevon Technologies: secure industrial metal supply and intelligent technology solutions.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo-area">
+    <!-- Intro loader with animated logo -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+        <div class="preloader-inner">
+            <img src="../logo.png" alt="" class="preloader-logo">
+            <span class="preloader-name">Drevon Group</span>
+            <span class="preloader-bar"><i></i></span>
+        </div>
+    </div>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <a href="#top" class="logo-area">
             <img src="../logo.png" alt="Drevon Group Logo" class="logo-img">
             <span class="brand-text">Drevon Group</span>
-        </div>
-        <ul class="nav-links">
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="#about">About</a></li>
-            <li><a href="nickel.html" target="_blank" rel="noopener noreferrer">Nickel</a></li>
-             <li><a href="wooden-toys.html" target="_blank" rel="noopener noreferrer">Wooden Toys</a></li>
-            <li><a href="estates.html" target="_blank" rel="noopener noreferrer">Real Estate</a></li>
-            <li><a href="finland-chocolates.html" target="_blank" rel="noopener noreferrer">Finland Chocolates</a></li>
-            <li><a href="applied-intelligence.html" target="_blank" rel="noopener noreferrer">Applied Intelligence</a></li>
+            <li><a href="drevon-metals.html" target="_blank" rel="noopener noreferrer">Drevon Metals</a></li>
+            <li><a href="applied-intelligence.html" target="_blank" rel="noopener noreferrer">Drevon Technologies</a></li>
             <li><a href="business-enquiry.html" target="_blank" rel="noopener noreferrer" class="nav-cta">Business Enquiry</a></li>
         </ul>
     </nav>
 
-    <header class="hero">
+    <!-- HERO -->
+    <header class="hero" id="top">
+        <canvas class="hero-canvas" id="heroCanvas"></canvas>
         <div class="hero-overlay"></div>
-        <div class="hero-content reveal">
-            <span class="tag">Global Excellence</span>
-            <h1> Trading & <br> Integrated Solutions</h1>
-            <p class="subtext">Operating across industrial metals, sustainable heritage crafts, premium real estate, and applied intelligence.</p>
-            <a href="#divisions" class="btn primary">Explore Our Divisions</a>
-        </div>
-    </header>
-    
-<section id="about" class="section about-section">
-    <div class="about-container reveal">
-        <div class="about-text-block">
-            <span class="section-tag">Who We Are</span>
-            <h2>Vision & Mission</h2>
-            
-            <div class="mission-vision-grid">
-                
-                <div class="mv-card zoom-card">
-                    <h3>Our Vision</h3>
-                    <p>To emerge as a pivotal force in both domestic and global markets, driving India's industrial future by seamlessly fulfilling the critical raw material demands of advanced sectors, including semiconductor manufacturing, aerospace, and electric vehicle industries. We envision scaling the Drevon Group into a ₹1,000-crore enterprise with a formidable global footprint, setting the ultimate benchmark for ethical, transparent, and fair business practices across every industry we enter.</p>
-                    <span class="click-hint"><i class="fa-solid fa-expand"></i> Click to expand</span>
+        <div class="hero-grid-lines"></div>
+
+        <div class="hero-inner">
+            <div class="hero-content">
+                <span class="tag hero-anim">Drevon Group</span>
+                <h1>
+                    <span class="line"><span>Trading &amp;</span></span>
+                    <span class="line"><span>Integrated Solutions</span></span>
+                </h1>
+                <p class="subtext hero-anim">
+                    Drevon Group brings together two focused divisions: <strong>Drevon Metal Trading</strong>, securing ultra-high-purity industrial metals for the world's most demanding industries, and <strong>Drevon Technologies</strong>, building the ERP, AI and digital systems that power forward-thinking enterprises.
+                </p>
+                <div class="hero-actions hero-anim">
+                    <a href="#divisions" class="btn primary">Explore Our Divisions</a>
+                    <a href="business-enquiry.html" target="_blank" rel="noopener noreferrer" class="btn ghost">Business Enquiry</a>
                 </div>
-                
-                <div class="mv-card zoom-card">
-                    <h3>Our Mission</h3>
-                    <p>Our mission is to build a highly diversified, legally transparent, and quality-driven enterprise that serves society while delivering unmatched value to our clients. We actively seek to collaborate with highly enthusiastic, visionary partners to foster mutually beneficial, global business growth.</p>
-                    <p><strong>We achieve this through:</strong></p>
-                    <p>
-                        <strong>Industrial Foundation:</strong> Fulfilling the critical metal requirements of large-scale industries through the secure brokerage and supply of ultra-high-purity nickel wire.<br><br>
-                        <strong>Diversified Excellence:</strong> Delivering uncompromising quality across our additional business units, which include the preservation of cultural heritage through handcrafted wooden toys, strategic real estate brokerage, the upcoming launch of premium Finland chocolates, and forward-thinking technology consulting through Drevon Applied Intelligence.<br><br>
-                        <strong>Unwavering Integrity:</strong> Conducting every business transaction with absolute honesty, strict adherence to government laws, and a transparent, ethical framework.
-                    </p>
-                    <span class="click-hint"><i class="fa-solid fa-expand"></i> Click to expand</span>
+            </div>
+
+            <!-- Animated logo emblem -->
+            <div class="emblem hero-anim" id="emblem" aria-hidden="true">
+                <div class="emblem-glow"></div>
+                <div class="emblem-ring ring-1"></div>
+                <div class="emblem-ring ring-2"></div>
+                <div class="emblem-ring ring-3"></div>
+                <div class="emblem-orbit"><span></span></div>
+                <div class="emblem-core">
+                    <img src="../logo.png" alt="" class="emblem-logo">
+                    <span class="emblem-shine"></span>
                 </div>
-                
-                <div class="mv-card zoom-card">
-                    <h3>Core Philosophy & Values</h3>
-                    <p>
-                        <strong>Quality First:</strong> Delivering the highest standard of materials and services.<br><br>
-                        <strong>Transparency & Ethics:</strong> Operating completely above board, ensuring trust and legal compliance.<br><br>
-                        <strong>Societal Impact:</strong> Uplifting the communities and industries we operate within.<br><br>
-                        <strong>Collaborative Growth:</strong> Welcoming elite business collaborations to expand our global presence.
-                    </p>
-                    <span class="click-hint"><i class="fa-solid fa-expand"></i> Click to expand</span>
-                </div>
-                
             </div>
         </div>
-    </div>
-</section>
 
+        <a href="#business" class="scroll-cue" aria-label="Scroll down">
+            <span class="scroll-cue-line"></span>
+            <span>Scroll</span>
+        </a>
+    </header>
+
+    <!-- SERVICE MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+            <span>Ultra-High-Purity Nickel</span><i></i>
+            <span>Industrial Metal Brokerage</span><i></i>
+            <span>Secure Global Supply</span><i></i>
+            <span>Technology Consulting</span><i></i>
+            <span>Custom ERP Solutions</span><i></i>
+            <span>AI Tool Development</span><i></i>
+            <span>Digital Experiences</span><i></i>
+            <span>Ultra-High-Purity Nickel</span><i></i>
+            <span>Industrial Metal Brokerage</span><i></i>
+            <span>Secure Global Supply</span><i></i>
+            <span>Technology Consulting</span><i></i>
+            <span>Custom ERP Solutions</span><i></i>
+            <span>AI Tool Development</span><i></i>
+            <span>Digital Experiences</span><i></i>
+        </div>
+    </div>
+
+    <!-- ABOUT THE BUSINESS -->
+    <section id="business" class="section business-section">
+        <div class="business-head reveal">
+            <span class="section-tag">Our Business</span>
+            <h2>Metals that build industries.<br>Technology that moves them forward.</h2>
+        </div>
+
+        <div class="business-grid">
+            <article class="business-col reveal">
+                <h3>Drevon Metal Trading</h3>
+                <p>Drevon Metal Trading is the industrial foundation of the Group. We broker and supply certified, high-purity metals to the sectors that cannot compromise on material quality, including semiconductor manufacturing, aerospace and electric vehicles. Every consignment is verified, every transaction documented and every partner treated with complete transparency.</p>
+                <ul class="service-list">
+                    <li>Secure brokerage and supply of ultra-high-purity nickel</li>
+                    <li>Verified, certified stockpiles with documented purity</li>
+                    <li>Sourcing for large-scale industrial requirements</li>
+                    <li>Legally compliant, ethical deal structuring</li>
+                </ul>
+            </article>
+
+            <article class="business-col reveal">
+                <h3>Drevon Technologies</h3>
+                <p>Drevon Technologies architects the digital backbone for modern enterprises. From strategy to deployment, we design systems that are precise, scalable and built around how your business actually runs, turning complex operations into clear, intelligent workflows.</p>
+                <ul class="service-list">
+                    <li>Premier technology consulting</li>
+                    <li>Custom ERP solutions</li>
+                    <li>AI tool development</li>
+                    <li>Dynamic, high-performance digital experiences</li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <!-- VISION / MISSION / VALUES -->
+    <section id="about" class="section about-section">
+        <div class="about-container">
+            <div class="about-text-block">
+                <div class="about-head reveal">
+                    <span class="section-tag">Who We Are</span>
+                    <h2>Vision, Mission &amp; Values</h2>
+                </div>
+
+                <div class="mission-vision-grid">
+
+                    <div class="mv-card zoom-card reveal">
+                        <h3>Our Vision</h3>
+                        <p class="mv-summary">To become a pivotal force in domestic and global markets by securing the critical raw materials behind semiconductor, aerospace and electric vehicle industries, while scaling Drevon Group into a ₹1,000-crore enterprise that sets the benchmark for ethical, transparent business.</p>
+                        <div class="mv-more">
+                            <p>We aim to drive India's industrial future by fulfilling the raw material demands of advanced sectors, alongside a technology arm that equips businesses with intelligent systems. With a formidable global footprint, we intend to set the ultimate benchmark for ethical, transparent and fair business practice in every industry we enter.</p>
+                        </div>
+                        <span class="click-hint"><i class="fa-solid fa-expand"></i> Click to expand</span>
+                    </div>
+
+                    <div class="mv-card zoom-card reveal">
+                        <h3>Our Mission</h3>
+                        <p class="mv-summary">To build a transparent, quality-driven enterprise through two focused divisions: Drevon Metal Trading, supplying high-purity metals to large-scale industry, and Drevon Technologies, delivering consulting, ERP, AI and digital solutions to ambitious businesses worldwide.</p>
+                        <div class="mv-more">
+                            <p><strong>We achieve this through:</strong></p>
+                            <p><strong>Industrial Foundation:</strong> Fulfilling the critical metal requirements of large-scale industries through secure brokerage and supply of ultra-high-purity nickel wire.</p>
+                            <p><strong>Technology Excellence:</strong> Delivering consulting, custom ERP, AI tools and digital experiences through Drevon Technologies.</p>
+                            <p><strong>Unwavering Integrity:</strong> Conducting every transaction with absolute honesty, strict adherence to government laws and a transparent, ethical framework.</p>
+                        </div>
+                        <span class="click-hint"><i class="fa-solid fa-expand"></i> Click to expand</span>
+                    </div>
+
+                    <div class="mv-card zoom-card reveal">
+                        <h3>Core Philosophy &amp; Values</h3>
+                        <p class="mv-summary">Quality first in every material and service. Transparency and ethics in every transaction, fully above board and legally compliant. Societal impact for the industries and communities we serve. Collaborative growth through elite partnerships that expand our global presence.</p>
+                        <div class="mv-more">
+                            <p><strong>Quality First:</strong> Delivering the highest standard of materials and services.</p>
+                            <p><strong>Transparency &amp; Ethics:</strong> Operating completely above board, ensuring trust and legal compliance.</p>
+                            <p><strong>Societal Impact:</strong> Uplifting the communities and industries we operate within.</p>
+                            <p><strong>Collaborative Growth:</strong> Welcoming elite business collaborations to expand our global presence.</p>
+                        </div>
+                        <span class="click-hint"><i class="fa-solid fa-expand"></i> Click to expand</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BUSINESS DIVISIONS -->
     <section id="divisions" class="section products-section">
         <div class="products-header reveal">
             <span class="section-tag">Our Portfolio</span>
@@ -84,59 +193,36 @@
         </div>
 
         <div class="products-grid">
-            
+
             <div class="product-card zoom-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home1.webp');">
                 <div class="product-content">
-                    <h3>Nickel & Metal Requirements</h3>
-                    <p><strong>Ultra High-Purity Nickel Wire 0.025mm Diameter | Industrial Grade | Sanction-Free</strong><br>An exclusive commercial supply opportunity for a verified, 99.64% certified purity stockpile securely housed in Dubai, UAE.</p>
-                    <a href="nickel.html" target="_blank" rel="noopener noreferrer" class="product-btn">Explore Nickel</a>
-                </div>
-            </div>
-
-           <div class="product-card zoom-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home2.webp');">
-                <div class="product-content">
-                    <h3>Drevon Collective</h3>
-                    <p><strong>CURATED LIFESTYLE • HERITAGE TOYS • PREMIUM DÉCOR & GADGETS</strong><br>An exclusive marketplace of exceptional design. We blend our signature collection of heritage Channapatna wooden toys with globally sourced aesthetic décor, bespoke stationery, luxury gift sets, and innovative modern gadgets to elevate your everyday lifestyle.</p>
-                    <a href="/pages/drevon-collective.html" target="_blank" rel="noopener noreferrer" class="product-btn">Explore the Collective</a>
-                </div>
-            </div>
-
-               <div class="product-card zoom-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home3.webp');">
-            <div class="product-content">
-                <h3>Finland Chocolates</h3>
-                <p>Bringing directly manufactured, high-premium Finland chocolates to the Indian market. An exclusive taste of luxury.</p>
-                <a href="finland-chocolates.html" class="product-btn" target="_blank" rel="noopener noreferrer">Explore Collection</a>
-            </div>
-            </div>
-
-            <div class="product-card zoom-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home4.webp');">
-                <div class="product-content">
-                    <h3>Drevon Estates</h3>
-                    <p>An emerging brokerage focused on the premium agricultural sector and mining lands. We facilitate the buying and selling of strategically located farmlands across Karnataka, handpicking fertile properties for long-term investment.</p>
-                    <a href="estates.html" target="_blank" rel="noopener noreferrer" class="product-btn">Discover Estates</a>
+                    <h3>Drevon Metal Trading</h3>
+                    <p><strong>Ultra-High-Purity Nickel | Industrial Grade | Verified Supply</strong><br>Secure brokerage and supply of certified industrial metals for semiconductor, aerospace and electric vehicle industries, including a verified 99.64% purity nickel stockpile housed in Dubai, UAE.</p>
+                    <a href="drevon-metals.html" target="_blank" rel="noopener noreferrer" class="product-btn">Drevon Metals</a>
                 </div>
             </div>
 
             <div class="product-card zoom-card reveal" style="background-image: linear-gradient(rgba(10, 11, 13, 0.8), rgba(10, 11, 13, 0.95)), url('../assets/images/home5.webp');">
                 <div class="product-content">
-                    <h3>Drevon Applied Intelligence</h3>
-                    <p><strong>Architecting the Future</strong><br>Premier technology consulting, custom ERP solutions, AI tool development, and dynamic digital experiences tailored for forward-thinking enterprises.</p>
-                    <a href="applied-intelligence.html" target="_blank" rel="noopener noreferrer" class="product-btn">Explore Technology</a>
+                    <h3>Drevon Technologies</h3>
+                    <p><strong>Architecting the Future</strong><br>Premier technology consulting, custom ERP solutions, AI tool development and dynamic digital experiences tailored for forward-thinking enterprises.</p>
+                    <a href="applied-intelligence.html" target="_blank" rel="noopener noreferrer" class="product-btn">Explore Technologies</a>
                 </div>
             </div>
 
         </div>
     </section>
 
+    <!-- EXPAND MODAL -->
     <div id="premiumZoomModal" class="zoom-modal">
         <div class="zoom-modal-overlay"></div>
         <div class="zoom-modal-content">
-            <button class="close-modal"><i class="fa-solid fa-xmark"></i></button>
-            <div id="zoomModalBody">
-                </div>
+            <button class="close-modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <div id="zoomModalBody"></div>
         </div>
     </div>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-wrapper">
             <div class="footer-column">
@@ -148,11 +234,8 @@
             <div class="footer-column">
                 <h3>Our Businesses</h3>
                 <a href="business-enquiry.html" target="_blank" rel="noopener noreferrer">Business Enquiry</a>
-                <a href="nickel.html" target="_blank" rel="noopener noreferrer">Nickel Solutions</a>
-                <a href="drevon-collective.html" target="_blank" rel="noopener noreferrer">Collective </a>
-                <a href="finland-chocolates.html" target="_blank" rel="noopener noreferrer">Finland Chocolates</a>
-                <a href="estates.html" target="_blank" rel="noopener noreferrer">Real Estates</a>
-                <a href="applied-intelligence.html" target="_blank" rel="noopener noreferrer">Applied Intelligence</a>
+                <a href="drevon-metals.html" target="_blank" rel="noopener noreferrer">Drevon Metals</a>
+                <a href="applied-intelligence.html" target="_blank" rel="noopener noreferrer">Drevon Technologies</a>
             </div>
             <div class="footer-column">
                 <h3>Contact</h3>
